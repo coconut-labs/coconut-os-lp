@@ -50,10 +50,10 @@ export function Footer() {
 
         <div className="mt-16 pt-7 border-t hairline flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
           <p className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-            © 2026 Coconut Labs · all things considered, mostly typography
+            © 2026 Coconut Labs · this site is the manifesto · v1.0 lands 2027 Q4
           </p>
           <p className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-            brand · sibling of <a className="hover:text-[color:var(--fg)]" href="https://coconutlabs.org">coconutlabs.org</a> warm-paper palette
+            built at <a className="hover:text-[color:var(--fg)] transition-colors" href="https://coconutlabs.org">coconutlabs.org</a> · Inter + Fragment Mono · sibling warm-paper palette
           </p>
         </div>
       </div>

@@ -33,7 +33,7 @@ export function Nav() {
       style={{ transitionTimingFunction: "var(--ease-precise)" }}
     >
       <div className="container-x flex h-14 items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5 group" aria-label="Coconut OS home">
+        <a href="/" className="flex items-center gap-2.5 group" aria-label="Coconut OS home">
           <span className="text-[color:var(--fg)] transition-transform duration-500 group-hover:rotate-[-8deg]" style={{ transitionTimingFunction: "var(--ease-precise)" }}>
             <CoconutGlyph size={20} />
           </span>
