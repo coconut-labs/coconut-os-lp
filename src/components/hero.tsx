@@ -21,7 +21,7 @@ export function Hero() {
             <span>Coconut Labs · pre-implementation</span>
           </motion.span>
 
-          <h1 className="mt-7 sm:mt-9 font-mono leading-[0.96] tracking-[-0.018em] text-[clamp(2.4rem,6.2vw,4.6rem)] text-[color:var(--fg)]">
+          <h1 className="mt-7 sm:mt-9 font-mono leading-[0.96] tracking-[-0.018em] text-[clamp(2.6rem,6.8vw,5.6rem)] text-[color:var(--fg)]">
             <RevealWord delay={0.05}>Agents</RevealWord>{" "}
             <RevealWord delay={0.13}>as</RevealWord>{" "}
             <RevealWord delay={0.21}>first-class</RevealWord>
@@ -36,7 +36,7 @@ export function Hero() {
             initial={reduced ? { opacity: 0 } : { opacity: 0, y: 12 }}
             animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.65, ease: [0.3, 0, 0.2, 1] }}
-            className="mt-7 max-w-[34rem] text-[16px] sm:text-[17px] leading-[1.55] text-[color:var(--fg)]/85"
+            className="mt-7 max-w-[36rem] text-[17px] sm:text-[18px] xl:text-[19px] leading-[1.55] text-[color:var(--fg)]/85"
           >
             A Linux distribution where every agent gets an{" "}
             <span className="font-mono text-[color:var(--accent)]">AID</span>, a

@@ -47,12 +47,12 @@ export function SpecShell({
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="mt-7 max-w-[44rem] text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.06] tracking-[-0.018em] font-mono">
+            <h1 className="mt-7 max-w-[52rem] text-[clamp(2.4rem,5.4vw,4.6rem)] leading-[1.06] tracking-[-0.018em] font-mono">
               {title}
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="mt-7 max-w-[40rem] text-[16px] sm:text-[17px] leading-[1.55] text-[color:var(--fg)]/85">
+            <p className="mt-7 max-w-[44rem] text-[17px] sm:text-[18px] xl:text-[19px] leading-[1.55] text-[color:var(--fg)]/85">
               {blurb}
             </p>
           </Reveal>
@@ -115,7 +115,7 @@ export function Section({ title, eyebrow, children }: { title?: React.ReactNode;
         )}
         {title && (
           <Reveal delay={0.05}>
-            <h2 className="mt-3 max-w-[44rem] text-[clamp(1.45rem,2.8vw,2rem)] leading-[1.18] tracking-[-0.012em]">
+            <h2 className="mt-3 max-w-[48rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.18] tracking-[-0.012em]">
               {title}
             </h2>
           </Reveal>

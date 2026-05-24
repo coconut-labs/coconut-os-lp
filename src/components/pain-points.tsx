@@ -50,7 +50,7 @@ export function PainPoints() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.6rem,3.4vw,2.4rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
             You can't ptrace your way to an agent OS.{" "}
             <span className="text-[color:var(--muted)]">
               These are kernel-side concerns by construction.

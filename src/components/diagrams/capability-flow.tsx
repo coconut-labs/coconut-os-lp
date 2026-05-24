@@ -20,9 +20,9 @@ export function CapabilityFlow() {
       <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
         <ol className="relative space-y-3.5">
           {/* spine */}
-          <div className="absolute left-[136px] sm:left-[180px] top-3 bottom-3 w-px bg-[color-mix(in_oklab,var(--fg)_15%,transparent)]" aria-hidden />
+          <div className="absolute left-[132px] sm:left-[160px] top-3 bottom-3 w-px bg-[color-mix(in_oklab,var(--fg)_15%,transparent)]" aria-hidden />
           {STEPS.map((s, i) => (
-            <li key={i} className="grid grid-cols-[136px_24px_1fr] sm:grid-cols-[180px_24px_1fr] gap-2 sm:gap-4 items-start">
+            <li key={i} className="grid grid-cols-[132px_24px_1fr] sm:grid-cols-[160px_24px_1fr] gap-2 sm:gap-4 items-start">
               <div className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight pt-1.5 text-right whitespace-nowrap leading-tight overflow-hidden text-ellipsis">
                 {s.tag}
               </div>

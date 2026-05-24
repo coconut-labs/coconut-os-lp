@@ -69,7 +69,7 @@ export function Stack() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.6rem,3.4vw,2.4rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
             One ISO. Two install profiles. Six layers,{" "}
             <span className="text-[color:var(--muted)]">all the way down to the kernel.</span>
           </h2>

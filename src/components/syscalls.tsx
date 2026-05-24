@@ -23,7 +23,7 @@ export function Syscalls() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.6rem,3.4vw,2.4rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
             Eight new syscalls.{" "}
             <span className="text-[color:var(--muted)]">
               Tooled to the same standard as ps, top, strace, journalctl.
