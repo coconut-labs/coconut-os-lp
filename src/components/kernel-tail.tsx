@@ -60,9 +60,11 @@ function jitteredDelay() {
 export function KernelTail() {
   const [printed, setPrinted] = useState<Array<{ line: Line; partialLen: number; key: number }>>([]);
   const [cursorOn, setCursorOn] = useState(true);
+  const [paused, setPaused] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const reduceMotionRef = useRef(false);
   const visibleRef = useRef(true);
+  const pausedRef = useRef(false);
   const indexRef = useRef(0);
   const charRef = useRef(0);
   const keyRef = useRef(0);
@@ -101,7 +103,7 @@ export function KernelTail() {
 
     function tick() {
       if (cancelled) return;
-      if (!visibleRef.current) {
+      if (!visibleRef.current || pausedRef.current) {
         timerRef.current = setTimeout(tick, 220);
         return;
       }
@@ -150,15 +152,25 @@ export function KernelTail() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function setPause(p: boolean) {
+    pausedRef.current = p;
+    setPaused(p);
+  }
+
   return (
     <div
       ref={rootRef}
-      className="relative rounded-xl border hairline overflow-hidden"
+      onMouseEnter={() => setPause(true)}
+      onMouseLeave={() => setPause(false)}
+      onFocus={() => setPause(true)}
+      onBlur={() => setPause(false)}
+      tabIndex={0}
+      className="group relative rounded-xl border hairline overflow-hidden cursor-default outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
       style={{
         background:
           "color-mix(in oklab, var(--canvas) 60%, var(--surface) 40%)",
       }}
-      aria-label="Live simulation of the Coconut OS kernel event stream"
+      aria-label="Live simulation of the Coconut OS kernel event stream — hover to pause"
     >
       {/* terminal chrome */}
       <div className="flex items-center gap-2 px-4 py-2.5 border-b hairline bg-[color:var(--surface)]">
@@ -169,8 +181,11 @@ export function KernelTail() {
           coconut-tail · /var/log/coconut/kernel
         </span>
         <span className="ml-auto chip !text-[10px]">
-          <span className="chip-dot" />
-          live
+          <span
+            className="chip-dot"
+            style={paused ? { animation: "none", background: "var(--highlight)" } : undefined}
+          />
+          {paused ? "paused" : "live"}
         </span>
       </div>
 

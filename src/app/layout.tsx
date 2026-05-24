@@ -41,12 +41,16 @@ export const metadata: Metadata = {
     siteName: "Coconut OS",
     locale: "en_US",
     type: "website",
+    images: [
+      { url: "/og.svg", width: 1200, height: 630, alt: "Coconut OS — agents as first-class kernel primitives" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Coconut OS — agents as first-class kernel primitives",
     description:
       "Linux 6.12, hard-forked. Capability-mediated access. Tamper-evident audit chain. Fair-share inference. Ships 2027.",
+    images: ["/og.svg"],
   },
   icons: {
     icon: [
