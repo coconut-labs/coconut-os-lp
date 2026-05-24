@@ -26,11 +26,11 @@ export function Footer() {
           </div>
 
           <FooterCol title="Spec">
-            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/00-INDEX.md">INDEX</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/01-PRD.md">PRD</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/04-HLD.md">HLD</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/05-LLD.md">LLD</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/06-PLAN.md">PLAN</FooterLink>
+            <FooterLink href="/specs/thesis">Thesis</FooterLink>
+            <FooterLink href="/specs/architecture">Architecture</FooterLink>
+            <FooterLink href="/specs/security">Capabilities + audit</FooterLink>
+            <FooterLink href="/specs/roadmap">Roadmap</FooterLink>
+            <FooterLink href="/specs/team">Team + cadence</FooterLink>
           </FooterCol>
 
           <FooterCol title="Coconut Labs">
