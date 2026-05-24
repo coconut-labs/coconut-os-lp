@@ -5,11 +5,11 @@ import { CoconutGlyph } from "./coconut-glyph";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "#thesis", label: "Thesis" },
-  { href: "#pain", label: "Today's Stack" },
-  { href: "#stack", label: "Architecture" },
-  { href: "#roadmap", label: "Roadmap" },
-  { href: "#spec", label: "Spec" },
+  { href: "/specs/thesis",       label: "Thesis" },
+  { href: "/specs/architecture", label: "Architecture" },
+  { href: "/specs/security",     label: "Security" },
+  { href: "/specs/roadmap",      label: "Roadmap" },
+  { href: "/specs/team",         label: "Team" },
 ];
 
 export function Nav() {

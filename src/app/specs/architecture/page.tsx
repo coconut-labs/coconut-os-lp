@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { SpecShell, Section, LockedNote } from "@/components/spec-shell";
 import { LayerStack } from "@/components/diagrams/layer-stack";
+import { KernelMap } from "@/components/diagrams/kernel-map";
+import { SyscallHotPath } from "@/components/diagrams/syscall-hotpath";
+import { AgentFS } from "@/components/diagrams/agentfs";
 import { AgentStateMachine } from "@/components/diagrams/agent-state";
 import { Reveal } from "@/components/reveal";
 
@@ -36,7 +39,18 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.2 — the agent syscall surface" title={<>Eight new syscalls — the full agent API.</>}>
+      <Section eyebrow="§ 02.2 — inside the kernel fork" title={<>Five subsystems modified · three new · one userspace bridge.</>}>
+        <Reveal>
+          <KernelMap />
+        </Reveal>
+        <Reveal delay={0.06}>
+          <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
+            The fork is intentionally narrow. Existing subsystems get capability-aware hooks; the new subsystems carry the agent surface. Everything above the kernel — coconutd, the shell, the brokers — talks to a stable syscall ABI from v1.0.
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section eyebrow="§ 02.3 — the agent syscall surface" title={<>Eight new syscalls — the full agent API.</>}>
         <Reveal>
           <div className="rounded-2xl border hairline overflow-hidden">
             <div className="grid grid-cols-1 divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)" }}>
@@ -56,7 +70,18 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.3 — the agent state machine" title={<>Eight first-class kernel states. Process abstraction can't carry these.</>}>
+      <Section eyebrow="§ 02.4 — the hot path · agent_spawn" title={<>From a libcoconut call to a scheduled AID — six stages, one syscall.</>}>
+        <Reveal>
+          <SyscallHotPath />
+        </Reveal>
+        <Reveal delay={0.06}>
+          <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
+            Capability presentation lives in the syscall hot path. The LSM hook runs <em>before</em> any privileged operation reaches the relevant subsystem — that's the property userspace daemons and eBPF can't give you.
+          </p>
+        </Reveal>
+      </Section>
+
+      <Section eyebrow="§ 02.5 — the agent state machine" title={<>Eight first-class kernel states. Process abstraction can't carry these.</>}>
         <Reveal>
           <AgentStateMachine />
         </Reveal>
@@ -65,8 +90,19 @@ export default function ArchitecturePage() {
             A process abstraction cannot express <span className="font-mono text-[color:var(--accent)]">"the agent is alive but its capability set just got revoked"</span>. Coconut OS makes these states first-class kernel state, visible via <span className="font-mono text-[color:var(--accent)]">agent_audit_query</span> and renderable in Coconut Center.
           </p>
         </Reveal>
+      </Section>
+
+      <Section eyebrow="§ 02.6 — /agent · the inspector tree" title={<>What /proc is to processes, /agent is to agents.</>}>
+        <Reveal>
+          <AgentFS />
+        </Reveal>
+        <Reveal delay={0.06}>
+          <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
+            Every agent gets a directory under <span className="font-mono text-[color:var(--accent)]">/agent/live/&lt;aid&gt;/</span> with status, the bound caps, attestation chain, a per-agent audit tail, the resource budget, and a child registry. Operators read with <span className="font-mono text-[color:var(--accent)]">cat</span>; auditors verify with <span className="font-mono text-[color:var(--accent)]">coconut audit verify</span>.
+          </p>
+        </Reveal>
         <LockedNote>
-          Transition guards, allowed predecessors per state, and the exact AID-to-PID mapping rule are pinned in the LLD. Public preview shows the state set; full edge semantics drop with the LLD.
+          Transition guards, allowed predecessors per state, the AID-to-PID mapping rule, the cred-shim approach, agentfs file formats, and the ioctl surface are pinned in the LLD. Public preview shows the shape; full mechanism lands with the LLD drop.
         </LockedNote>
       </Section>
     </SpecShell>
