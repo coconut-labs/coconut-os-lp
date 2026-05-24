@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     images: [
-      { url: "/og.svg", width: 1200, height: 630, alt: "Coconut OS — agents as first-class kernel primitives" },
+      { url: "/og.png", width: 1200, height: 630, alt: "Coconut OS — agents as first-class kernel primitives" },
     ],
   },
   twitter: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Coconut OS — agents as first-class kernel primitives",
     description:
       "Linux 6.12, hard-forked. Capability-mediated access. Tamper-evident audit chain. Fair-share inference. Ships 2027.",
-    images: ["/og.svg"],
+    images: ["/og.png"],
   },
   icons: {
     icon: [
@@ -68,9 +68,20 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const colorSchemeBootstrap = `
+(function(){try{
+  var q=location.search;
+  if(q.indexOf('force-light')!==-1){document.documentElement.classList.add('force-light');}
+  else if(q.indexOf('force-dark')!==-1){document.documentElement.classList.add('force-dark');}
+}catch(e){}})();
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${fragmentMono.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: colorSchemeBootstrap }} />
+      </head>
       <body className="antialiased">
         <SmoothScroll />
         {children}

@@ -60,7 +60,7 @@ export function Nav() {
             <span>v1.0 · 2027 Q4</span>
           </span>
           <a
-            href="https://github.com/coconut-labs/coconut-os"
+            href="https://github.com/coconut-labs/coconut-os-lp"
             target="_blank"
             rel="noreferrer"
             className="font-mono text-[12px] tracking-tight text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-300"

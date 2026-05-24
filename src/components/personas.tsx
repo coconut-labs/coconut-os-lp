@@ -71,8 +71,10 @@ export function Personas() {
                 <div className="mt-1 font-mono text-[12px] text-[color:var(--muted)]">
                   {p.role}
                 </div>
-                <blockquote className="mt-5 text-[14.5px] leading-[1.55] text-[color:var(--fg)] before:content-['“'] before:mr-1 before:text-[color:var(--accent)] before:font-mono after:content-['”'] after:ml-1 after:text-[color:var(--accent)] after:font-mono">
+                <blockquote className="mt-5 text-[14.5px] leading-[1.55] text-[color:var(--fg)]">
+                  <span className="text-[color:var(--accent)] font-mono mr-1" aria-hidden>&ldquo;</span>
                   {p.line}
+                  <span className="text-[color:var(--accent)] font-mono ml-1" aria-hidden>&rdquo;</span>
                 </blockquote>
                 <div className="mt-auto pt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
                   hardware · {p.hw}

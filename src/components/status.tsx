@@ -3,15 +3,15 @@
 import { Reveal } from "./reveal";
 
 const SPEC_DOCS = [
-  { id: "00", name: "INDEX",     desc: "Navigation + reading order across the doc suite", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/00-INDEX.md" },
-  { id: "01", name: "PRD",       desc: "Product requirements · vision · personas · KPIs", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/01-PRD.md" },
-  { id: "02", name: "BRD",       desc: "Business requirements · TAM · monetization · ROI", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/02-BRD.md" },
-  { id: "03", name: "TFD",       desc: "Technical feasibility · risks · prior art · build-vs-buy", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/03-TFD.md" },
-  { id: "04", name: "HLD",       desc: "High-level design · architecture · data flow · deployment", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/04-HLD.md" },
-  { id: "05", name: "LLD",       desc: "Low-level design · kernel subsystem detail · syscall API", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/05-LLD.md" },
-  { id: "06", name: "PLAN",      desc: "Execution plan · 12-18 month roadmap · risk register", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/06-PLAN.md" },
-  { id: "07", name: "SPRINTS",   desc: "26 two-week sprints · goals · deliverables · owners", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/07-SPRINTS.md" },
-  { id: "08", name: "TICKETS",   desc: "Engineering tickets · Epic → Story → Task tree", href: "https://github.com/coconut-labs/coconut-os/blob/main/docs/08-TICKETS.md" },
+  { id: "00", name: "INDEX",     desc: "Navigation + reading order across the doc suite", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/00-INDEX.md" },
+  { id: "01", name: "PRD",       desc: "Product requirements · vision · personas · KPIs", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/01-PRD.md" },
+  { id: "02", name: "BRD",       desc: "Business requirements · TAM · monetization · ROI", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/02-BRD.md" },
+  { id: "03", name: "TFD",       desc: "Technical feasibility · risks · prior art · build-vs-buy", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/03-TFD.md" },
+  { id: "04", name: "HLD",       desc: "High-level design · architecture · data flow · deployment", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/04-HLD.md" },
+  { id: "05", name: "LLD",       desc: "Low-level design · kernel subsystem detail · syscall API", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/05-LLD.md" },
+  { id: "06", name: "PLAN",      desc: "Execution plan · 12-18 month roadmap · risk register", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/06-PLAN.md" },
+  { id: "07", name: "SPRINTS",   desc: "26 two-week sprints · goals · deliverables · owners", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/07-SPRINTS.md" },
+  { id: "08", name: "TICKETS",   desc: "Engineering tickets · Epic → Story → Task tree", href: "https://github.com/coconut-labs/coconutos/blob/main/docs/08-TICKETS.md" },
 ];
 
 export function Status() {
@@ -34,7 +34,7 @@ export function Status() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-[40rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            Coconut OS does not exist yet. What exists is the full PM artifact suite — PRD, BRD, TFD, HLD, LLD, execution plan, sprint plans, engineering tickets — produced before a single line of OS code is written. If you want to follow along, or contribute to the spec, the doc suite is the starting point.
+            Coconut OS does not exist yet. What exists is the full PM artifact suite — PRD, BRD, TFD, HLD, LLD, execution plan, sprint plans, engineering tickets — produced before a single line of OS code is written. The repo publishes alongside the spec lockdown.
           </p>
         </Reveal>
 
@@ -81,12 +81,12 @@ export function Status() {
                 </p>
               </div>
               <a
-                href="https://github.com/coconut-labs/coconut-os"
+                href="https://github.com/coconut-labs/coconut-os-lp"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[13px] tracking-tight hover:opacity-90 transition-opacity duration-300"
               >
-                Star on GitHub →
+                Watch the LP repo →
               </a>
             </div>
           </div>

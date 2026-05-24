@@ -55,6 +55,32 @@
   }
 }
 
+/* Visual-test override — append ?force-light or ?force-dark to URL */
+html.force-light {
+  --canvas: var(--color-canvas);
+  --surface: var(--color-surface);
+  --fg: var(--color-foreground);
+  --muted: var(--color-muted);
+  --accent: var(--color-accent);
+  --highlight: var(--color-highlight);
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --danger: var(--color-danger);
+  color-scheme: light;
+}
+html.force-dark {
+  --canvas: var(--color-canvas-dark);
+  --surface: var(--color-surface-dark);
+  --fg: var(--color-foreground-dark);
+  --muted: var(--color-muted-dark);
+  --accent: var(--color-accent-dark);
+  --highlight: var(--color-highlight-dark);
+  --success: #8fa464;
+  --warning: #d17c42;
+  --danger: #c73e50;
+  color-scheme: dark;
+}
+
 @layer base {
   html, body {
     background: var(--canvas);

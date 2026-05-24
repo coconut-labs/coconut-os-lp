@@ -26,16 +26,17 @@ export function Footer() {
           </div>
 
           <FooterCol title="Spec">
-            <FooterLink href="https://github.com/coconut-labs/coconut-os/blob/main/docs/00-INDEX.md">INDEX</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconut-os/blob/main/docs/01-PRD.md">PRD</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconut-os/blob/main/docs/04-HLD.md">HLD</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconut-os/blob/main/docs/05-LLD.md">LLD</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconut-os/blob/main/docs/06-PLAN.md">PLAN</FooterLink>
+            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/00-INDEX.md">INDEX</FooterLink>
+            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/01-PRD.md">PRD</FooterLink>
+            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/04-HLD.md">HLD</FooterLink>
+            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/05-LLD.md">LLD</FooterLink>
+            <FooterLink href="https://github.com/coconut-labs/coconutos/blob/main/docs/06-PLAN.md">PLAN</FooterLink>
           </FooterCol>
 
           <FooterCol title="Coconut Labs">
             <FooterLink href="https://coconutlabs.org">Lab home</FooterLink>
             <FooterLink href="https://github.com/coconut-labs/kvwarden">kvwarden</FooterLink>
+            <FooterLink href="https://github.com/coconut-labs/coconut-os-lp">LP repo</FooterLink>
             <FooterLink href="https://github.com/coconut-labs">GitHub org</FooterLink>
           </FooterCol>
 
