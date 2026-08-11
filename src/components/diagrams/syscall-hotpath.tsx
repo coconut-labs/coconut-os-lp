@@ -78,7 +78,7 @@ export function SyscallHotPath() {
             return (
               <li key={i}>
                 {isHandoff && (
-                  <div className="flex items-center gap-2 px-1 py-2 -mt-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[color:var(--muted)]/70">
+                  <div className="flex items-center gap-2 px-1 py-2 -mt-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[color:var(--muted)]">
                     <span className="w-6 h-px bg-[color-mix(in_oklab,var(--fg)_18%,transparent)]" />
                     handoff
                     <span className="flex-1 h-px bg-[color-mix(in_oklab,var(--fg)_10%,transparent)]" />

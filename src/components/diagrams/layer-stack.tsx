@@ -65,7 +65,7 @@ export function LayerStack() {
                 <div className="grid grid-cols-[60px_1fr_auto] sm:grid-cols-[80px_1fr_auto] gap-3 sm:gap-5 items-center p-4 sm:p-5">
                   <div className="flex flex-col items-start">
                     <span className="font-mono text-[12.5px] tracking-tight" style={{ color: tone.tx }}>{l.n}</span>
-                    <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[color:var(--muted)]/80">layer</span>
+                    <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[color:var(--muted)]">layer</span>
                   </div>
                   <div className="min-w-0">
                     <div className="text-[15px] tracking-tight text-[color:var(--fg)] leading-tight">{l.name}</div>

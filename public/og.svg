@@ -1,22 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="bloom" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2440CC" stop-opacity="0.18"/>
-      <stop offset="60%" stop-color="#2440CC" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#F7F7F5" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
-      <feColorMatrix values="0 0 0 0 0.17  0 0 0 0 0.14  0 0 0 0 0.09  0 0 0 0.04 0"/>
-    </filter>
-  </defs>
-
   <!-- canvas -->
   <rect width="1200" height="630" fill="#F7F7F5"/>
-  <rect width="1200" height="630" fill="url(#bloom)"/>
-  <rect width="1200" height="630" filter="url(#grain)" opacity="0.5"/>
 
-  <!-- top hairline + chip -->
+  <!-- top hairline + wordmark -->
   <line x1="80" y1="84" x2="1120" y2="84" stroke="#0B0B0C" stroke-opacity="0.12"/>
   <g transform="translate(80,52)">
     <!-- glyph -->
@@ -27,34 +13,34 @@
       <circle cx="13" cy="11.6" r="0.95"/>
       <circle cx="16.5" cy="13.2" r="0.95"/>
     </g>
-    <text x="38" y="22" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="16" fill="#0B0B0C">Coconut <tspan fill="#6A6A78">OS</tspan></text>
+    <text x="38" y="22" font-family="'Geist', ui-sans-serif, -apple-system, 'Helvetica Neue', Arial" font-weight="600" font-size="17" letter-spacing="-0.4" fill="#0B0B0C">coconut<tspan fill="#2440CC">OS</tspan></text>
   </g>
-  <g transform="translate(1000,52)">
-    <rect width="120" height="28" rx="14" fill="#F7F7F5" stroke="#0B0B0C" stroke-opacity="0.15"/>
+  <g transform="translate(940,52)">
+    <rect width="180" height="28" rx="2" fill="#FFFFFF" stroke="#0B0B0C" stroke-opacity="0.12"/>
     <circle cx="14" cy="14" r="3.5" fill="#4a7355"/>
-    <text x="26" y="18" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="11" fill="#0B0B0C" letter-spacing="0.5">v1.0 · 2027 Q4</text>
+    <text x="26" y="18" font-family="'Geist Mono', ui-monospace, Menlo, monospace" font-size="11" fill="#0B0B0C" letter-spacing="1">SPEC PHASE</text>
   </g>
 
   <!-- meta -->
-  <text x="80" y="170" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="13" fill="#6A6A78" letter-spacing="2">§ THE THESIS</text>
+  <text x="80" y="170" font-family="'Geist Mono', ui-monospace, Menlo, monospace" font-size="13" fill="#6A6A78" letter-spacing="2">§ THE THESIS</text>
 
   <!-- headline -->
-  <g font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-weight="400">
-    <text x="80" y="270" font-size="76" fill="#0B0B0C" letter-spacing="-1.5">Agents as first-class</text>
-    <text x="80" y="356" font-size="76" fill="#0B0B0C" letter-spacing="-1.5">kernel <tspan fill="#2440CC">primitives.</tspan></text>
+  <g font-family="'Geist', ui-sans-serif, -apple-system, 'Helvetica Neue', Arial" font-weight="600">
+    <text x="80" y="270" font-size="76" fill="#0B0B0C" letter-spacing="-2.3">Agents as first-class</text>
+    <text x="80" y="356" font-size="76" fill="#0B0B0C" letter-spacing="-2.3">kernel <tspan fill="#2440CC">primitives.</tspan></text>
   </g>
 
   <!-- sub -->
-  <text x="80" y="430" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial" font-size="22" fill="#0B0B0C" opacity="0.85">
+  <text x="80" y="430" font-family="'Geist', ui-sans-serif, -apple-system, 'Helvetica Neue', Arial" font-size="22" fill="#4A4A55">
     <tspan x="80" dy="0">A Linux distribution where every agent gets an AID, a capability bundle,</tspan>
-    <tspan x="80" dy="32">an attestation chain, and a row in the audit log — the same way</tspan>
+    <tspan x="80" dy="32">an attestation chain, and a row in the audit log, the same way</tspan>
     <tspan x="80" dy="32">every process gets a PID today.</tspan>
   </text>
 
   <!-- footer strip -->
   <line x1="80" y1="560" x2="1120" y2="560" stroke="#0B0B0C" stroke-opacity="0.12"/>
-  <g font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="13" fill="#6A6A78" letter-spacing="0.5">
+  <g font-family="'Geist Mono', ui-monospace, Menlo, monospace" font-size="13" fill="#6A6A78" letter-spacing="0.5">
     <text x="80" y="592">coconutos.org</text>
-    <text x="1120" y="592" text-anchor="end">Coconut Labs · 2026</text>
+    <text x="1120" y="592" text-anchor="end">Coconut Labs · the manifesto, not the product</text>
   </g>
 </svg>

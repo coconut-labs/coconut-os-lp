@@ -89,7 +89,7 @@ export function Stack() {
                   <div className="font-mono text-[12px] text-[color:var(--muted)] tracking-tight">
                     {layer.n}
                   </div>
-                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[color:var(--muted)]/80">
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
                     Layer
                   </div>
                 </div>

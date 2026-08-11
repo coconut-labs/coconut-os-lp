@@ -113,7 +113,7 @@ function TreeView({ node, depth, isLast, prefix }: { node: Node; depth: number; 
   return (
     <>
       <div className="flex items-baseline whitespace-pre">
-        <span className="text-[color:var(--muted)]/80 select-none">{prefix}{branch}</span>
+        <span className="text-[color:var(--muted)] select-none">{prefix}{branch}</span>
         <span style={{ color: nameColor }}>{node.name}{nameSuffix}</span>
         {node.desc && (
           <span className="ml-3 text-[color:var(--muted)] text-[11.5px] leading-tight">
