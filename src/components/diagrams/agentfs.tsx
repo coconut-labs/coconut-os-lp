@@ -81,7 +81,7 @@ const TONE: Record<string, string> = {
 export function AgentFS() {
   return (
     <figure>
-      <div className="rounded-2xl border hairline overflow-hidden">
+      <div className="rounded-[2px] border hairline overflow-hidden">
         {/* chrome */}
         <div className="flex items-center gap-2 px-4 py-2.5 border-b hairline bg-[color:var(--surface)]">
           <span className="w-2.5 h-2.5 rounded-full" style={{ background: "color-mix(in oklab, var(--accent) 55%, var(--canvas))" }} />

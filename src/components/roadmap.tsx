@@ -84,7 +84,7 @@ export function Roadmap() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             The sequence.{" "}
             <span className="text-[color:var(--muted)]">
               Versions are ordered, not dated.
@@ -96,7 +96,7 @@ export function Roadmap() {
           {RELEASES.map((r, i) => (
             <Reveal key={r.ver} delay={i * 0.06} amount={0.25}>
               <div
-                className="h-full p-5 rounded-xl border flex flex-col"
+                className="h-full p-5 rounded-[2px] border flex flex-col"
                 style={{
                   background: TONE_BG[r.tone],
                   borderColor: TONE_BORDER[r.tone],

@@ -21,7 +21,7 @@ export function Hero() {
             <span>Coconut Labs · pre-implementation</span>
           </motion.span>
 
-          <h1 className="mt-7 sm:mt-9 font-mono leading-[0.96] tracking-[-0.018em] text-[clamp(2.6rem,6.8vw,5.6rem)] text-[color:var(--fg)]">
+          <h1 className="mt-7 sm:mt-9 font-semibold leading-[0.98] tracking-[-0.03em] text-[clamp(2.6rem,6.4vw,4.8rem)] text-[color:var(--fg)]">
             <RevealWord delay={0.05}>Agents</RevealWord>{" "}
             <RevealWord delay={0.13}>as</RevealWord>{" "}
             <RevealWord delay={0.21}>first-class</RevealWord>
@@ -54,14 +54,14 @@ export function Hero() {
           >
             <a
               href="#thesis"
-              className="group inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[13px] tracking-tight hover:opacity-90 transition-opacity duration-300"
+              className="group inline-flex items-center justify-center gap-2 h-11 px-[18px] rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11.5px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-300"
             >
               Read the thesis
               <span className="transition-transform duration-300 group-hover:translate-x-0.5" style={{ transitionTimingFunction: "var(--ease-precise)" }}>↓</span>
             </a>
             <a
               href="#spec"
-              className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-full border hairline font-mono text-[13px] tracking-tight text-[color:var(--fg)] hover:bg-[color:var(--surface)] transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2 h-11 px-[18px] rounded-[2px] border hairline font-mono text-[11.5px] uppercase tracking-[0.1em] text-[color:var(--fg)] hover:bg-[color:var(--surface)] transition-colors duration-300"
             >
               Browse the spec →
             </a>
@@ -96,15 +96,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* subtle ambient gradient bloom — only on light, never on the foreground text */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-32 h-[420px] -z-0 opacity-[0.45] dark:opacity-25"
-        style={{
-          background:
-            "radial-gradient(60% 50% at 30% 10%, color-mix(in oklab, var(--highlight) 22%, transparent), transparent 70%), radial-gradient(50% 40% at 80% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%)",
-        }}
-      />
     </section>
   );
 }

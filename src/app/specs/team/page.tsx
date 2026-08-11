@@ -32,7 +32,7 @@ export default function TeamPage() {
     >
       <Section eyebrow="§ 05.1 · roles" title={<>The planned shape: ten roles. Two people today.</>}>
         <Reveal>
-          <div className="rounded-2xl border hairline overflow-hidden">
+          <div className="rounded-[2px] border hairline overflow-hidden">
             <div className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
               {ROLES.map((r) => (
                 <div key={r.n} className="grid grid-cols-[60px_180px_1fr] sm:grid-cols-[64px_220px_1fr] gap-3 sm:gap-6 px-5 sm:px-7 py-4 hover:bg-[color:var(--surface)] transition-colors duration-200">
@@ -74,7 +74,7 @@ export default function TeamPage() {
 
 function Stat({ k, v, sub }: { k: string; v: string; sub: string }) {
   return (
-    <div className="p-4 rounded-lg border hairline">
+    <div className="p-4 rounded-[2px] border hairline">
       <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">{k}</div>
       <div className="mt-1.5 font-mono text-[20px] text-[color:var(--accent)] tracking-tight tabular-nums">{v}</div>
       <div className="mt-1 font-mono text-[11px] text-[color:var(--muted)] leading-tight">{sub}</div>

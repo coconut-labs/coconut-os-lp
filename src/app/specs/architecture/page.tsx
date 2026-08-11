@@ -52,7 +52,7 @@ export default function ArchitecturePage() {
 
       <Section eyebrow="§ 02.3 · the agent syscall surface" title={<>Eight new syscalls: two wired in prototypes, six reserved.</>}>
         <Reveal>
-          <div className="rounded-2xl border hairline overflow-hidden">
+          <div className="rounded-[2px] border hairline overflow-hidden">
             <div className="grid grid-cols-1 divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)" }}>
               {SYSCALLS.map((s) => (
                 <div key={s.n} className="grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-3 sm:gap-8 px-5 sm:px-7 py-4 hover:bg-[color:var(--surface)] transition-colors duration-200">

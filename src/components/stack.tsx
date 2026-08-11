@@ -69,7 +69,7 @@ export function Stack() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             One ISO. Two install profiles. Six layers,{" "}
             <span className="text-[color:var(--muted)]">all the way down to the kernel.</span>
           </h2>
@@ -79,7 +79,7 @@ export function Stack() {
           {LAYERS.map((layer, i) => (
             <Reveal key={layer.n} delay={i * 0.045} amount={0.25}>
               <div
-                className="grid grid-cols-[64px_1fr] sm:grid-cols-[88px_1fr] gap-4 sm:gap-6 border rounded-xl p-5 sm:p-6 mb-2.5"
+                className="grid grid-cols-[64px_1fr] sm:grid-cols-[88px_1fr] gap-4 sm:gap-6 border rounded-[2px] p-5 sm:p-6 mb-2.5"
                 style={{
                   background: TONE_BG[layer.tone],
                   borderColor: TONE_BORDER[layer.tone],

@@ -20,7 +20,7 @@ const TONE: Record<string, string> = {
 export function AuditChain() {
   return (
     <figure>
-      <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
+      <div className="rounded-[2px] border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
         {/* TPM root */}
         <div className="flex items-center gap-3 mb-5">
           <div className="px-3 py-1.5 rounded-md font-mono text-[11px] tracking-tight" style={{
@@ -41,7 +41,7 @@ export function AuditChain() {
                 <div className="absolute -top-1.5 left-7 w-px h-1.5 bg-[color-mix(in_oklab,var(--fg)_28%,transparent)]" aria-hidden />
               )}
               <div
-                className="grid grid-cols-[68px_14px_1fr_auto] sm:grid-cols-[68px_14px_1fr_auto_1fr] gap-2 sm:gap-4 items-center px-3 sm:px-4 py-2.5 rounded-lg border"
+                className="grid grid-cols-[68px_14px_1fr_auto] sm:grid-cols-[68px_14px_1fr_auto_1fr] gap-2 sm:gap-4 items-center px-3 sm:px-4 py-2.5 rounded-[2px] border"
                 style={{
                   background: "color-mix(in oklab, var(--canvas) 92%, var(--surface) 8%)",
                   borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)",
@@ -79,7 +79,7 @@ export function AuditChain() {
 
 function Note({ tone, label, body }: { tone: "muted" | "accent" | "highlight"; label: string; body: string }) {
   return (
-    <div className="p-3 rounded-lg" style={{
+    <div className="p-3 rounded-[2px]" style={{
       background: "color-mix(in oklab, var(--canvas) 90%, var(--surface) 10%)",
       border: "1px solid color-mix(in oklab, var(--fg) 12%, transparent)",
     }}>

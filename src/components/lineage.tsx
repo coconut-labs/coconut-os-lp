@@ -39,7 +39,7 @@ export function Lineage() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[42rem] text-[clamp(1.4rem,3vw,2.1rem)] leading-[1.15] tracking-[-0.012em]">
+          <h2 className="mt-3 max-w-[42rem] text-[clamp(1.4rem,3vw,2.1rem)] leading-[1.15] tracking-[-0.03em]">
             Coconut OS isn't a first attempt.{" "}
             <span className="text-[color:var(--muted)]">
               It is the OS layer above the lab's existing projects.
@@ -50,7 +50,7 @@ export function Lineage() {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.06} amount={0.25}>
-              <div className="group flex flex-col h-full p-6 rounded-xl border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300">
+              <div className="group flex flex-col h-full p-6 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300">
                 <div className="font-mono text-[15px] text-[color:var(--accent)] tracking-tight">
                   {p.name}
                 </div>

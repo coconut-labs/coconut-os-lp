@@ -1,18 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fragment_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist-sans",
   display: "swap",
 });
 
-const fragmentMono = Fragment_Mono({
-  weight: "400",
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-fragment-mono",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -61,8 +60,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FBF6EE" },
-    { media: "(prefers-color-scheme: dark)", color: "#1A1410" },
+    { media: "(prefers-color-scheme: light)", color: "#F7F7F5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0C0C0E" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -78,7 +77,7 @@ const colorSchemeBootstrap = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fragmentMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: colorSchemeBootstrap }} />
       </head>

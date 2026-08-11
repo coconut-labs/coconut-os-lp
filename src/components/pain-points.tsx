@@ -50,7 +50,7 @@ export function PainPoints() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             You can't ptrace your way to an agent OS.{" "}
             <span className="text-[color:var(--muted)]">
               These are kernel-side concerns by construction.
@@ -58,7 +58,7 @@ export function PainPoints() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-px bg-[color-mix(in_oklab,var(--fg)_12%,transparent)] border hairline rounded-2xl overflow-hidden">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-px bg-[color-mix(in_oklab,var(--fg)_12%,transparent)] border hairline rounded-[2px] overflow-hidden">
           {PAIN.map((p, i) => (
             <Reveal key={p.n} delay={i * 0.04} amount={0.2}>
               <div className="h-full p-7 sm:p-8 bg-[color:var(--canvas)]">

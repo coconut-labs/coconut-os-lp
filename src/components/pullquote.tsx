@@ -21,7 +21,7 @@ export function PullQuote() {
               >
                 "
               </span>
-              <p className="relative font-mono text-[clamp(1.4rem,2.6vw,1.9rem)] leading-[1.4] tracking-[-0.012em] text-[color:var(--fg)]">
+              <p className="relative font-mono text-[clamp(1.4rem,2.6vw,1.9rem)] leading-[1.4] tracking-[-0.03em] text-[color:var(--fg)]">
                 An agent in Coconut OS is a kernel-recognized execution context
                 with a unique <span className="text-[color:var(--accent)]">AID</span>,
                 a declared <span className="text-[color:var(--accent)]">capability set</span>{" "}

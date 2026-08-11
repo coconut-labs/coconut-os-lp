@@ -1,8 +1,7 @@
 "use client";
 
 /* Glassy preview overlay. Click a spec card → this slides into view with a quick
-   read; "Read more →" links to the dedicated sub-page. Backdrop blur, warm-paper
-   translucent surface, ESC + click-outside to close, focus-trap on the dialog. */
+   read; "Read more →" links to the dedicated sub-page. Backdrop blur, translucent house surface, ESC + click-outside to close, focus-trap on the dialog. */
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef } from "react";
@@ -88,7 +87,7 @@ export function SpecOverlay({
             animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 18, scale: 0.99 }}
             transition={{ duration: 0.34, ease: [0.3, 0, 0.2, 1] }}
-            className="relative w-full sm:w-[min(640px,calc(100vw-2rem))] mx-3 sm:mx-0 mb-3 sm:mb-0 rounded-2xl sm:rounded-3xl overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+            className="relative w-full sm:w-[min(640px,calc(100vw-2rem))] mx-3 sm:mx-0 mb-3 sm:mb-0 rounded-[2px] sm:rounded-[2px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
             style={{
               background:
                 "color-mix(in oklab, var(--canvas) 84%, var(--surface) 16%)",
@@ -114,7 +113,7 @@ export function SpecOverlay({
               <button
                 onClick={onClose}
                 aria-label="Close"
-                className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full text-[color:var(--muted)] hover:text-[color:var(--fg)] hover:bg-[color:var(--surface)] transition-colors duration-200"
+                className="shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-[2px] text-[color:var(--muted)] hover:text-[color:var(--fg)] hover:bg-[color:var(--surface)] transition-colors duration-200"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
                   <path d="M2 2 L12 12 M12 2 L2 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -124,7 +123,7 @@ export function SpecOverlay({
 
             {/* body */}
             <div className="px-6 sm:px-8 py-7 sm:py-9">
-              <h3 id="spec-overlay-title" className="text-[clamp(1.45rem,3vw,1.85rem)] leading-[1.15] tracking-[-0.012em] text-[color:var(--fg)]">
+              <h3 id="spec-overlay-title" className="text-[clamp(1.45rem,3vw,1.85rem)] leading-[1.15] tracking-[-0.03em] text-[color:var(--fg)]">
                 {spec.blurb}
               </h3>
 
@@ -147,7 +146,7 @@ export function SpecOverlay({
               </span>
               <a
                 href={`/specs/${spec.slug}`}
-                className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[12.5px] tracking-tight hover:opacity-90 transition-opacity duration-200"
+                className="inline-flex items-center gap-2 h-9 px-4 rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-200"
               >
                 Read more
                 <span aria-hidden>→</span>

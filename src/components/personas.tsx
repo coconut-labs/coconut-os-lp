@@ -50,7 +50,7 @@ export function Personas() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             Five personas drive product decisions.{" "}
             <span className="text-[color:var(--muted)]">
               The agent-builder, in five shapes.
@@ -61,7 +61,7 @@ export function Personas() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {PERSONAS.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.05} amount={0.2}>
-              <article className="h-full p-6 rounded-xl border hairline bg-[color:var(--canvas)] flex flex-col">
+              <article className="h-full p-6 rounded-[2px] border hairline bg-[color:var(--canvas)] flex flex-col">
                 <div className="flex items-baseline justify-between gap-3">
                   <h3 className="text-[18px] tracking-tight text-[color:var(--fg)]">
                     {p.name}

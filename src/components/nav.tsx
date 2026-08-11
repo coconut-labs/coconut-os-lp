@@ -37,8 +37,8 @@ export function Nav() {
           <span className="text-[color:var(--fg)] transition-transform duration-500 group-hover:rotate-[-8deg]" style={{ transitionTimingFunction: "var(--ease-precise)" }}>
             <CoconutGlyph size={20} />
           </span>
-          <span className="font-mono text-[13px] tracking-[0.02em] text-[color:var(--fg)]">
-            Coconut <span className="text-[color:var(--muted)]">OS</span>
+          <span className="text-[17px] font-semibold tracking-[-0.02em] text-[color:var(--fg)]">
+            coconut<span className="text-[color:var(--accent)]">OS</span>
           </span>
         </a>
 
@@ -47,7 +47,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[12.5px] tracking-tight text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-300"
+              className="font-mono text-[11px] uppercase tracking-[0.14em] text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-300"
             >
               {l.label}
             </a>

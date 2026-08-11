@@ -23,7 +23,7 @@ export function Syscalls() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             Eight new syscalls.{" "}
             <span className="text-[color:var(--muted)]">
               Two wired in prototypes. Six reserved.
@@ -31,7 +31,7 @@ export function Syscalls() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 rounded-2xl border hairline overflow-hidden">
+        <div className="mt-12 rounded-[2px] border hairline overflow-hidden">
           <div className="grid grid-cols-1 divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)" }}>
             {SYSCALLS.map((s, i) => (
               <Reveal key={s.name} delay={i * 0.03} amount={0.2}>

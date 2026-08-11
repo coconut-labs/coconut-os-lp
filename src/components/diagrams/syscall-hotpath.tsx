@@ -59,7 +59,7 @@ const TONE: Record<string, string> = {
 export function SyscallHotPath() {
   return (
     <figure>
-      <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
+      <div className="rounded-[2px] border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
         <div className="grid grid-cols-1 md:grid-cols-[160px_28px_1fr] gap-3 md:gap-5">
           <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)] hidden md:block pt-1">layer</div>
           <div className="hidden md:block" />
@@ -95,7 +95,7 @@ export function SyscallHotPath() {
                     }} />
                   </div>
                   <div
-                    className="min-w-0 rounded-lg border p-3 sm:p-3.5"
+                    className="min-w-0 rounded-[2px] border p-3 sm:p-3.5"
                     style={{
                       background: "color-mix(in oklab, var(--canvas) 92%, var(--surface) 8%)",
                       borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)",
@@ -115,11 +115,11 @@ export function SyscallHotPath() {
 
         {/* return path indicator */}
         <div className="mt-6 pt-5 border-t hairline grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="p-3 rounded-lg" style={{ background: "color-mix(in oklab, var(--success) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--success) 35%, transparent)" }}>
+          <div className="p-3 rounded-[2px]" style={{ background: "color-mix(in oklab, var(--success) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--success) 35%, transparent)" }}>
             <div className="font-mono text-[10.5px] uppercase tracking-[0.1em]" style={{ color: "var(--success)" }}>return</div>
             <div className="mt-1 font-mono text-[12px] text-[color:var(--fg)]/85">aid (u64) · agent in READY state · cgroup populated</div>
           </div>
-          <div className="p-3 rounded-lg" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--accent) 40%, transparent)" }}>
+          <div className="p-3 rounded-[2px]" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--accent) 40%, transparent)" }}>
             <div className="font-mono text-[10.5px] uppercase tracking-[0.1em]" style={{ color: "var(--accent)" }}>error</div>
             <div className="mt-1 font-mono text-[12px] text-[color:var(--fg)]/85">-EPERM · -EINVAL · -ENOMEM · -EBUSY · audit row sealed regardless</div>
           </div>

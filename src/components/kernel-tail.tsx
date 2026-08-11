@@ -165,7 +165,7 @@ export function KernelTail() {
       onFocus={() => setPause(true)}
       onBlur={() => setPause(false)}
       tabIndex={0}
-      className="group relative rounded-xl border hairline overflow-hidden cursor-default outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+      className="group relative rounded-[2px] border hairline overflow-hidden cursor-default outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
       style={{
         background:
           "color-mix(in oklab, var(--canvas) 60%, var(--surface) 40%)",

@@ -96,7 +96,7 @@ export default function RoadmapPage() {
           {RELEASES.map((r, i) => (
             <Reveal key={r.ver} delay={i * 0.05}>
               <article
-                className="grid grid-cols-[88px_1fr] sm:grid-cols-[140px_1fr] gap-4 sm:gap-8 p-5 sm:p-7 rounded-xl border"
+                className="grid grid-cols-[88px_1fr] sm:grid-cols-[140px_1fr] gap-4 sm:gap-8 p-5 sm:p-7 rounded-[2px] border"
                 style={{ background: TONE_BG[r.tone], borderColor: TONE_BORDER[r.tone] }}
               >
                 <div>

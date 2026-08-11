@@ -106,7 +106,7 @@ function path(from: NodeId, to: NodeId, bow = 0): string {
 export function AgentStateMachine() {
   return (
     <figure className="relative">
-      <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-3 sm:p-5">
+      <div className="rounded-[2px] border hairline overflow-hidden bg-[color:var(--surface)]/40 p-3 sm:p-5">
         <svg viewBox={`0 0 ${W} ${H}`} className="block w-full h-auto" role="img" aria-label="Coconut OS agent lifecycle state machine">
           <defs>
             <marker id="arrow-happy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">

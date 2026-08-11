@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bloom" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#C28A2D" stop-opacity="0.18"/>
-      <stop offset="60%" stop-color="#8B1E2D" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#FBF6EE" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#2440CC" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#2440CC" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#F7F7F5" stop-opacity="0"/>
     </linearGradient>
     <filter id="grain">
       <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
@@ -12,48 +12,48 @@
   </defs>
 
   <!-- canvas -->
-  <rect width="1200" height="630" fill="#FBF6EE"/>
+  <rect width="1200" height="630" fill="#F7F7F5"/>
   <rect width="1200" height="630" fill="url(#bloom)"/>
   <rect width="1200" height="630" filter="url(#grain)" opacity="0.5"/>
 
   <!-- top hairline + chip -->
-  <line x1="80" y1="84" x2="1120" y2="84" stroke="#2C2317" stroke-opacity="0.12"/>
+  <line x1="80" y1="84" x2="1120" y2="84" stroke="#0B0B0C" stroke-opacity="0.12"/>
   <g transform="translate(80,52)">
     <!-- glyph -->
-    <g fill="#2C2317">
+    <g fill="#0B0B0C">
       <path d="M0 16 a13 13 0 0 1 26 0 z"/>
-      <path d="M4.4 15.6 a8.6 8.6 0 0 1 17.2 0 z" fill="#FBF6EE"/>
+      <path d="M4.4 15.6 a8.6 8.6 0 0 1 17.2 0 z" fill="#F7F7F5"/>
       <circle cx="9.5" cy="13.2" r="0.95"/>
       <circle cx="13" cy="11.6" r="0.95"/>
       <circle cx="16.5" cy="13.2" r="0.95"/>
     </g>
-    <text x="38" y="22" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="16" fill="#2C2317">Coconut <tspan fill="#6F5D45">OS</tspan></text>
+    <text x="38" y="22" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="16" fill="#0B0B0C">Coconut <tspan fill="#6A6A78">OS</tspan></text>
   </g>
   <g transform="translate(1000,52)">
-    <rect width="120" height="28" rx="14" fill="#FBF6EE" stroke="#2C2317" stroke-opacity="0.15"/>
-    <circle cx="14" cy="14" r="3.5" fill="#4E5B36"/>
-    <text x="26" y="18" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="11" fill="#2C2317" letter-spacing="0.5">v1.0 · 2027 Q4</text>
+    <rect width="120" height="28" rx="14" fill="#F7F7F5" stroke="#0B0B0C" stroke-opacity="0.15"/>
+    <circle cx="14" cy="14" r="3.5" fill="#4a7355"/>
+    <text x="26" y="18" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="11" fill="#0B0B0C" letter-spacing="0.5">v1.0 · 2027 Q4</text>
   </g>
 
   <!-- meta -->
-  <text x="80" y="170" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="13" fill="#6F5D45" letter-spacing="2">§ THE THESIS</text>
+  <text x="80" y="170" font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="13" fill="#6A6A78" letter-spacing="2">§ THE THESIS</text>
 
   <!-- headline -->
   <g font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-weight="400">
-    <text x="80" y="270" font-size="76" fill="#2C2317" letter-spacing="-1.5">Agents as first-class</text>
-    <text x="80" y="356" font-size="76" fill="#2C2317" letter-spacing="-1.5">kernel <tspan fill="#8B1E2D">primitives.</tspan></text>
+    <text x="80" y="270" font-size="76" fill="#0B0B0C" letter-spacing="-1.5">Agents as first-class</text>
+    <text x="80" y="356" font-size="76" fill="#0B0B0C" letter-spacing="-1.5">kernel <tspan fill="#2440CC">primitives.</tspan></text>
   </g>
 
   <!-- sub -->
-  <text x="80" y="430" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial" font-size="22" fill="#2C2317" opacity="0.85">
+  <text x="80" y="430" font-family="ui-sans-serif, -apple-system, 'Helvetica Neue', Arial" font-size="22" fill="#0B0B0C" opacity="0.85">
     <tspan x="80" dy="0">A Linux distribution where every agent gets an AID, a capability bundle,</tspan>
     <tspan x="80" dy="32">an attestation chain, and a row in the audit log — the same way</tspan>
     <tspan x="80" dy="32">every process gets a PID today.</tspan>
   </text>
 
   <!-- footer strip -->
-  <line x1="80" y1="560" x2="1120" y2="560" stroke="#2C2317" stroke-opacity="0.12"/>
-  <g font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="13" fill="#6F5D45" letter-spacing="0.5">
+  <line x1="80" y1="560" x2="1120" y2="560" stroke="#0B0B0C" stroke-opacity="0.12"/>
+  <g font-family="ui-monospace, Menlo, 'JetBrains Mono', monospace" font-size="13" fill="#6A6A78" letter-spacing="0.5">
     <text x="80" y="592">coconutos.org</text>
     <text x="1120" y="592" text-anchor="end">Coconut Labs · 2026</text>
   </g>

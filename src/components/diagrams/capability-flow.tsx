@@ -17,7 +17,7 @@ const STEPS = [
 export function CapabilityFlow() {
   return (
     <figure>
-      <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
+      <div className="rounded-[2px] border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
         <ol className="relative space-y-3.5">
           {/* spine */}
           <div className="absolute left-[132px] sm:left-[160px] top-3 bottom-3 w-px bg-[color-mix(in_oklab,var(--fg)_15%,transparent)]" aria-hidden />
@@ -42,11 +42,11 @@ export function CapabilityFlow() {
 
         {/* outcome row */}
         <div className="mt-7 pt-5 border-t hairline grid grid-cols-2 gap-3">
-          <div className="p-3 rounded-lg" style={{ background: "color-mix(in oklab, var(--success) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--success) 35%, transparent)" }}>
+          <div className="p-3 rounded-[2px]" style={{ background: "color-mix(in oklab, var(--success) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--success) 35%, transparent)" }}>
             <div className="font-mono text-[10.5px] uppercase tracking-[0.1em]" style={{ color: "var(--success)" }}>grant</div>
             <div className="mt-1 font-mono text-[12px] text-[color:var(--fg)]/85">syscall returns · audit row sealed</div>
           </div>
-          <div className="p-3 rounded-lg" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--accent) 40%, transparent)" }}>
+          <div className="p-3 rounded-[2px]" style={{ background: "color-mix(in oklab, var(--accent) 12%, var(--canvas))", border: "1px solid color-mix(in oklab, var(--accent) 40%, transparent)" }}>
             <div className="font-mono text-[10.5px] uppercase tracking-[0.1em]" style={{ color: "var(--accent)" }}>deny</div>
             <div className="mt-1 font-mono text-[12px] text-[color:var(--fg)]/85">-ECAPABILITY · parent agent notified</div>
           </div>

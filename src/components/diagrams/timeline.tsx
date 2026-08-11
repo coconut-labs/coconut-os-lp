@@ -39,7 +39,7 @@ export function Timeline() {
 
   return (
     <figure>
-      <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-4 sm:p-6">
+      <div className="rounded-[2px] border hairline overflow-hidden bg-[color:var(--surface)]/40 p-4 sm:p-6">
         <svg viewBox={`0 0 ${W} ${H}`} className="block w-full h-auto" role="img" aria-label="Coconut OS release sequence, ordered not dated, v1.0 through v3.0">
           <defs>
             <linearGradient id="build-fill" x1="0" x2="1" y1="0" y2="0">
@@ -55,7 +55,7 @@ export function Timeline() {
             const y  = axisY - 70;
             return (
               <g>
-                <rect x={x0} y={y} width={x1 - x0} height={42} rx={6} fill="url(#build-fill)" />
+                <rect x={x0} y={y} width={x1 - x0} height={42} rx={2} fill="url(#build-fill)" />
                 {/* tick brackets */}
                 <line x1={x0} x2={x0} y1={y - 4}  y2={y + 46} stroke="color-mix(in oklab, var(--accent) 60%, transparent)" strokeWidth="1.1" />
                 <line x1={x1} x2={x1} y1={y - 4}  y2={y + 46} stroke="color-mix(in oklab, var(--accent) 60%, transparent)" strokeWidth="1.1" />
@@ -82,7 +82,7 @@ export function Timeline() {
               <g>
                 <line x1={cx} x2={cx} y1={axisY - 56} y2={axisY + H * 0.32} stroke="color-mix(in oklab, var(--fg) 22%, transparent)" strokeWidth="1" strokeDasharray="4 4" />
                 <g transform={`translate(${cx},${axisY - 60})`}>
-                  <rect x={-58} y={-12} width={116} height={18} rx={9} fill="color-mix(in oklab, var(--canvas) 92%, var(--muted) 8%)" stroke="color-mix(in oklab, var(--muted) 35%, transparent)" strokeWidth="0.8" />
+                  <rect x={-58} y={-12} width={116} height={18} rx={2} fill="color-mix(in oklab, var(--canvas) 92%, var(--muted) 8%)" stroke="color-mix(in oklab, var(--muted) 35%, transparent)" strokeWidth="0.8" />
                   <text x={0} y={1} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.4">
                     ABI line · v1.x → v2.0
                   </text>

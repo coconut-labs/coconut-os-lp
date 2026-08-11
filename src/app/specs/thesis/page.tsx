@@ -91,7 +91,7 @@ export default function ThesisPage() {
 
 function KPI({ k, v, sub }: { k: string; v: string; sub: string }) {
   return (
-    <div className="p-4 rounded-lg border hairline">
+    <div className="p-4 rounded-[2px] border hairline">
       <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">{k}</div>
       <div className="mt-1.5 font-mono text-[20px] text-[color:var(--accent)] tracking-tight tabular-nums">{v}</div>
       <div className="mt-1 font-mono text-[11px] text-[color:var(--muted)]">{sub}</div>
@@ -101,7 +101,7 @@ function KPI({ k, v, sub }: { k: string; v: string; sub: string }) {
 
 function Lineage({ layer, name, shipped, body, here = false }: { layer: string; name: string; shipped: "ships" | "research" | "building"; body: string; here?: boolean }) {
   return (
-    <div className="h-full p-5 rounded-xl border" style={{
+    <div className="h-full p-5 rounded-[2px] border" style={{
       background: here ? "color-mix(in oklab, var(--canvas) 84%, var(--accent) 16%)" : "color-mix(in oklab, var(--canvas) 92%, var(--surface) 8%)",
       borderColor: here ? "color-mix(in oklab, var(--accent) 45%, transparent)" : "color-mix(in oklab, var(--fg) 12%, transparent)",
     }}>

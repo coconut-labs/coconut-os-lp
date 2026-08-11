@@ -17,7 +17,7 @@ export function Status() {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
+          <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             Click any room for a preview.{" "}
             <span className="text-[color:var(--muted)]">
               Each opens a fuller page. The full spec drops when the set is locked.
@@ -36,7 +36,7 @@ export function Status() {
             <Reveal key={s.slug} delay={i * 0.04} amount={0.2}>
               <button
                 onClick={() => setOpen(s)}
-                className="group text-left h-full p-6 rounded-xl border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-[background,transform] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30 cursor-pointer"
+                className="group text-left h-full p-6 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-[background,transform] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30 cursor-pointer"
                 style={{ transitionTimingFunction: "var(--ease-precise)" }}
               >
                 <div className="flex items-baseline gap-3">
@@ -62,7 +62,7 @@ export function Status() {
         </div>
 
         <Reveal delay={0.2}>
-          <div className="mt-14 p-7 sm:p-9 rounded-2xl border" style={{ borderColor: "color-mix(in oklab, var(--accent) 40%, transparent)", background: "color-mix(in oklab, var(--canvas) 80%, var(--accent) 6%)" }}>
+          <div className="mt-14 p-7 sm:p-9 rounded-[2px] border" style={{ borderColor: "color-mix(in oklab, var(--accent) 40%, transparent)", background: "color-mix(in oklab, var(--canvas) 80%, var(--accent) 6%)" }}>
             <div className="flex items-baseline justify-between gap-3 flex-wrap">
               <div>
                 <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[color:var(--accent)]">
@@ -79,7 +79,7 @@ export function Status() {
                 href="https://github.com/coconut-labs/coconut-os-lp"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 h-11 px-5 rounded-full bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[13px] tracking-tight hover:opacity-90 transition-opacity duration-300"
+                className="inline-flex items-center gap-2 h-11 px-[18px] rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11.5px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-300"
               >
                 Watch the LP repo →
               </a>

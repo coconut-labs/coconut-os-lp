@@ -49,7 +49,7 @@ export function SpecShell({
             </div>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="mt-7 max-w-[52rem] text-[clamp(2.4rem,5.4vw,4.6rem)] leading-[1.06] tracking-[-0.018em] font-mono">
+            <h1 className="mt-7 max-w-[52rem] text-[clamp(2.2rem,5vw,4rem)] leading-[1.06] tracking-[-0.03em] font-semibold">
               {title}
             </h1>
           </Reveal>
@@ -59,15 +59,6 @@ export function SpecShell({
             </p>
           </Reveal>
         </div>
-        {/* soft bloom */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 -top-32 h-[360px] -z-0 opacity-40 dark:opacity-25"
-          style={{
-            background:
-              "radial-gradient(50% 50% at 30% 20%, color-mix(in oklab, var(--highlight) 16%, transparent), transparent 70%), radial-gradient(40% 40% at 80% 0%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 70%)",
-          }}
-        />
       </header>
 
       <div className="container-x">
@@ -81,7 +72,7 @@ export function SpecShell({
           {prev ? (
             <a
               href={`/specs/${prev.slug}`}
-              className="group p-5 rounded-xl border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300"
+              className="group p-5 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300"
             >
               <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">← prev · spec § {prev.no}</div>
               <div className="mt-1.5 font-mono text-[14px] text-[color:var(--accent)] tracking-tight">{prev.name}</div>
@@ -91,7 +82,7 @@ export function SpecShell({
           {next ? (
             <a
               href={`/specs/${next.slug}`}
-              className="group p-5 rounded-xl border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300 md:text-right"
+              className="group p-5 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300 md:text-right"
             >
               <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">next · spec § {next.no} →</div>
               <div className="mt-1.5 font-mono text-[14px] text-[color:var(--accent)] tracking-tight">{next.name}</div>
@@ -117,7 +108,7 @@ export function Section({ title, eyebrow, children }: { title?: React.ReactNode;
         )}
         {title && (
           <Reveal delay={0.05}>
-            <h2 className="mt-3 max-w-[48rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.18] tracking-[-0.012em]">
+            <h2 className="mt-3 max-w-[48rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.18] tracking-[-0.03em]">
               {title}
             </h2>
           </Reveal>
@@ -130,7 +121,7 @@ export function Section({ title, eyebrow, children }: { title?: React.ReactNode;
 
 export function LockedNote({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-12 p-5 rounded-xl border hairline bg-[color:var(--surface)]/40">
+    <div className="mt-12 p-5 rounded-[2px] border hairline bg-[color:var(--surface)]/40">
       <div className="flex items-baseline gap-2">
         <span className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--accent)]">held back</span>
       </div>

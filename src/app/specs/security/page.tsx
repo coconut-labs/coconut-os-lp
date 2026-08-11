@@ -56,7 +56,7 @@ export default function SecurityPage() {
 
       <Section eyebrow="§ 03.3 · adversary model" title={<>Five in-scope classes at v1.0.</>}>
         <Reveal>
-          <div className="rounded-2xl border hairline overflow-hidden">
+          <div className="rounded-[2px] border hairline overflow-hidden">
             <div className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
               {ADVERSARIES.map((a) => (
                 <article key={a.k} className="grid grid-cols-[44px_1fr] gap-4 px-5 sm:px-7 py-5 hover:bg-[color:var(--surface)] transition-colors duration-200">

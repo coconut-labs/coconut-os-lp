@@ -34,7 +34,7 @@ export function KernelMap() {
 
   return (
     <figure>
-      <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
+      <div className="rounded-[2px] border hairline overflow-hidden bg-[color:var(--surface)]/40 p-5 sm:p-7">
         {/* Title strip */}
         <div className="flex items-baseline justify-between gap-4 mb-5 pb-3 border-b hairline">
           <div>
@@ -50,7 +50,7 @@ export function KernelMap() {
         {/* Two-region grid: modified | new */}
         <div className="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-3 md:gap-5">
           {/* Modified */}
-          <div className="relative rounded-xl border" style={{ background: "color-mix(in oklab, var(--canvas) 92%, var(--muted) 8%)", borderColor: "color-mix(in oklab, var(--muted) 28%, transparent)", borderStyle: "dashed" }}>
+          <div className="relative rounded-[2px] border" style={{ background: "color-mix(in oklab, var(--canvas) 92%, var(--muted) 8%)", borderColor: "color-mix(in oklab, var(--muted) 28%, transparent)", borderStyle: "dashed" }}>
             <RegionLabel tone="muted">modified · capability-aware hooks</RegionLabel>
             <div className="p-4 sm:p-5 grid grid-cols-1 gap-2.5">
               {MODIFIED.map((b) => <BoxRow key={b.id} b={b} active={active === b.id} onHover={() => setActive(b.id)} onLeave={() => setActive(null)} />)}
@@ -58,7 +58,7 @@ export function KernelMap() {
           </div>
 
           {/* New */}
-          <div className="relative rounded-xl border" style={{ background: "color-mix(in oklab, var(--canvas) 86%, var(--accent) 14%)", borderColor: "color-mix(in oklab, var(--accent) 45%, transparent)" }}>
+          <div className="relative rounded-[2px] border" style={{ background: "color-mix(in oklab, var(--canvas) 86%, var(--accent) 14%)", borderColor: "color-mix(in oklab, var(--accent) 45%, transparent)" }}>
             <RegionLabel tone="accent">new · agent subsystems</RegionLabel>
             <div className="p-4 sm:p-5 grid grid-cols-1 gap-2.5">
               {NEW.map((b) => <BoxRow key={b.id} b={b} active={active === b.id} onHover={() => setActive(b.id)} onLeave={() => setActive(null)} />)}
@@ -67,7 +67,7 @@ export function KernelMap() {
         </div>
 
         {/* Bridge: syscall surface */}
-        <div className="mt-5 rounded-xl border hairline p-4 sm:p-5" style={{ background: "color-mix(in oklab, var(--canvas) 88%, var(--highlight) 12%)", borderColor: "color-mix(in oklab, var(--highlight) 40%, transparent)" }}>
+        <div className="mt-5 rounded-[2px] border hairline p-4 sm:p-5" style={{ background: "color-mix(in oklab, var(--canvas) 88%, var(--highlight) 12%)", borderColor: "color-mix(in oklab, var(--highlight) 40%, transparent)" }}>
           <div className="flex items-baseline justify-between flex-wrap gap-3">
             <div>
               <div className="font-mono text-[10.5px] uppercase tracking-[0.1em]" style={{ color: "var(--highlight)" }}>syscall surface · userspace bridge</div>
@@ -92,11 +92,11 @@ export function KernelMap() {
 
         {/* Below: coconutd handoff */}
         <div className="mt-3 grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-2.5">
-          <div className="rounded-xl border hairline px-4 py-3 text-center sm:text-right">
+          <div className="rounded-[2px] border hairline px-4 py-3 text-center sm:text-right">
             <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">kernel hands off PID 1 →</div>
           </div>
           <div className="font-mono text-[10.5px] text-[color:var(--muted)] sm:px-2 text-center">·</div>
-          <div className="rounded-xl border hairline px-4 py-3 text-center sm:text-left" style={{ background: "color-mix(in oklab, var(--canvas) 86%, var(--accent) 14%)", borderColor: "color-mix(in oklab, var(--accent) 35%, transparent)" }}>
+          <div className="rounded-[2px] border hairline px-4 py-3 text-center sm:text-left" style={{ background: "color-mix(in oklab, var(--canvas) 86%, var(--accent) 14%)", borderColor: "color-mix(in oklab, var(--accent) 35%, transparent)" }}>
             <div className="font-mono text-[12px] text-[color:var(--fg)] tracking-tight">coconutd</div>
             <div className="font-mono text-[10.5px] text-[color:var(--muted)]">PID 1 · agent supervisor · CBOR IPC</div>
           </div>
@@ -118,7 +118,7 @@ function BoxRow({ b, active, onHover, onLeave }: { b: Box; active: boolean; onHo
       onMouseLeave={onLeave}
       onFocus={onHover}
       onBlur={onLeave}
-      className="w-full text-left rounded-lg border px-3.5 py-2.5 outline-none transition-[transform,background,border-color] duration-300 focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+      className="w-full text-left rounded-[2px] border px-3.5 py-2.5 outline-none transition-[transform,background,border-color] duration-300 focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
       style={{
         background: active
           ? "color-mix(in oklab, var(--canvas) 80%, var(--surface) 20%)"

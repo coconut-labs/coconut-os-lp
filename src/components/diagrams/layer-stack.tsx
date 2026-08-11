@@ -51,7 +51,7 @@ export function LayerStack() {
                 onMouseEnter={() => setOpen(l.n)}
                 onFocus={() => setOpen(l.n)}
                 aria-expanded={isOpen}
-                className="group w-full text-left rounded-xl border transition-[transform,box-shadow,background] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+                className="group w-full text-left rounded-[2px] border transition-[transform,box-shadow,background] duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
                 style={{
                   background: tone.bg,
                   borderColor: tone.bd,
