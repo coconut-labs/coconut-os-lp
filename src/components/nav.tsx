@@ -55,10 +55,6 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <span className="hidden sm:inline-flex chip" title="Coconut OS 1.0 ships 2027 Q4">
-            <span className="chip-dot" />
-            <span>v1.0 · 2027 Q4</span>
-          </span>
           <a
             href="https://github.com/coconut-labs/coconut-os-lp"
             target="_blank"

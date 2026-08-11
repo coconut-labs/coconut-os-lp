@@ -1,32 +1,22 @@
 "use client";
 
-/* Roadmap timeline — 2026 → 2031.
-   - Build-phase bracket above the axis (Sprint 0 → v1.0)
-   - Year ticks on the axis (clean, even spacing)
-   - Release dots below with version + quarter + tag, vertically staggered
+/* Release sequence, ordered not dated.
+   - Build-phase bracket above the axis (spec locked -> v1.0)
+   - Release dots below with version + tag, vertically staggered
      so labels never collide
-   - A dashed v1.x → v2.0 ABI-line between v1.2 and v2.0 to mark the break
+   - A dashed v1.x -> v2.0 ABI-line between v1.2 and v2.0 to mark the break
    Public preview shows order + tag; sprint-level commitments stay in PLAN. */
 
-const YEARS = [
-  { y: "2026",  x: 0.00 },
-  { y: "2027",  x: 0.20 },
-  { y: "2028",  x: 0.40 },
-  { y: "2029",  x: 0.60 },
-  { y: "2030",  x: 0.80 },
-  { y: "2031+", x: 1.00 },
-];
-
 const RELEASES = [
-  { ver: "v1.0", when: "2027 Q4",  tag: "x86_64 · NVIDIA",            x: 0.36, tone: "accent",    place: "below-far"   },
-  { ver: "v1.1", when: "2028 Q2",  tag: "ARM64 server",                x: 0.46, tone: "highlight", place: "below-near"  },
-  { ver: "v1.2", when: "2028 Q4",  tag: "Apple Silicon",               x: 0.55, tone: "highlight", place: "below-far"   },
-  { ver: "v2.0", when: "~2029-30", tag: "ABI break · full mm/cred",    x: 0.78, tone: "muted",     place: "below-near"  },
-  { ver: "v3.0", when: "~2031+",   tag: "default substrate",           x: 0.96, tone: "muted",     place: "below-far"   },
+  { ver: "v1.0", tag: "x86_64 · NVIDIA",            x: 0.30, tone: "accent",    place: "below-far"   },
+  { ver: "v1.1", tag: "ARM64 server",                x: 0.44, tone: "highlight", place: "below-near"  },
+  { ver: "v1.2", tag: "Apple Silicon",               x: 0.57, tone: "highlight", place: "below-far"   },
+  { ver: "v2.0", tag: "ABI break · full mm/cred",    x: 0.78, tone: "muted",     place: "below-near"  },
+  { ver: "v3.0", tag: "default substrate",           x: 0.96, tone: "muted",     place: "below-far"   },
 ];
 
-// the build phase = "now (Sprint 0)" -> v1.0 (2027 Q4)
-const BUILD_PHASE = { x0: 0.02, x1: 0.36, label: "build phase · 26 sprints · 12-18 months" };
+// the build phase = "spec locked" -> v1.0
+const BUILD_PHASE = { x0: 0.02, x1: 0.30 };
 // the ABI-line lives between v1.2 (x=0.55) and v2.0 (x=0.78), at ~0.66
 const ABI_LINE_X = 0.665;
 
@@ -39,7 +29,7 @@ const TONE: Record<string, string> = {
 export function Timeline() {
   // viewport in svg units
   const W = 1000;
-  const H = 360;
+  const H = 330;
   const PAD_X = 60;
   const axisY = 180;
 
@@ -50,7 +40,7 @@ export function Timeline() {
   return (
     <figure>
       <div className="rounded-2xl border hairline overflow-hidden bg-[color:var(--surface)]/40 p-4 sm:p-6">
-        <svg viewBox={`0 0 ${W} ${H}`} className="block w-full h-auto" role="img" aria-label="Coconut OS roadmap timeline 2026 to 2031">
+        <svg viewBox={`0 0 ${W} ${H}`} className="block w-full h-auto" role="img" aria-label="Coconut OS release sequence, ordered not dated, v1.0 through v3.0">
           <defs>
             <linearGradient id="build-fill" x1="0" x2="1" y1="0" y2="0">
               <stop offset="0%"  stopColor="color-mix(in oklab, var(--accent) 12%, transparent)" stopOpacity="1" />
@@ -73,7 +63,7 @@ export function Timeline() {
                   build phase
                 </text>
                 <text x={(x0 + x1) / 2} y={y + 32} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)">
-                  26 sprints · 12-18 months
+                  spec locked → v1.0
                 </text>
               </g>
             );
@@ -82,16 +72,8 @@ export function Timeline() {
           {/* axis */}
           <line x1={PAD_X - 6} x2={W - PAD_X + 6} y1={axisY} y2={axisY} stroke="color-mix(in oklab, var(--fg) 22%, transparent)" strokeWidth="1" />
 
-          {/* year ticks */}
-          {YEARS.map((y) => {
-            const cx = px(y.x);
-            return (
-              <g key={y.y}>
-                <line x1={cx} x2={cx} y1={axisY - 4} y2={axisY + 4} stroke="color-mix(in oklab, var(--fg) 28%, transparent)" strokeWidth="1" />
-                <text x={cx} y={axisY + 22} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="11" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.4">{y.y}</text>
-              </g>
-            );
-          })}
+          {/* axis direction label */}
+          <text x={W - PAD_X + 6} y={axisY - 12} textAnchor="end" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.4">order, not time →</text>
 
           {/* ABI-break dashed line */}
           {(() => {
@@ -126,8 +108,7 @@ export function Timeline() {
                 {/* label group */}
                 <g transform={`translate(${cx},${labelY})`}>
                   <text x={0} y={0} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="15" fill={color} letterSpacing="-0.2">{r.ver}</text>
-                  <text x={0} y={16} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="10.5" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.3">{r.when}</text>
-                  <text x={0} y={32} textAnchor="middle" fontFamily="ui-sans-serif, system-ui" fontSize="11" fill="color-mix(in oklab, var(--fg) 80%, transparent)">{r.tag}</text>
+                  <text x={0} y={18} textAnchor="middle" fontFamily="ui-sans-serif, system-ui" fontSize="11" fill="color-mix(in oklab, var(--fg) 80%, transparent)">{r.tag}</text>
                 </g>
               </g>
             );
@@ -143,7 +124,7 @@ export function Timeline() {
           <LegendDot color="var(--muted)"     body="v2.0+ · long horizon"  />
         </div>
         <p className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-          order is locked · sprint-level commitments move with the build
+          order is locked · dates return when the first milestone is behind us
         </p>
       </div>
     </figure>

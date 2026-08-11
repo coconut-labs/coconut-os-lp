@@ -9,7 +9,7 @@ export function PullQuote() {
         <div className="max-w-[60rem]">
           <Reveal>
             <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-              § 04·5 — Pinned from the PRD
+              § 04·5 · Pinned from the PRD
             </div>
           </Reveal>
           <Reveal delay={0.05}>
@@ -31,7 +31,7 @@ export function PullQuote() {
                 the scheduler and the inference broker, a{" "}
                 <span className="text-[color:var(--accent)]">tier-addressable memory budget</span>{" "}
                 spanning HBM, RAM and SSD, and an{" "}
-                <span className="text-[color:var(--accent)]">audit footprint</span> —
+                <span className="text-[color:var(--accent)]">audit footprint</span>:
                 every syscall, every capability use, every resource access recorded with
                 cryptographically chained hashes.
               </p>
@@ -41,7 +41,7 @@ export function PullQuote() {
             <div className="mt-9 flex items-center gap-3">
               <span className="h-px w-10 bg-[color-mix(in_oklab,var(--fg)_25%,transparent)]" />
               <span className="font-mono text-[12px] tracking-tight text-[color:var(--muted)]">
-                01-PRD § 2.4 — what "agent-as-primitive" means at the OS level
+                01-PRD § 2.4 · what "agent-as-primitive" means at the OS level
               </span>
             </div>
           </Reveal>

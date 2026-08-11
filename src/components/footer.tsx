@@ -1,88 +1,56 @@
 "use client";
 
+/* Umbrella band. Coconut OS is one surface of Coconut Labs; the footer's job
+   is the path back to the lab, the project page, the benchmarks, and the org.
+   No date promises. */
+
 import { CoconutGlyph } from "./coconut-glyph";
+
+const UMBRELLA = [
+  { label: "lab home", href: "https://coconutlabs.org" },
+  { label: "project page", href: "https://coconutlabs.org/projects/coconut-os" },
+  { label: "benchmarks", href: "https://coconutlabs.org/benchmarks" },
+  { label: "masterclass", href: "https://masterclass.coconutlabs.org" },
+  { label: "github", href: "https://github.com/coconut-labs" },
+];
 
 export function Footer() {
   return (
-    <footer className="relative pt-16 pb-12 border-t hairline">
+    <footer className="relative pt-12 pb-12 border-t hairline">
       <div className="container-x">
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
-          <div>
-            <div className="flex items-center gap-2.5">
-              <span className="text-[color:var(--fg)]">
-                <CoconutGlyph size={22} />
-              </span>
-              <span className="font-mono text-[14px] tracking-tight text-[color:var(--fg)]">
-                Coconut OS
-              </span>
-            </div>
-            <p className="mt-4 max-w-[26rem] text-[13.5px] leading-[1.55] text-[color:var(--fg)]/75">
-              A Linux distribution where agents are first-class kernel primitives.
-              Built at <a className="underline decoration-[color:var(--muted)] hover:decoration-[color:var(--fg)] underline-offset-4" href="https://coconutlabs.org">Coconut Labs</a>.
-            </p>
-            <p className="mt-4 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-              Coconut OS 1.0 ships 2027 Q4 · this site is the manifesto, not the product.
-            </p>
-          </div>
-
-          <FooterCol title="Spec">
-            <FooterLink href="/specs/thesis">Thesis</FooterLink>
-            <FooterLink href="/specs/architecture">Architecture</FooterLink>
-            <FooterLink href="/specs/security">Capabilities + audit</FooterLink>
-            <FooterLink href="/specs/roadmap">Roadmap</FooterLink>
-            <FooterLink href="/specs/team">Team + cadence</FooterLink>
-          </FooterCol>
-
-          <FooterCol title="Coconut Labs">
-            <FooterLink href="https://coconutlabs.org">Lab home</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/kvwarden">kvwarden</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs/coconut-os-lp">LP repo</FooterLink>
-            <FooterLink href="https://github.com/coconut-labs">GitHub org</FooterLink>
-          </FooterCol>
-
-          <FooterCol title="More">
-            <FooterLink href="#top">Top</FooterLink>
-            <FooterLink href="#thesis">Thesis</FooterLink>
-            <FooterLink href="#roadmap">Roadmap</FooterLink>
-            <FooterLink href="#spec">Spec</FooterLink>
-          </FooterCol>
+        <div className="flex items-center gap-2.5">
+          <span className="text-[color:var(--fg)]">
+            <CoconutGlyph size={20} />
+          </span>
+          <span className="text-[15px] font-semibold tracking-[-0.02em] text-[color:var(--fg)]">
+            coconut<span className="text-[color:var(--accent)]">OS</span>
+          </span>
         </div>
 
-        <div className="mt-16 pt-7 border-t hairline flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
+        <p className="mt-5 text-[14px] leading-[1.55] text-[color:var(--fg)]/80">
+          Coconut OS is one surface of Coconut Labs.
+        </p>
+
+        <nav className="mt-4 flex flex-wrap gap-x-5 gap-y-2" aria-label="Coconut Labs surfaces">
+          {UMBRELLA.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer"
+              className="font-mono text-[11.5px] text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-200"
+            >
+              {l.label} →
+            </a>
+          ))}
+        </nav>
+
+        <div className="mt-10 pt-6 border-t hairline">
           <p className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-            © 2026 Coconut Labs · this site is the manifesto · v1.0 lands 2027 Q4
-          </p>
-          <p className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-            built at <a className="hover:text-[color:var(--fg)] transition-colors" href="https://coconutlabs.org">coconutlabs.org</a> · Inter + Fragment Mono · sibling warm-paper palette
+            © 2026 Coconut Labs · this site is the manifesto, not the product.
           </p>
         </div>
       </div>
     </footer>
-  );
-}
-
-function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div>
-      <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-        {title}
-      </div>
-      <ul className="mt-4 space-y-2">{children}</ul>
-    </div>
-  );
-}
-
-function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <li>
-      <a
-        href={href}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noreferrer" : undefined}
-        className="text-[13.5px] text-[color:var(--fg)]/80 hover:text-[color:var(--fg)] transition-colors duration-200"
-      >
-        {children}
-      </a>
-    </li>
   );
 }

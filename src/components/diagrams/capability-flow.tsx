@@ -11,7 +11,7 @@ const STEPS = [
   { tag: "libcoconut",    label: "present capability",                      detail: "agent_cap_present(aid, cap.fs.read)" },
   { tag: "security/coconut", label: "LSM hook gates the call",             detail: "lookup cap_set bound at spawn" },
   { tag: "kernel/audit",  label: "audit append · chain-sealed",             detail: "ev=cap_use · chain=blake3:…" },
-  { tag: "kernel",        label: "VFS executes — or returns -ECAPABILITY",  detail: "no cap = no reach · deny before the operation" },
+  { tag: "kernel",        label: "VFS executes, or returns -ECAPABILITY",  detail: "no cap = no reach · deny before the operation" },
 ];
 
 export function CapabilityFlow() {
@@ -53,7 +53,7 @@ export function CapabilityFlow() {
         </div>
       </div>
       <figcaption className="mt-3 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-        capability presentation is in the syscall hot path — never bypassable from userspace
+        capability presentation is in the syscall hot path · never bypassable from userspace
       </figcaption>
     </figure>
   );

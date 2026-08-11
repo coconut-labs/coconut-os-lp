@@ -13,7 +13,7 @@ export function Status() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 08 — The spec, in five rooms
+            § 08 · The spec, in five rooms
           </div>
         </Reveal>
         <Reveal delay={0.05}>
@@ -27,7 +27,7 @@ export function Status() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-[40rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            Coconut OS does not exist yet. What exists is the spec — the why, the what, the when, the how. Five entry points cover the load-bearing surface. Some specifics are intentionally held back until the spec drop; the rest is here.
+            Coconut OS does not exist yet. What exists is the spec: the why, the what, the when, the how. Five entry points cover the load-bearing surface. Some specifics are intentionally held back until the spec drop; the rest is here.
           </p>
         </Reveal>
 

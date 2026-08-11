@@ -7,7 +7,7 @@ export function Hero() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="top" className="relative pt-28 sm:pt-32 pb-16 sm:pb-24">
+    <section id="top" className="relative pt-14 sm:pt-20 pb-16 sm:pb-24">
       <div className="container-x grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-start">
         {/* LEFT: manifesto */}
         <div className="relative z-10">
@@ -40,7 +40,7 @@ export function Hero() {
           >
             A Linux distribution where every agent gets an{" "}
             <span className="font-mono text-[color:var(--accent)]">AID</span>, a
-            capability bundle, an attestation chain, and a row in the audit log —{" "}
+            capability bundle, an attestation chain, and a row in the audit log,{" "}
             <span className="text-[color:var(--muted)]">
               the same way every process gets a PID today.
             </span>
@@ -75,8 +75,8 @@ export function Hero() {
             className="mt-12 grid grid-cols-3 gap-x-6 gap-y-2 border-t hairline pt-6 max-w-[36rem]"
           >
             <Stat k="Kernel surface" v="Linux 6.12 LTS, hard fork" />
-            <Stat k="Team" v="10 engineers · 26 sprints" />
-            <Stat k="v1.0 target" v="2027 Q4" />
+            <Stat k="Team" v="Two engineers today" />
+            <Stat k="Status" v="Spec phase · prototypes" />
           </motion.div>
         </div>
 

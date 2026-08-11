@@ -4,6 +4,7 @@
    children, bottom prev/next + back. Keeps the LP brand language intact. */
 
 import { Nav } from "./nav";
+import { StatusStrip } from "./status-strip";
 import { Footer } from "./footer";
 import { ScrollProgress } from "./scroll-progress";
 import { SPECS } from "@/lib/spec-previews";
@@ -32,8 +33,9 @@ export function SpecShell({
     <main className="relative">
       <ScrollProgress />
       <Nav />
+      <StatusStrip />
 
-      <header className="relative pt-28 sm:pt-32 pb-10 sm:pb-14">
+      <header className="relative pt-12 sm:pt-16 pb-10 sm:pb-14">
         <div className="container-x">
           <Reveal>
             <div className="flex items-center gap-3">

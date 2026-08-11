@@ -8,7 +8,7 @@ const PAIN = [
     title: "Capability sprawl",
     today: "Agent runs as the user's UID. Intended caps: read three files. Actual caps: everything the user can do.",
     answer:
-      "Capability-mediated access at the syscall layer. An agent without cap.fs.read on a path literally cannot read it — the syscall returns -ECAPABILITY before reaching the VFS.",
+      "Capability-mediated access at the syscall layer. An agent without cap.fs.read on a path literally cannot read it: the syscall returns -ECAPABILITY before reaching the VFS.",
   },
   {
     n: "02",
@@ -22,12 +22,12 @@ const PAIN = [
     title: "Fairness violations across tenants",
     today: "One customer's runaway loop floods the inference broker. Other 199 tenants see p99 latency spike 30×. Platform team writes userspace rate limiters; they leak.",
     answer:
-      "Fair-share scheduling extended down into the kernel. CPU time, memory bandwidth, PCIe, inference tokens — all keyed on AID, not PID. p99/p50 ≤ 1.5× under 4-tenant flooder load.",
+      "Fair-share scheduling extended down into the kernel. CPU time, memory bandwidth, PCIe, inference tokens, all keyed on AID, not PID. p99/p50 ≤ 1.5× under 4-tenant flooder load.",
   },
   {
     n: "04",
     title: "Capability vs DAC mismatch",
-    today: "Linux carries UID/GID/mode bits and capabilities and SELinux all stacked. Agents don't cluster into UIDs — every agent is its own principal.",
+    today: "Linux carries UID/GID/mode bits and capabilities and SELinux all stacked. Agents don't cluster into UIDs; every agent is its own principal.",
     answer:
       "Capability bundle becomes the primary access-control object. DAC reduced to a legacy compat layer for unmodified binaries. The new LSM is the enforcement point.",
   },
@@ -46,7 +46,7 @@ export function PainPoints() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 02 — Five things today's stack can't fix incrementally
+            § 02 · Five things today's stack can't fix incrementally
           </div>
         </Reveal>
         <Reveal delay={0.05}>
@@ -93,7 +93,7 @@ export function PainPoints() {
                 The answer is no, for three reasons that compound: capability presentation must be in the syscall hot path, audit-chain integrity requires kernel-side append, and fair-share scheduling requires scheduler-side AID awareness.
               </p>
               <p className="mt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-[0.04em]">
-                — 01-PRD §3.7
+                01-PRD §3.7
               </p>
             </div>
           </Reveal>

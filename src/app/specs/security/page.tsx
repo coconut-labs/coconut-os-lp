@@ -5,7 +5,7 @@ import { AuditChain } from "@/components/diagrams/audit-chain";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Capabilities · audit chain · attestation — Coconut OS",
+  title: "Capabilities · audit chain · attestation · Coconut OS",
   description:
     "The load-bearing security model: capability presentation at the syscall hot path, BLAKE3-chained audit log rooted in TPM-NV, Ed25519-signed manifest attestation.",
 };
@@ -23,28 +23,28 @@ export default function SecurityPage() {
     <SpecShell
       slug="security"
       number="03"
-      tag="how — the load-bearing line"
+      tag="how · the load-bearing line"
       title={<>The capability bundle is the <span className="text-[color:var(--accent)]">primary access-control object.</span></>}
       blurb={<>Linux today layers DAC, capabilities, SELinux, AppArmor. For agent workloads it's the wrong primitive set. Coconut OS makes capability primary and reduces DAC to a legacy compat layer for unmodified binaries.</>}
     >
-      <Section eyebrow="§ 03.1 — capability presentation" title={<>Denied at the syscall, before VFS.</>}>
+      <Section eyebrow="§ 03.1 · capability presentation" title={<>Denied at the syscall, before VFS.</>}>
         <Reveal>
           <CapabilityFlow />
         </Reveal>
         <Reveal delay={0.08}>
           <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            An agent that was not granted <span className="font-mono text-[color:var(--accent)]">cap.fs.read("/home/maya/.ssh")</span> literally cannot read that path — the syscall returns <span className="font-mono text-[color:var(--accent)]">-ECAPABILITY</span> before reaching the VFS layer. The mechanism is closer to seL4 and Capsicum than to Linux's hybrid capability-over-DAC overlay.
+            An agent that was not granted <span className="font-mono text-[color:var(--accent)]">cap.fs.read("/home/maya/.ssh")</span> literally cannot read that path: the syscall returns <span className="font-mono text-[color:var(--accent)]">-ECAPABILITY</span> before reaching the VFS layer. The mechanism is closer to seL4 and Capsicum than to Linux's hybrid capability-over-DAC overlay.
           </p>
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 03.2 — the audit chain" title={<>Tamper-evident, BLAKE3-chained, rooted in TPM-NV.</>}>
+      <Section eyebrow="§ 03.2 · the audit chain" title={<>Tamper-evident, BLAKE3-chained, rooted in TPM-NV.</>}>
         <Reveal>
           <AuditChain />
         </Reveal>
         <Reveal delay={0.06}>
           <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            Every agent-relevant event — spawn, capability grant, capability use, capability denial, resource consumption above threshold, exit — appends to a tamper-evident hash chain. On supported hardware the chain is rooted in a TPM-NV-sealed key; on non-TPM hardware a documented software root with stated attack model.
+            Every agent-relevant event (spawn, capability grant, capability use, capability denial, resource consumption above threshold, exit) appends to a tamper-evident hash chain. On supported hardware the chain is rooted in a TPM-NV-sealed key; on non-TPM hardware a documented software root with stated attack model.
           </p>
         </Reveal>
         <Reveal delay={0.12}>
@@ -54,7 +54,7 @@ export default function SecurityPage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 03.3 — adversary model" title={<>Five in-scope classes at v1.0.</>}>
+      <Section eyebrow="§ 03.3 · adversary model" title={<>Five in-scope classes at v1.0.</>}>
         <Reveal>
           <div className="rounded-2xl border hairline overflow-hidden">
             <div className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
@@ -74,7 +74,7 @@ export default function SecurityPage() {
           </div>
         </Reveal>
         <LockedNote>
-          Out-of-scope classes (physical attack, kernel zero-days, TPM firmware compromise, quantum break of BLAKE3/Ed25519) are listed with mitigation pointers in the full threat model. CVE SLA + key-revocation procedure + Trail of Bits engagement details land with the security drop.
+          Out-of-scope classes (physical attack, kernel zero-days, TPM firmware compromise, quantum break of BLAKE3/Ed25519) are listed with mitigation pointers in the full threat model. CVE SLA, the key-revocation procedure, and external-audit engagement details land with the security drop.
         </LockedNote>
       </Section>
     </SpecShell>

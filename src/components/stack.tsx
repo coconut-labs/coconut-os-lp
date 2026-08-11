@@ -12,33 +12,33 @@ const LAYERS = [
   {
     n: "L4",
     name: "Showcase workloads",
-    items: ["Dream Team — 31-agent virtual eng org", "Coconut Studio — flagship agent workbench"],
+    items: ["Dream Team · 31-agent virtual eng org · planned v1.0 hero workload", "Coconut Studio · flagship agent workbench"],
     tone: "muted",
   },
   {
     n: "L3",
     name: "Shell + UX",
-    items: ["Coconut Shell — Wayland compositor (Rust + Smithay)", "Coconut Center · Coconut Terminal · Coconut Display Manager"],
+    items: ["Coconut Shell · Wayland compositor (Rust + Smithay)", "Coconut Center · Coconut Terminal · Coconut Display Manager"],
     tone: "highlight",
   },
   {
     n: "L2",
     name: "Inference substrate",
-    items: ["kvwarden — GPU inference broker (CUDA · x86_64)", "mlxd — NPU inference broker (MLX · ARM64)"],
+    items: ["kvwarden · GPU inference broker (CUDA · x86_64)", "mlxd · NPU inference broker (MLX · ARM64)"],
     tone: "highlight",
-    sub: "existing Coconut Labs projects · integrated as default brokers",
+    sub: "kvwarden on PyPI today · mlxd in research · integrated as default brokers",
   },
   {
     n: "L1",
     name: "System userspace",
-    items: ["coconutd — PID 1, agent supervisor (replaces systemd)", "coconutpkg · coconut-installer · coconutfs-tools · libcoconut"],
+    items: ["coconutd · PID 1, agent supervisor (replaces systemd)", "coconutpkg · coconut-installer · coconutfs-tools · libcoconut"],
     tone: "accent",
   },
   {
     n: "L0",
     name: "Kernel",
     items: [
-      "linux-6.12-coconut — hard fork",
+      "linux-6.12-coconut · hard fork",
       "modified: mm/ · fs/ · kernel/cred.c · kernel/sched/ · kernel/cgroup/",
       "new: kernel/agent/ · kernel/audit/coconut/ · security/coconut/",
     ],
@@ -65,7 +65,7 @@ export function Stack() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 03 — Architecture
+            § 03 · Architecture
           </div>
         </Reveal>
         <Reveal delay={0.05}>

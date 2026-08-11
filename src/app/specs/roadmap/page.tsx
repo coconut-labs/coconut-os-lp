@@ -4,14 +4,14 @@ import { Timeline } from "@/components/diagrams/timeline";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Roadmap — Coconut OS",
+  title: "Roadmap · Coconut OS",
   description:
-    "12-18 months to v1.0. Then a four-year curve to the default substrate. Hard ABI line between v1.x and v2.0.",
+    "The sequence. Versions are ordered, not dated. Hard ABI line between v1.x and v2.0.",
 };
 
 const RELEASES = [
   {
-    ver: "v1.0", when: "2027 Q4", tone: "accent",
+    ver: "v1.0", when: "first", tone: "accent",
     line: "x86_64 + NVIDIA · Workstation + Server",
     bullets: [
       "Linux 6.12 hard fork · capability-mediated LSM",
@@ -22,7 +22,7 @@ const RELEASES = [
     ],
   },
   {
-    ver: "v1.1", when: "2028 Q2", tone: "highlight",
+    ver: "v1.1", when: "after v1.0", tone: "highlight",
     line: "ARM64 server-class",
     bullets: [
       "Ampere first-class · NVIDIA Grace optional",
@@ -33,7 +33,7 @@ const RELEASES = [
     ],
   },
   {
-    ver: "v1.2", when: "2028 Q4", tone: "highlight",
+    ver: "v1.2", when: "after v1.1", tone: "highlight",
     line: "Apple Silicon · via Asahi bootstrap",
     bullets: [
       "Apple Silicon NPU first-class",
@@ -42,7 +42,7 @@ const RELEASES = [
     ],
   },
   {
-    ver: "v2.0", when: "~2029-30", tone: "muted",
+    ver: "v2.0", when: "after the v1.x line", tone: "muted",
     line: "Full kernel substrate · ABI break",
     bullets: [
       "Full mm/agent_mm.c page-allocator rewrite",
@@ -51,7 +51,7 @@ const RELEASES = [
     ],
   },
   {
-    ver: "v3.0", when: "~2031+", tone: "muted",
+    ver: "v3.0", when: "the horizon", tone: "muted",
     line: "Formal-verification expansion · the 5-year vision",
     bullets: [
       "Verification scope extends beyond the LSM hook",
@@ -82,16 +82,16 @@ export default function RoadmapPage() {
       slug="roadmap"
       number="04"
       tag="when"
-      title={<>Twelve to eighteen months to v1.0. Then a <span className="text-[color:var(--accent)]">four-year curve.</span></>}
-      blurb={<>Order is locked. Per-release feature gating moves sprint by sprint. The hard ABI line is between v1.x and v2.0 — every v1.x release carries the same syscall + libcoconut ABI.</>}
+      title={<>The sequence. Versions are <span className="text-[color:var(--accent)]">ordered, not dated.</span></>}
+      blurb={<>v1.0 when the spec survives review. Order is locked; per-release feature gating moves sprint by sprint. The hard ABI line is between v1.x and v2.0: every v1.x release carries the same syscall + libcoconut ABI. Dates return when the first milestone is behind us, not before.</>}
     >
-      <Section eyebrow="§ 04.1 — the timeline" title={<>2026 → 2031.</>}>
+      <Section eyebrow="§ 04.1 · the sequence" title={<>Five releases, in order.</>}>
         <Reveal>
           <Timeline />
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 04.2 — release-by-release">
+      <Section eyebrow="§ 04.2 · release-by-release">
         <div className="space-y-3">
           {RELEASES.map((r, i) => (
             <Reveal key={r.ver} delay={i * 0.05}>
@@ -122,7 +122,7 @@ export default function RoadmapPage() {
           ))}
         </div>
         <LockedNote>
-          Sprint-level deliverables, the parallel-projects sequencing with kvwarden + mlxd, hire schedule, and the gating decisions for v1.1/v1.2/v2.0 are pinned in the PLAN + SPRINTS docs. Public preview shows the order; specifics travel with the spec drop and sprint reviews.
+          Sprint-level deliverables, the parallel-projects sequencing with kvwarden + mlxd, and the gating decisions for v1.1/v1.2/v2.0 are pinned in the PLAN + SPRINTS docs. Public preview shows the order; specifics travel with the spec drop and sprint reviews.
         </LockedNote>
       </Section>
     </SpecShell>

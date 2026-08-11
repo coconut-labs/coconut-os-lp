@@ -8,7 +8,7 @@ const NODES = [
   { ts: "1.881", ev: "agent_spawn",    aid: "a:00001", chain: "blake3:8c7e…b21a", tone: "muted"  },
   { ts: "1.883", ev: "cap_grant",      aid: "a:00001", chain: "blake3:42a1…0c91", tone: "muted"  },
   { ts: "2.046", ev: "cap_deny",       aid: "a:00017", chain: "blake3:1f3a…cc04", tone: "accent" },
-  { ts: "2.047", ev: "audit_alert",    aid: "—",       chain: "blake3:9d20…fe18", tone: "highlight"  },
+  { ts: "2.047", ev: "audit_alert",    aid: "·",       chain: "blake3:9d20…fe18", tone: "highlight"  },
 ];
 
 const TONE: Record<string, string> = {

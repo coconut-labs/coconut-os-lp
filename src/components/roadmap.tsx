@@ -5,7 +5,6 @@ import { Reveal } from "./reveal";
 const RELEASES = [
   {
     ver: "v1.0",
-    year: "2027 Q4",
     line: "x86_64 + NVIDIA · Workstation + Server",
     bullets: [
       "Linux 6.12 hard fork · capability-mediated LSM",
@@ -18,7 +17,6 @@ const RELEASES = [
   },
   {
     ver: "v1.1",
-    year: "2028 Q2",
     line: "ARM64 server-class",
     bullets: [
       "Ampere first-class · NVIDIA Grace optional",
@@ -31,7 +29,6 @@ const RELEASES = [
   },
   {
     ver: "v1.2",
-    year: "2028 Q4",
     line: "Apple Silicon · via Asahi bootstrap",
     bullets: [
       "Apple Silicon NPU first-class",
@@ -42,7 +39,6 @@ const RELEASES = [
   },
   {
     ver: "v2.0",
-    year: "~2029-30",
     line: "Full kernel substrate · ABI break",
     bullets: [
       "Full mm/agent_mm.c page-allocator rewrite",
@@ -53,7 +49,6 @@ const RELEASES = [
   },
   {
     ver: "v3.0",
-    year: "~2031+",
     line: "Formal-verification expansion · the 5-year vision",
     bullets: [
       "Verification scope extends beyond LSM hook",
@@ -85,14 +80,14 @@ export function Roadmap() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 06 — Roadmap
+            § 06 · Roadmap
           </div>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.015em]">
-            12-18 months to v1.0.{" "}
+            The sequence.{" "}
             <span className="text-[color:var(--muted)]">
-              Then a four-year curve to the default substrate.
+              Versions are ordered, not dated.
             </span>
           </h2>
         </Reveal>
@@ -108,12 +103,9 @@ export function Roadmap() {
                 }}
               >
                 <div
-                  className="font-mono text-[12px] uppercase tracking-[0.08em]"
+                  className="font-mono text-[22px] tracking-tight"
                   style={{ color: TONE_TEXT[r.tone] }}
                 >
-                  {r.year}
-                </div>
-                <div className="mt-1 font-mono text-[22px] tracking-tight text-[color:var(--fg)]">
                   {r.ver}
                 </div>
                 <p className="mt-2 text-[13px] text-[color:var(--fg)]/85 leading-snug">
@@ -137,6 +129,11 @@ export function Roadmap() {
         <Reveal delay={0.4}>
           <p className="mt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
             Hard ABI line between v1.x and v2.0 · manifests written for v1.x carry across all v1.x releases (NFR-042/043).
+          </p>
+        </Reveal>
+        <Reveal delay={0.45}>
+          <p className="mt-2 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
+            Dates return when the first milestone is behind us, not before.
           </p>
         </Reveal>
       </div>

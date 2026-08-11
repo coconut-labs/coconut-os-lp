@@ -8,7 +8,7 @@ export function Thesis() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 01 — The thesis
+            § 01 · The thesis
           </div>
         </Reveal>
 
@@ -44,7 +44,7 @@ export function Thesis() {
               tag="Path"
               tone="highlight"
               title="Hard fork of Linux 6.12 LTS."
-              body="Capability-centric replacement of mm/, fs/, cred.c, sched/, cgroup/. New kernel/agent/, kernel/audit/coconut/, security/coconut/. Eight new syscalls. Ten engineers, 26 sprints, v1.0 ships 2027 Q4."
+              body="Capability-centric replacement of mm/, fs/, cred.c, sched/, cgroup/. New kernel/agent/, kernel/audit/coconut/, security/coconut/. Eight new syscalls. Two engineers today: the plan is sized for a team, the spec is sized for review."
             />
           </Reveal>
         </div>

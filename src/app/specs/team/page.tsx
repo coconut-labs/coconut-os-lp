@@ -3,9 +3,9 @@ import { SpecShell, Section, LockedNote } from "@/components/spec-shell";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Team + cadence — Coconut OS",
+  title: "Team + cadence · Coconut OS",
   description:
-    "Ten engineers, named and committed. Twenty-six two-week sprints. Coconut Labs' first multi-engineer project.",
+    "Two engineers today. The plan is sized for a team; the spec is sized for review.",
 };
 
 const ROLES = [
@@ -26,11 +26,11 @@ export default function TeamPage() {
     <SpecShell
       slug="team"
       number="05"
-      tag="how — the build"
-      title={<>Ten engineers, twenty-six sprints. Coconut Labs' <span className="text-[color:var(--accent)]">first multi-engineer project.</span></>}
-      blurb={<>The previous Coconut Labs projects were solo: kvwarden, mlxd, Minerva Trader, Pancakes. Coconut OS is the first time the lab runs a multi-engineer team. The shape below is by role, not by name — names attach at Sprint 0.</>}
+      tag="how · the build"
+      title={<>Two engineers today. The plan is sized for a team; the spec is <span className="text-[color:var(--accent)]">sized for review.</span></>}
+      blurb={<>The previous Coconut Labs projects were solo. Coconut OS is planned as the lab's first multi-engineer project, but the lab is two people today and the site says so. The role topology below is the plan, not the payroll; names attach when they are real.</>}
     >
-      <Section eyebrow="§ 05.1 — roles" title={<>The shape of the org.</>}>
+      <Section eyebrow="§ 05.1 · roles" title={<>The planned shape: ten roles. Two people today.</>}>
         <Reveal>
           <div className="rounded-2xl border hairline overflow-hidden">
             <div className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
@@ -46,22 +46,22 @@ export default function TeamPage() {
         </Reveal>
         <Reveal delay={0.08}>
           <p className="mt-4 font-mono text-[11.5px] text-[color:var(--muted)] tracking-tight">
-            names attach at Sprint 0 · per-role bios + photos publish at kickoff
+            the topology is the plan, not the payroll · bios publish when names attach
           </p>
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 05.2 — cadence" title={<>Sprints are two weeks. Everything else is consequence.</>}>
+      <Section eyebrow="§ 05.2 · cadence" title={<>Sprints are two weeks. Everything else is consequence.</>}>
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-[60rem]">
-            <Stat k="sprints to v1.0" v="26" sub="two-week cadence · 52 weeks" />
+            <Stat k="engineers today" v="2" sub="the whole lab" />
+            <Stat k="planned roles" v="10" sub="the shape the plan is sized for" />
             <Stat k="parallel projects" v="3" sub="kvwarden · mlxd · Coconut OS" />
-            <Stat k="velocity target" v="35 pts/sprint" sub="effective allocation across team" />
           </div>
         </Reveal>
         <Reveal delay={0.06}>
           <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            The three parallel projects — kvwarden (already shipped to Show HN), mlxd (G3 launch June 2026), and Coconut OS — run concurrently. Running three in parallel from a ten-engineer base is stretched. The founder framed it as the bet of the year, not a comfortable plan.
+            The three parallel projects, kvwarden (v0.1.6 on PyPI), mlxd (in research), and Coconut OS, run concurrently. Running three in parallel from a two-person lab is stretched. The founders frame it as the bet of the year, not a comfortable plan.
           </p>
         </Reveal>
         <LockedNote>

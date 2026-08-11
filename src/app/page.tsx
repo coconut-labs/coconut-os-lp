@@ -1,4 +1,5 @@
 import { Nav } from "@/components/nav";
+import { StatusStrip } from "@/components/status-strip";
 import { Hero } from "@/components/hero";
 import { Thesis } from "@/components/thesis";
 import { PainPoints } from "@/components/pain-points";
@@ -18,6 +19,7 @@ export default function Page() {
     <main className="relative">
       <ScrollProgress />
       <Nav />
+      <StatusStrip />
       <Hero />
       <Thesis />
       <PainPoints />

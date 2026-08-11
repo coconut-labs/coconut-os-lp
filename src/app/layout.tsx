@@ -18,9 +18,9 @@ const fragmentMono = Fragment_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://coconutos.org"),
-  title: "Coconut OS — agents as first-class kernel primitives",
+  title: "Coconut OS · agents as first-class kernel primitives",
   description:
-    "A Linux distribution where every agent gets an AID, a capability bundle, an attestation chain, and a row in the audit log — the same way every process gets a PID today. From Coconut Labs.",
+    "A Linux distribution where every agent gets an AID, a capability bundle, an attestation chain, and a row in the audit log, the same way every process gets a PID today. From Coconut Labs.",
   applicationName: "Coconut OS",
   authors: [{ name: "Coconut Labs", url: "https://coconutlabs.org" }],
   creator: "Coconut Labs",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Coconut Labs",
   ],
   openGraph: {
-    title: "Coconut OS — agents as first-class kernel primitives",
+    title: "Coconut OS · agents as first-class kernel primitives",
     description:
       "A Linux distribution where every agent gets an AID, a capability bundle, an attestation chain, and a row in the audit log.",
     url: "https://coconutos.org",
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     images: [
-      { url: "/og.png", width: 1200, height: 630, alt: "Coconut OS — agents as first-class kernel primitives" },
+      { url: "/og.png", width: 1200, height: 630, alt: "Coconut OS · agents as first-class kernel primitives" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coconut OS — agents as first-class kernel primitives",
+    title: "Coconut OS · agents as first-class kernel primitives",
     description:
-      "Linux 6.12, hard-forked. Capability-mediated access. Tamper-evident audit chain. Fair-share inference. Ships 2027.",
+      "Linux 6.12, hard-forked. Capability-mediated access. Tamper-evident audit chain. Fair-share inference. In specification.",
     images: ["/og.png"],
   },
   icons: {

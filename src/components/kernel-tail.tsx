@@ -31,9 +31,9 @@ const TONE: Record<Tone, string> = {
 const SCRIPT: Line[] = [
   { ts: "  0.000", source: "kernel",        body: "Linux 6.12.18-coconut #1 SMP PREEMPT_DYNAMIC", tone: "muted" },
   { ts: "  0.014", source: "kernel",        body: "Coconut LSM: capability-mediated access initialised", tone: "muted" },
-  { ts: "  0.082", source: "kernel/agent",  body: "agent subsystem online — 8 syscalls registered", tone: "muted" },
+  { ts: "  0.082", source: "kernel/agent",  body: "agent subsystem online · 8 syscalls registered", tone: "muted" },
   { ts: "  0.117", source: "kernel/audit",  body: "audit-chain root sealed via TPM-NV (blake3:8c7e…b21a)", tone: "success" },
-  { ts: "  0.498", source: "systemd[1]",    body: "(skipped — coconutd is PID 1 on Coconut OS)", tone: "muted" },
+  { ts: "  0.498", source: "systemd[1]",    body: "(skipped · coconutd is PID 1 on Coconut OS)", tone: "muted" },
   { ts: "  0.499", source: "coconutd[1]",   body: "PID 1 ready · supervising 0 agents · 0 caps held", tone: "fg" },
   { ts: "  1.204", source: "coconutd[1]",   body: "user maya@workstation authenticated · session opened", tone: "fg" },
   { ts: "  1.881", source: "coconutd[1]",   body: "agent_spawn  aid=a:00001  class=dream-team-coord", tone: "accent" },
@@ -44,7 +44,7 @@ const SCRIPT: Line[] = [
   { ts: "  2.046", source: "kernel/coconut", body: "DENIED a:00017 → -ECAPABILITY (no fs.read on ~/.ssh)", tone: "accent" },
   { ts: "  2.047", source: "kernel/audit",  body: "audit append · ev=cap_deny · chain=blake3:1f3a…cc04", tone: "highlight" },
   { ts: "  2.301", source: "kvwarden",      body: "admission: 4 tenants · maya@50% budget · p99/p50=1.18×", tone: "muted" },
-  { ts: "  2.412", source: "coconut-center",body: "notification → 'cap_deny on a:00017 — review attempt?'", tone: "highlight" },
+  { ts: "  2.412", source: "coconut-center",body: "notification → 'cap_deny on a:00017 · review attempt?'", tone: "highlight" },
   { ts: "  3.000", source: "coconutd[1]",   body: "steady state · 32 agents active · 0.41 GB HBM · 12.3 W", tone: "muted" },
 ];
 
@@ -170,7 +170,7 @@ export function KernelTail() {
         background:
           "color-mix(in oklab, var(--canvas) 60%, var(--surface) 40%)",
       }}
-      aria-label="Live simulation of the Coconut OS kernel event stream — hover to pause"
+      aria-label="Live simulation of the Coconut OS kernel event stream. Hover to pause."
     >
       {/* terminal chrome */}
       <div className="flex items-center gap-2 px-4 py-2.5 border-b hairline bg-[color:var(--surface)]">
