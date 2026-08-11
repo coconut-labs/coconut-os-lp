@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { KernelTail } from "./kernel-tail";
+import { KernelSilk } from "./kernel-silk";
 
 export function Hero() {
   const reduced = useReducedMotion();
@@ -87,6 +88,14 @@ export function Hero() {
           transition={{ duration: 1.0, delay: 0.45, ease: [0.3, 0, 0.2, 1] }}
           className="relative"
         >
+          {/* the brand object: a Mobius silk band in the accent family,
+              turning on the dark plate. Contained, never a background. */}
+          <div className="relative mb-4 h-[240px] overflow-hidden rounded-[2px] border hairline bg-[#0C0C0E]">
+            <KernelSilk />
+            <p className="pointer-events-none absolute bottom-2.5 left-3.5 font-mono text-[10.5px] uppercase tracking-[0.1em] text-[#82828E]">
+              coconut os · the kernel, turning
+            </p>
+          </div>
           <KernelTail />
           <p className="mt-3 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
             simulation · drawn from{" "}
