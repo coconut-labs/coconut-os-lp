@@ -17,7 +17,7 @@ export function Thesis() {
             Today's operating systems were designed in 1991 for a world where the
             unit of compute was a Unix process.{" "}
             <span className="text-[color:var(--muted)]">
-              The agent era needs the substrate rebuilt.
+              Agents do not fit that shape.
             </span>
           </h2>
         </Reveal>
@@ -36,7 +36,7 @@ export function Thesis() {
               tag="Tomorrow"
               tone="accent"
               title="Agents are kernel objects."
-              body="Every agent has an AID, a declared capability bundle bound at spawn, an attestation chain rooted in a signed manifest, a fair-share lane in the scheduler, and a tamper-evident row in the audit chain. Capability presentation is in the syscall hot path."
+              body="The kernel issues the AID, binds the capability bundle at spawn, holds the attestation chain back to a signed manifest, gives the agent a fair-share lane in the scheduler, and appends every capability use to the tamper-evident audit chain. Capability presentation sits in the syscall hot path."
             />
           </Reveal>
           <Reveal delay={0.19}>
@@ -44,7 +44,7 @@ export function Thesis() {
               tag="Path"
               tone="highlight"
               title="Hard fork of Linux 6.12 LTS."
-              body="Capability-centric replacement of mm/, fs/, cred.c, sched/, cgroup/. New kernel/agent/, kernel/audit/coconut/, security/coconut/. Eight new syscalls. Two engineers today: the plan is sized for a team, the spec is sized for review."
+              body="Capability-centric replacement of mm/, fs/, cred.c, sched/, cgroup/. New kernel/agent/, kernel/audit/coconut/, security/coconut/. Eight new syscalls. Two engineers today, so the spec is the part that exists."
             />
           </Reveal>
         </div>

@@ -10,7 +10,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "The architecture · Coconut OS",
   description:
-    "One ISO, two install profiles, six layers. The shape of the substrate, the eight new syscalls, the agent state machine.",
+    "One ISO, two install profiles, six layers. Where the eight new syscalls sit and what the agent state machine looks like.",
 };
 
 const SYSCALLS = [

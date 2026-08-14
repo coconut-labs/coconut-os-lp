@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Coconut OS · agents as first-class kernel primitives",
     description:
-      "Linux 6.12, hard-forked. Capability-mediated access. Tamper-evident audit chain. Fair-share inference. In specification.",
+      "Linux 6.12, hard-forked, with capability-mediated access, a tamper-evident audit chain, and fair-share inference. In specification.",
     images: ["/og.png"],
   },
   icons: {

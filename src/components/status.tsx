@@ -13,21 +13,21 @@ export function Status() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 08 · The spec, in five rooms
+            § 08 · The spec, in five pieces
           </div>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
-            Click any room for a preview.{" "}
+            Open any one for a preview.{" "}
             <span className="text-[color:var(--muted)]">
-              Each opens a fuller page. The full spec drops when the set is locked.
+              Each has its own page. The full spec drops when the set is locked.
             </span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-[40rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            Coconut OS does not exist yet. What exists is the spec: the why, the what, the when, the how. Five entry points cover the load-bearing surface. Some specifics are intentionally held back until the spec drop; the rest is here.
+            Coconut OS does not exist yet. What exists is the spec, and these five pages are the parts of it worth reading first. Some specifics are held back until the spec drop. The rest is here.
           </p>
         </Reveal>
 
@@ -72,7 +72,7 @@ export function Status() {
                   Open progress, sprint by sprint.
                 </h3>
                 <p className="mt-3 max-w-[34rem] text-[14.5px] leading-[1.6] text-[color:var(--fg)]/85">
-                  Open-progress reports land every two weeks. ISOs land when they're real. No early signups, no waitlists, no exclusivity.
+                  Progress reports go out every two weeks. ISOs ship when they're real. There is nothing to sign up for.
                 </p>
               </div>
               <a

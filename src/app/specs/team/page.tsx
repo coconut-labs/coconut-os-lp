@@ -28,7 +28,7 @@ export default function TeamPage() {
       number="05"
       tag="how · the build"
       title={<>Two engineers today. The plan is sized for a team; the spec is <span className="text-[color:var(--accent)]">sized for review.</span></>}
-      blurb={<>The previous Coconut Labs projects were solo. Coconut OS is planned as the lab's first multi-engineer project, but the lab is two people today and the site says so. The role topology below is the plan, not the payroll; names attach when they are real.</>}
+      blurb={<>The previous Coconut Labs projects were solo. Coconut OS is planned as the lab's first multi-engineer project. Today the lab is two people. The role topology below is the plan, not the payroll; names attach when they are real.</>}
     >
       <Section eyebrow="§ 05.1 · roles" title={<>The planned shape: ten roles. Two people today.</>}>
         <Reveal>
@@ -51,7 +51,7 @@ export default function TeamPage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 05.2 · cadence" title={<>Sprints are two weeks. Everything else is consequence.</>}>
+      <Section eyebrow="§ 05.2 · cadence" title={<>Sprints are two weeks. Sprint 0 waits on the spec set.</>}>
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-[60rem]">
             <Stat k="engineers today" v="2" sub="the whole lab" />
@@ -61,7 +61,7 @@ export default function TeamPage() {
         </Reveal>
         <Reveal delay={0.06}>
           <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            The three parallel projects, kvwarden (v0.1.6 on PyPI), mlxd (in research), and Coconut OS, run concurrently. Running three in parallel from a two-person lab is stretched. The founders frame it as the bet of the year, not a comfortable plan.
+            Three projects run at once: kvwarden (v0.1.6 on PyPI), mlxd (in research), and Coconut OS. Running three in parallel from a two-person lab is stretched. If one of them slips, this is the reason.
           </p>
         </Reveal>
         <LockedNote>

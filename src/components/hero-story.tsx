@@ -31,7 +31,7 @@ export function HeroStory() {
         </Reveal>
         <Reveal delay={0.08}>
           <p className="mt-5 max-w-[40rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            This scene is the target, not a demo. It is what the spec is sized to produce.
+            This scene is the target, not a demo. None of it runs end to end today.
           </p>
         </Reveal>
 

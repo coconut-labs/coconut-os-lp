@@ -11,7 +11,7 @@ export const SPECS: SpecPreview[] = [
     name: "The thesis",
     tag: "why",
     blurb:
-      "The unit of compute is no longer the Unix process. The OS substrate has to be rebuilt around the agent: capability-bound, attested, audit-everything.",
+      "The unit of compute is no longer the Unix process. The OS substrate has to be rebuilt around the agent.",
     bullets: [
       "A 5-year horizon: Coconut OS as the default substrate for safe multi-agent AI compute.",
       "The mission: ship v1.0, a Linux distribution that runs a 31-agent swarm with capability isolation and a tamper-evident audit chain out of the box.",
@@ -39,7 +39,7 @@ export const SPECS: SpecPreview[] = [
     name: "Capabilities, audit chain, attestation",
     tag: "how · the load-bearing line",
     blurb:
-      "DAC reduced to a compatibility layer. The capability bundle is the primary access-control object, denied at syscall before the operation reaches VFS.",
+      "DAC reduced to a compatibility layer. The capability bundle is the primary access-control object, and a missing capability is denied at the syscall, before the operation reaches VFS.",
     bullets: [
       "Capabilities are Ed25519-signed, bound at spawn, revocable mid-execution.",
       "Every agent-relevant event appends to a BLAKE3-chained audit log, rooted in TPM-NV on supported hardware.",
@@ -70,7 +70,7 @@ export const SPECS: SpecPreview[] = [
       "Two engineers today. The plan is sized for a team; the spec is sized for review.",
     bullets: [
       "Planned roles: kernel · userspace · compositor · brand + design · platform + CI · security · release engineering.",
-      "Three parallel projects run concurrently: kvwarden, mlxd, Coconut OS. Solo-builder DNA, a plan sized for a team.",
+      "Three projects run at once: kvwarden, mlxd, Coconut OS. The lab has only ever shipped solo work before this.",
       "Sprint cadence is two weeks. Sprint 0 starts when the spec set is locked.",
     ],
     status: "preview · the topology is the plan · bios publish when names attach",

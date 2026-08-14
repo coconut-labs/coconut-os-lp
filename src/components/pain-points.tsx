@@ -20,7 +20,7 @@ const PAIN = [
   {
     n: "03",
     title: "Fairness violations across tenants",
-    today: "One customer's runaway loop floods the inference broker. Other 199 tenants see p99 latency spike 30×. Platform team writes userspace rate limiters; they leak.",
+    today: "One customer's runaway loop floods the inference broker. In a 200-tenant deployment the other 199 see p99 latency spike 30×. Platform team writes userspace rate limiters; they leak.",
     answer:
       "Fair-share scheduling extended down into the kernel. CPU time, memory bandwidth, PCIe, inference tokens, all keyed on AID, not PID. p99/p50 ≤ 1.5× under 4-tenant flooder load.",
   },
@@ -90,7 +90,7 @@ export function PainPoints() {
                 The natural pushback is "write a userspace daemon plus an LSM plus a cgroup hierarchy and call it done."
               </p>
               <p className="mt-6 text-[15px] leading-[1.55] text-[color:var(--fg)]">
-                The answer is no, for three reasons that compound: capability presentation must be in the syscall hot path, audit-chain integrity requires kernel-side append, and fair-share scheduling requires scheduler-side AID awareness.
+                The answer is no. Capability presentation has to sit in the syscall hot path. The audit chain has to be appended kernel-side, or its integrity is a claim rather than a property. Fair-share scheduling needs the scheduler itself to know about AIDs.
               </p>
               <p className="mt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-[0.04em]">
                 01-PRD §3.7

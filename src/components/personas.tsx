@@ -51,9 +51,9 @@ export function Personas() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
-            Five personas drive product decisions.{" "}
+            Five people the product has to answer to.{" "}
             <span className="text-[color:var(--muted)]">
-              The agent-builder, in five shapes.
+              Each wants a different thing from the same kernel.
             </span>
           </h2>
         </Reveal>
