@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const SYSCALLS = [
-  { n: "agent_spawn",       nr: 472, wired: true,  s: "(manifest, cap_set) → aid" },
-  { n: "agent_attest",      nr: 473, wired: true,  s: "(aid) → attestation_chain" },
-  { n: "agent_quota",       nr: 474, wired: false, s: "(aid, kind, budget) → 0 | -E…" },
-  { n: "agent_cap_grant",   nr: 475, wired: false, s: "(aid, cap) → 0 | -E…" },
-  { n: "agent_cap_revoke",  nr: 476, wired: false, s: "(aid, cap) → 0 | -E…" },
-  { n: "agent_cap_present", nr: 477, wired: false, s: "(aid, cap) → 0 | -E…" },
-  { n: "agent_audit_query", nr: 478, wired: false, s: "(filter) → audit_chain_segment" },
-  { n: "agent_memory_tier", nr: 479, wired: false, s: "(aid, tier, request) → addr | -E…" },
+  { n: "agent_spawn",       nr: 472, wired: true,  s: "(struct agent_spawn_args *) → aid" },
+  { n: "agent_attest",      nr: 473, wired: true,  s: "(aid, struct attestation *) → 0 | -E…" },
+  { n: "agent_quota",       nr: 474, wired: true,  s: "(aid, struct quota_set *) → 0 | -E…" },
+  { n: "agent_cap_grant",   nr: 475, wired: true,  s: "(target_aid, struct cap_token *) → 0 | -E…" },
+  { n: "agent_cap_revoke",  nr: 476, wired: true,  s: "(struct cap_revoke_args *) → 0 | -E…" },
+  { n: "agent_cap_present", nr: 477, wired: true,  s: "(cap_id, struct cap_proof *) → 0 | -E…" },
+  { n: "agent_audit_query", nr: 478, wired: false, s: "(query, out, out_len) → -ENOSYS" },
+  { n: "agent_memory_tier", nr: 479, wired: false, s: "(aid, tier) → -ENOSYS" },
 ];
 
 export default function ArchitecturePage() {
@@ -50,7 +50,7 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.3 · the agent syscall surface" title={<>Eight new syscalls: two wired in prototypes, six reserved.</>}>
+      <Section eyebrow="§ 02.3 · the agent syscall surface" title={<>Eight new syscalls: six implemented and wired on x86_64, two still stubs.</>}>
         <Reveal>
           <div className="rounded-[2px] border hairline overflow-hidden">
             <div className="grid grid-cols-1 divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)" }}>
@@ -79,7 +79,7 @@ export default function ArchitecturePage() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-4 font-mono text-[11.5px] text-[color:var(--muted)] tracking-tight">
-            wired · implemented in the kernel prototypes today · reserved · allocated number, returns -ENOSYS · full signatures + ABI commitments land with the LLD drop
+            wired · implemented and reachable from userspace on x86_64 · reserved · allocated number, returns -ENOSYS · the arm64 table is not wired yet · the 472-479 range is reserved, not locked · it locks at Gate 1, and the ABI commitment lands with it
           </p>
         </Reveal>
       </Section>
@@ -101,7 +101,7 @@ export default function ArchitecturePage() {
         </Reveal>
         <Reveal delay={0.06}>
           <p className="mt-6 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            A process abstraction cannot express <span className="font-mono text-[color:var(--accent)]">"the agent is alive but its capability set just got revoked"</span>. Coconut OS makes these states first-class kernel state, visible via <span className="font-mono text-[color:var(--accent)]">agent_audit_query</span> and renderable in Coconut Center.
+            A process abstraction cannot express <span className="font-mono text-[color:var(--accent)]">"the agent is alive but its capability set just got revoked"</span>. Coconut OS makes these states first-class kernel state. The state machine is in the tree. Reading it back through <span className="font-mono text-[color:var(--accent)]">agent_audit_query</span> and rendering it in Coconut Center are both still ahead.
           </p>
         </Reveal>
       </Section>
@@ -116,7 +116,7 @@ export default function ArchitecturePage() {
           </p>
         </Reveal>
         <LockedNote>
-          Transition guards, allowed predecessors per state, the AID-to-PID mapping rule, the cred-shim approach, agentfs file formats, and the ioctl surface are pinned in the LLD. Public preview shows the shape; full mechanism lands with the LLD drop.
+          This one is design, not code. Nothing under /agent exists in the tree yet. Transition guards, allowed predecessors per state, the AID-to-PID mapping rule, agentfs file formats, and the ioctl surface are pinned in the LLD. Public preview shows the shape; full mechanism lands with the LLD drop.
         </LockedNote>
       </Section>
     </SpecShell>

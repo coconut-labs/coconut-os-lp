@@ -27,7 +27,7 @@ export const SPECS: SpecPreview[] = [
     blurb:
       "One ISO, two install profiles, six layers: modified mm/, fs/, cred.c, sched/, cgroup/ plus a new kernel/agent/, kernel/audit/coconut/ and security/coconut/.",
     bullets: [
-      "Eight new syscalls form the agent surface: agent_spawn and agent_attest are wired in prototypes; the remaining six are reserved numbers returning -ENOSYS.",
+      "Eight new syscalls form the agent surface. Six are implemented and wired on x86_64; two are still reserved numbers returning -ENOSYS.",
       "coconutd replaces systemd as PID 1, supervising agents the way systemd supervises services.",
       "Coconut Shell is a custom Wayland compositor on Smithay: agent-aware window management with the audit log as a first-class workspace.",
     ],
@@ -41,7 +41,7 @@ export const SPECS: SpecPreview[] = [
     blurb:
       "DAC reduced to a compatibility layer. The capability bundle is the primary access-control object, and a missing capability is denied at the syscall, before the operation reaches VFS.",
     bullets: [
-      "Capabilities are Ed25519-signed, bound at spawn, revocable mid-execution.",
+      "Capabilities are signed, bound at spawn, revocable mid-execution. The spec calls for Ed25519; the tokens in the tree today use a keyed MAC.",
       "Every agent-relevant event appends to a BLAKE3-chained audit log, rooted in TPM-NV on supported hardware.",
       "Five adversary classes are in-scope at v1.0: hostile agent, supply chain, local non-agent, network attacker, insider with admin caps but not signing keys.",
     ],
@@ -71,7 +71,7 @@ export const SPECS: SpecPreview[] = [
     bullets: [
       "Planned roles: kernel · userspace · compositor · brand + design · platform + CI · security · release engineering.",
       "Three projects run at once: kvwarden, mlxd, Coconut OS. The lab has only ever shipped solo work before this.",
-      "Sprint cadence is two weeks. Sprint 0 starts when the spec set is locked.",
+      "Sprint cadence is two weeks. Sprint 0 is behind us and kernel stories are landing.",
     ],
     status: "preview · the topology is the plan · bios publish when names attach",
   },

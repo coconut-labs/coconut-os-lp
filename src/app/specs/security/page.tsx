@@ -36,6 +36,16 @@ export default function SecurityPage() {
             An agent that was not granted <span className="font-mono text-[color:var(--accent)]">cap.fs.read("/home/maya/.ssh")</span> literally cannot read that path: the syscall returns <span className="font-mono text-[color:var(--accent)]">-ECAPABILITY</span> before reaching the VFS layer. The mechanism is closer to seL4 and Capsicum than to Linux's hybrid capability-over-DAC overlay.
           </p>
         </Reveal>
+        <Reveal delay={0.12}>
+          <p className="mt-5 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
+            Where this stands: ten hooks are registered and enforcing, across file open, unlink, mkdir, rmdir, exec, socket bind, connect, raw socket creation, BPF program load and ptrace attach. Sixty-four capability ids are declared in the header. Ten of them have an enforcement path behind them. The gap is the work.
+          </p>
+        </Reveal>
+        <Reveal delay={0.16}>
+          <p className="mt-5 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
+            Anything that touches a capability has to clear a conformance suite of seventeen registered invariants before it merges. Thirteen are proven by tests that run on every push; four are still scaffolding. Green there means those seventeen held. It does not mean the system is secure, and the suite says so in its own first line.
+          </p>
+        </Reveal>
       </Section>
 
       <Section eyebrow="§ 03.2 · the audit chain" title={<>Tamper-evident, BLAKE3-chained, rooted in TPM-NV.</>}>
@@ -48,6 +58,11 @@ export default function SecurityPage() {
           </p>
         </Reveal>
         <Reveal delay={0.12}>
+          <p className="mt-3 max-w-[44rem] text-[14.5px] leading-[1.6] text-[color:var(--fg)]/85">
+            Where this actually stands: every capability operation already emits exactly one audit event on success and one on denial, through a counted hook in the kernel tree. The BLAKE3 chaining and the persistence layer underneath it are specified and not yet written. So the counters are real today and the tamper-evidence is not.
+          </p>
+        </Reveal>
+        <Reveal delay={0.16}>
           <p className="mt-3 max-w-[44rem] font-mono text-[12px] text-[color:var(--muted)] leading-[1.6]">
             off-by-N between LSM-deny counters and audit-event counters is a P0 release-blocker · NFR-024
           </p>

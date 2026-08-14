@@ -51,7 +51,7 @@ export default function TeamPage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 05.2 · cadence" title={<>Sprints are two weeks. Sprint 0 waits on the spec set.</>}>
+      <Section eyebrow="§ 05.2 · cadence" title={<>Sprints are two weeks. Sprint 0 is behind us.</>}>
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-[60rem]">
             <Stat k="engineers today" v="2" sub="the whole lab" />
@@ -65,7 +65,7 @@ export default function TeamPage() {
           </p>
         </Reveal>
         <LockedNote>
-          Specific sprint owners, gating decisions, budget envelope, runway timeline, and hire schedule live in the PLAN + SPRINTS docs. Public preview shows the role topology; assignments and capital plan land with the spec drop.
+          Specific sprint owners, per-story allocation, and the gating decisions live in the PLAN + SPRINTS docs. Public preview shows the role topology; assignments land with the spec drop. Finance, pricing and hiring economics were cut from the spec suite entirely, so they are not being held back here. They are not part of this project.
         </LockedNote>
       </Section>
     </SpecShell>

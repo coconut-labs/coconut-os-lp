@@ -27,7 +27,7 @@ export function Status() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-[40rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            Coconut OS does not exist yet. What exists is the spec, and these five pages are the parts of it worth reading first. Some specifics are held back until the spec drop. The rest is here.
+            There is no ISO to download yet. What exists is the spec, and a kernel fork that boots in CI and runs spawn then attest end to end on every push. These five pages are the parts of the spec worth reading first. Some specifics are held back until the spec drop. The rest is here.
           </p>
         </Reveal>
 
@@ -66,13 +66,13 @@ export function Status() {
             <div className="flex items-baseline justify-between gap-3 flex-wrap">
               <div>
                 <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[color:var(--accent)]">
-                  Coming
+                  Cadence
                 </div>
                 <h3 className="mt-2 text-[20px] sm:text-[22px] tracking-tight text-[color:var(--fg)]">
-                  Open progress, sprint by sprint.
+                  Progress lands here when it lands.
                 </h3>
                 <p className="mt-3 max-w-[34rem] text-[14.5px] leading-[1.6] text-[color:var(--fg)]/85">
-                  Progress reports go out every two weeks. ISOs ship when they're real. There is nothing to sign up for.
+                  Sprints run two weeks. There is no newsletter and no schedule being promised. ISOs ship when they're real, and there is nothing to sign up for.
                 </p>
               </div>
               <a

@@ -3,14 +3,14 @@
 import { Reveal } from "./reveal";
 
 const SYSCALLS = [
-  { name: "agent_spawn",       nr: 472, wired: true,  sig: "(manifest, cap_set) → aid",            desc: "Create a new agent. Manifest is signature-verified, cap_set is bound at spawn." },
-  { name: "agent_attest",      nr: 473, wired: true,  sig: "(aid) → attestation_chain",            desc: "Return the attestation chain linking running code to signed manifest and authorizer." },
-  { name: "agent_quota",       nr: 474, wired: false, sig: "(aid, kind, budget) → 0 | -E…",        desc: "Set or query the resource budget for an agent: CPU, mem, HBM, network, inference tokens." },
-  { name: "agent_cap_grant",   nr: 475, wired: false, sig: "(aid, cap) → 0 | -E…",                 desc: "Grant a capability to an agent. Caller must hold CAP_GRANT(cap). All-or-nothing per call." },
-  { name: "agent_cap_revoke",  nr: 476, wired: false, sig: "(aid, cap) → 0 | -E…",                 desc: "Revoke a capability mid-execution. Pending operations using the cap return -ECAPABILITY." },
-  { name: "agent_cap_present", nr: 477, wired: false, sig: "(aid, cap) → 0 | -E…",                 desc: "Present a capability at syscall time. The LSM hook gates every privileged operation." },
-  { name: "agent_audit_query", nr: 478, wired: false, sig: "(filter) → audit_chain_segment",       desc: "Query the tamper-evident audit chain. Filter by aid, time, event type, capability." },
-  { name: "agent_memory_tier", nr: 479, wired: false, sig: "(aid, tier, request) → addr | -E…",    desc: "Allocate from a tier-addressable memory budget: HBM (GPU) · RAM · SSD-extended." },
+  { name: "agent_spawn",       nr: 472, wired: true,  sig: "(struct agent_spawn_args *) → aid",    desc: "Create a new agent. Args are version-gated, the capability set is bound at spawn, the reaper owns teardown." },
+  { name: "agent_attest",      nr: 473, wired: true,  sig: "(aid, struct attestation *) → 0 | -E…", desc: "Attest an agent and mint its per-agent key, moving it out of ATTESTING. The signing primitive in the tree today is a keyed MAC; Ed25519 replaces it later." },
+  { name: "agent_quota",       nr: 474, wired: true,  sig: "(aid, struct quota_set *) → 0 | -E…",  desc: "Set the resource budget for an agent: CPU shares and memory-tier quotas." },
+  { name: "agent_cap_grant",   nr: 475, wired: true,  sig: "(target_aid, struct cap_token *) → 0 | -E…", desc: "Grant a cap-token to an agent. The grantor has to hold the capability. No amplification." },
+  { name: "agent_cap_revoke",  nr: 476, wired: true,  sig: "(struct cap_revoke_args *) → 0 | -E…", desc: "Revoke a cap-token mid-execution. The nonce moves to the revoked set." },
+  { name: "agent_cap_present", nr: 477, wired: true,  sig: "(cap_id, struct cap_proof *) → 0 | -E…", desc: "Present a capability at use time. This is the hot path the LSM hooks call." },
+  { name: "agent_audit_query", nr: 478, wired: false, sig: "(query, out, out_len) → -ENOSYS",      desc: "Query the audit chain per agent, capability-gated. Specified, still a stub." },
+  { name: "agent_memory_tier", nr: 479, wired: false, sig: "(aid, tier) → -ENOSYS",                desc: "Memory-tier hint across DRAM, CXL and pmem. Specified, still a stub." },
 ];
 
 export function Syscalls() {
@@ -26,7 +26,7 @@ export function Syscalls() {
           <h2 className="mt-3 max-w-[40rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             Eight new syscalls.{" "}
             <span className="text-[color:var(--muted)]">
-              Two wired in prototypes. Six reserved.
+              Six are implemented and wired on x86_64. Two still return -ENOSYS.
             </span>
           </h2>
         </Reveal>
@@ -74,7 +74,7 @@ export function Syscalls() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-            wired · implemented in the kernel prototypes today &nbsp;·&nbsp; reserved · allocated number, returns -ENOSYS &nbsp;·&nbsp; full LLD lives in docs/05-LLD.md
+            wired · implemented and reachable from userspace on x86_64 &nbsp;·&nbsp; reserved · allocated number, returns -ENOSYS &nbsp;·&nbsp; the arm64 table is not wired yet &nbsp;·&nbsp; the 472-479 range is reserved, not locked · it locks at Gate 1 &nbsp;·&nbsp; full signatures live in docs/05-LLD.md §3
           </p>
         </Reveal>
       </div>

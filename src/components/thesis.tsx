@@ -44,7 +44,7 @@ export function Thesis() {
               tag="Path"
               tone="highlight"
               title="Hard fork of Linux 6.12 LTS."
-              body="Capability-centric replacement of mm/, fs/, cred.c, sched/, cgroup/. New kernel/agent/, kernel/audit/coconut/, security/coconut/. Eight new syscalls. Two engineers today, so the spec is the part that exists."
+              body="Capability-centric replacement of mm/, fs/, cred.c, sched/, cgroup/. New kernel/agent/, kernel/audit/coconut/, security/coconut/. Eight new syscalls. Two engineers today. kernel/agent/, security/coconut/ and the cred shim are in the tree; the rest is still spec."
             />
           </Reveal>
         </div>

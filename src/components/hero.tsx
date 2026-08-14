@@ -19,7 +19,7 @@ export function Hero() {
             className="chip"
           >
             <span className="chip-dot" />
-            <span>Coconut Labs · pre-implementation</span>
+            <span>Coconut Labs · building the kernel</span>
           </motion.span>
 
           <h1 className="mt-7 sm:mt-9 font-semibold leading-[0.98] tracking-[-0.03em] text-[clamp(2.6rem,6.4vw,4.8rem)] text-[color:var(--fg)]">
@@ -75,9 +75,9 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 1.0 }}
             className="mt-12 grid grid-cols-3 gap-x-6 gap-y-2 border-t hairline pt-6 max-w-[36rem]"
           >
-            <Stat k="Kernel surface" v="Linux 6.12 LTS, hard fork" />
+            <Stat k="Kernel surface" v="Linux 6.12.80, hard fork" />
             <Stat k="Team" v="Two engineers today" />
-            <Stat k="Status" v="Spec phase · prototypes" />
+            <Stat k="Status" v="Kernel building · no ISO yet" />
           </motion.div>
         </div>
 

@@ -59,7 +59,7 @@ export default function ThesisPage() {
           </div>
         </Reveal>
         <LockedNote>
-          The lab works at three layers: the brokers at L2, the OS at L0 and L1, and Dream Team as the workload on top. What that is worth commercially is argued in the BRD, which publishes alongside the v0.1 spec drop.
+          The lab works at three layers: the brokers at L2, the OS at L0 and L1, and Dream Team as the workload on top. The commercial argument used to live in the BRD and was cut from the spec suite. This project ships technical work only.
         </LockedNote>
       </Section>
 
