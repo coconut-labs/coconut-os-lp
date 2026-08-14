@@ -87,14 +87,14 @@ const dotFabricScript = `
    fabric shows through. No dependencies. */
 (function () {
   "use strict";
-  var script = document.currentScript;
-  var VARIANT = "quiet";
-  var CFG = {
-    full:    { spacing: 28, baseR: 1.6, inkA: 0.19, accA: 0.44, wave: true, period: 6600, crestInk: 0.4,  crestAcc: 0.62, crestR: 1.3, lift: 4,   pull: 7, pullR: 210, ripples: true, rippleE: 1 },
-    quiet:   { spacing: 28, baseR: 1.6, inkA: 0.13, accA: 0.3,  wave: true, period: 8000, crestInk: 0.26, crestAcc: 0.42, crestR: 1.0, lift: 2.5, pull: 5, pullR: 190, ripples: true, rippleE: 0.7 },
-    reading: { spacing: 28, baseR: 1.6, inkA: 0.09, accA: 0.2,  wave: false, period: 8000, crestInk: 0,   crestAcc: 0,    crestR: 0,   lift: 0,   pull: 3, pullR: 190, ripples: true, rippleE: 0.4 },
-  }[VARIANT] || null;
-  if (!CFG) return;
+  /* ONE ground everywhere. The variants (quiet/reading/full) are gone:
+     the operator's call is that every page carries the same fabric as the
+     coconutlabs.org landing page, so these are its exact parameters. The
+     data-variant attribute is still accepted and ignored, so existing
+     script tags keep working. */
+  var CFG = { spacing: 28, baseR: 1.6, inkA: 0.19, accA: 0.44, wave: true, period: 6600,
+    crestInk: 0.4, crestAcc: 0.62, crestR: 1.3, lift: 4, pull: 7, pullR: 210,
+    ripples: true, rippleE: 1 };
   var WAVELENGTH = 460, MAXR = 8, RSPEED = 0.62, RWIDTH = 110;
 
   function boot() {
