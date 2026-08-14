@@ -40,7 +40,7 @@ export function Lineage() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-3 max-w-[42rem] text-[clamp(1.4rem,3vw,2.1rem)] leading-[1.15] tracking-[-0.03em]">
-            Three projects came before this one.{" "}
+            The lab built the layer below this one first.{" "}
             <span className="text-[color:var(--muted)]">
               Coconut OS is the OS layer above the lab's existing projects.
             </span>
