@@ -103,12 +103,21 @@ const dotFabricScript = `
     canvas.setAttribute("aria-hidden", "true");
     canvas.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:-1";
     document.body.insertBefore(canvas, document.body.firstChild);
-    // the fabric must show through: ground moves to <html>, body goes clear
-    var bodyBg = getComputedStyle(document.body).backgroundColor;
-    if (bodyBg && bodyBg !== "rgba(0, 0, 0, 0)" && bodyBg !== "transparent") {
-      document.documentElement.style.background = bodyBg;
-      document.body.style.background = "transparent";
+    /* The fabric must show through: the ground moves to <html> and <body>
+       goes clear. This MUST be re-derived whenever the theme changes -
+       pinning it once left pages with a live theme toggle stuck on the
+       old ground while their text tokens flipped (illegible). Clearing
+       the inline value first lets the page's own rule re-apply so we read
+       the CURRENT ground, not the one we pinned. */
+    function syncGround() {
+      document.body.style.background = "";
+      var bg = getComputedStyle(document.body).backgroundColor;
+      if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") {
+        document.documentElement.style.background = bg;
+        document.body.style.background = "transparent";
+      }
     }
+    syncGround();
     var ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -241,7 +250,7 @@ const dotFabricScript = `
     function loop(t) { draw(t); raf = requestAnimationFrame(loop); }
     function start() { if (running || reduced.matches || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
     function stop() { running = false; cancelAnimationFrame(raf); }
-    function restart() { stop(); colors(); resize(); lastDim = -1; draw(0); start(); }
+    function restart() { stop(); syncGround(); colors(); resize(); lastDim = -1; draw(0); start(); }
 
     addEventListener("pointermove", function (e) { pointer = { x: e.clientX, y: e.clientY }; }, { passive: true });
     addEventListener("pointerout", function () { pointer = null; }, { passive: true });
@@ -264,6 +273,11 @@ const dotFabricScript = `
     }, { passive: true });
     document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else start(); });
     matchMedia("(prefers-color-scheme: dark)").addEventListener("change", restart);
+    // in-page theme toggles (data-theme / class swaps) must also re-ground
+    new MutationObserver(restart).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class", "style"] });
+    new MutationObserver(function (recs) {
+      for (var i = 0; i < recs.length; i++) if (recs[i].attributeName !== "style") { restart(); return; }
+    }).observe(document.body, { attributes: true, attributeFilter: ["data-theme", "class"] });
     reduced.addEventListener("change", restart);
     addEventListener("resize", restart);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { lastDim = -1; if (!running) draw(0); });
