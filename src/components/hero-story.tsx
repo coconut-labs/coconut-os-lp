@@ -25,7 +25,7 @@ export function HeroStory() {
           <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
             Maya, the solo AI researcher.{" "}
             <span className="text-[color:var(--muted)]">
-              A design fiction: a single workstation, a 31-agent swarm, the audit chain proving every action.
+              A design fiction: one workstation running a 31-agent swarm, with the audit chain proving every action.
             </span>
           </h2>
         </Reveal>

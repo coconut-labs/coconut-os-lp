@@ -22,18 +22,19 @@ export function PullQuote() {
                 "
               </span>
               <p className="relative font-mono text-[clamp(1.4rem,2.6vw,1.9rem)] leading-[1.4] tracking-[-0.03em] text-[color:var(--fg)]">
-                An agent in Coconut OS is a kernel-recognized execution context
-                with a unique <span className="text-[color:var(--accent)]">AID</span>,
-                a declared <span className="text-[color:var(--accent)]">capability set</span>{" "}
-                bound at spawn, an <span className="text-[color:var(--accent)]">attestation chain</span>{" "}
-                linking the running code to a signed manifest, a{" "}
-                <span className="text-[color:var(--accent)]">fair-share lane</span> in
-                the scheduler and the inference broker, a{" "}
+                Today the kernel sees a process. Coconut OS makes it see an agent.
+                That means five things the kernel holds rather than the app. A unique{" "}
+                <span className="text-[color:var(--accent)]">AID</span> of its own. A declared{" "}
+                <span className="text-[color:var(--accent)]">capability set</span>, fixed at spawn. An{" "}
+                <span className="text-[color:var(--accent)]">attestation chain</span> tying the
+                running code to a signed manifest. A{" "}
+                <span className="text-[color:var(--accent)]">fair-share lane</span> in the scheduler
+                and in the inference broker, plus a{" "}
                 <span className="text-[color:var(--accent)]">tier-addressable memory budget</span>{" "}
-                spanning HBM, RAM and SSD, and an{" "}
-                <span className="text-[color:var(--accent)]">audit footprint</span>:
-                every syscall, every capability use, every resource access recorded with
-                cryptographically chained hashes.
+                spanning HBM, RAM and SSD. And an{" "}
+                <span className="text-[color:var(--accent)]">audit footprint</span>: every syscall,
+                every capability use and every resource access recorded with cryptographically
+                chained hashes.
               </p>
             </blockquote>
           </Reveal>

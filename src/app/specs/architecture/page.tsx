@@ -30,7 +30,7 @@ export default function ArchitecturePage() {
       slug="architecture"
       number="02"
       tag="what"
-      title={<>One ISO. Two install profiles. <span className="text-[color:var(--accent)]">Six layers.</span></>}
+      title={<>One ISO with two install profiles, over <span className="text-[color:var(--accent)]">six layers.</span></>}
       blurb={<>The kernel is a hard fork of Linux 6.12 LTS. Five existing subsystems get capability-aware modifications; three new subsystems get added. The userspace replaces systemd with coconutd. The shell is a Wayland compositor in Rust.</>}
     >
       <Section eyebrow="§ 02.1 · the stack" title={<>Hover any layer. The kernel layer is where the work is.</>}>

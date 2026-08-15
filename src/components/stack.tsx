@@ -12,7 +12,7 @@ const LAYERS = [
   {
     n: "L4",
     name: "Showcase workloads",
-    items: ["Dream Team · 31-agent virtual eng org · planned v1.0 hero workload", "Coconut Studio · flagship agent workbench"],
+    items: ["Dream Team · 31-agent virtual eng org · planned v1.0 hero workload", "Coconut Studio · agent workbench"],
     tone: "muted",
   },
   {
@@ -70,8 +70,8 @@ export function Stack() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
-            One ISO. Two install profiles. Six layers,{" "}
-            <span className="text-[color:var(--muted)]">all the way down to the kernel.</span>
+            One ISO with two install profiles, over six layers{" "}
+            <span className="text-[color:var(--muted)]">that go all the way down to the kernel.</span>
           </h2>
         </Reveal>
 

@@ -14,8 +14,8 @@ export function Thesis() {
 
         <Reveal delay={0.05}>
           <h2 className="mt-3 text-[clamp(1.85rem,3.6vw,2.85rem)] leading-[1.12] tracking-[-0.03em] text-[color:var(--fg)] max-w-[44rem]">
-            Today's operating systems were designed in 1991 for a world where the
-            unit of compute was a Unix process.{" "}
+            The process is a 1969 idea, and every operating system you can install
+            today still treats it as the unit of compute.{" "}
             <span className="text-[color:var(--muted)]">
               Agents do not fit that shape.
             </span>

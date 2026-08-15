@@ -6,7 +6,7 @@ const PROJECTS = [
   {
     name: "kvwarden",
     layer: "Layer 2 · x86 · CUDA",
-    blurb: "Tenant-fair GPU inference broker. v0.1.6 on PyPI. Token-bucket admission cut starver tail 29× vs FIFO, measured on one A100 with vLLM 0.19.1, n=311. Artifacts in the repo.",
+    blurb: "Tenant-fair GPU inference broker. v0.1.6 on PyPI. Token-bucket admission cut the starved tenant's p99 TTFT 26× vs FIFO, from 1,585 ms to 61.5 ms post-warmup, measured on one A100 with vLLM 0.19.1, n=311. Artifacts in the repo.",
     href: "https://github.com/coconut-labs/kvwarden",
     links: [
       { label: "github", href: "https://github.com/coconut-labs/kvwarden" },

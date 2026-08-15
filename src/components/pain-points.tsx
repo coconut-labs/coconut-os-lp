@@ -8,7 +8,7 @@ const PAIN = [
     title: "Capability sprawl",
     today: "Agent runs as the user's UID. Intended caps: read three files. Actual caps: everything the user can do.",
     answer:
-      "Capability-mediated access at the syscall layer. An agent without cap.fs.read on a path literally cannot read it: the syscall returns -ECAPABILITY before reaching the VFS.",
+      "Capability-mediated access at the syscall layer. An agent without cap.fs.read on a path cannot open it. Today the file_open LSM hook denies inside the VFS open path and the syscall returns -EACCES; a distinct -ECAPABILITY errno is specified as FR-025 and is not in the tree yet.",
   },
   {
     n: "02",
@@ -20,9 +20,9 @@ const PAIN = [
   {
     n: "03",
     title: "Fairness violations across tenants",
-    today: "One customer's runaway loop floods the inference broker. In a 200-tenant deployment the other 199 see p99 latency spike 30×. Platform team writes userspace rate limiters; they leak.",
+    today: "One customer's runaway loop floods the inference broker and the quiet tenants wait. Measured on one A100 under vLLM 0.19.1: FIFO put a quiet tenant's p99 TTFT at 1,585 ms against a 53.9 ms solo baseline. Platform team writes userspace rate limiters; they leak.",
     answer:
-      "Fair-share scheduling extended down into the kernel. CPU time, memory bandwidth, PCIe, inference tokens, all keyed on AID, not PID. p99/p50 ≤ 1.5× under 4-tenant flooder load.",
+      "Fair-share scheduling extended down into the kernel. CPU time, memory bandwidth, PCIe, inference tokens, all keyed on AID, not PID. Target: p99/p50 ≤ 1.5× under 4-tenant flooder load, not yet measured.",
   },
   {
     n: "04",

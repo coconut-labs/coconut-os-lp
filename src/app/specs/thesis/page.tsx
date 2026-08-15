@@ -5,7 +5,7 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "The thesis · Coconut OS",
   description:
-    "Why an operating system designed in 1991 needs to be rebuilt around the agent.",
+    "Why an operating system built around the Unix process needs to be rebuilt around the agent.",
 };
 
 export default function ThesisPage() {
@@ -15,7 +15,7 @@ export default function ThesisPage() {
       number="01"
       tag="why"
       title={<>The unit of compute is no longer the <span className="text-[color:var(--accent)]">Unix process.</span></>}
-      blurb={<>Multi-agent AI systems are being built in 2026 on operating systems designed in 1991. Back then the unit of compute was the Unix process and the unit of trust was the human user. The mismatch shows up as five concrete pain points.</>}
+      blurb={<>Multi-agent AI systems are being built in 2026 on operating systems whose unit of compute is still the Unix process, an idea from 1969, and whose unit of trust is still the human user. The mismatch shows up as five concrete pain points.</>}
     >
       <Section eyebrow="§ 01.1 · the vision" title={<>The five-year vision: Coconut OS as the default substrate for safe, multi-agent AI compute.</>}>
         <Reveal>
@@ -53,7 +53,7 @@ export default function ThesisPage() {
         </Reveal>
         <Reveal delay={0.05}>
           <div className="mt-9 grid grid-cols-1 md:grid-cols-3 gap-3 max-w-[60rem]">
-            <Lineage layer="L2 · CUDA" name="kvwarden" shipped="ships" body="Tenant-fair inference broker on x86/CUDA. v0.1.6 on PyPI. Token-bucket admission cut starver tail 29× vs FIFO, measured on one A100 with vLLM 0.19.1, n=311." />
+            <Lineage layer="L2 · CUDA" name="kvwarden" shipped="ships" body="Tenant-fair inference broker on x86/CUDA. v0.1.6 on PyPI. Token-bucket admission cut the starved tenant's p99 TTFT 26× vs FIFO, from 1,585 ms to 61.5 ms post-warmup, measured on one A100 with vLLM 0.19.1, n=311." />
             <Lineage layer="L2 · MLX"  name="mlxd"     shipped="research" body="The same fairness thesis on Apple Silicon. In research; measured results publish when the repo does." />
             <Lineage layer="L0 + L1"   name="Coconut OS" shipped="building" body="Turns kvwarden and mlxd from infrastructure you assemble into the floor of the machine. v1.0 when the spec survives review." here />
           </div>

@@ -124,7 +124,7 @@ const dotFabricScript = `
     var ink = "", accent = "", W = 0, H = 0, dpr = 1, raf = 0, running = false;
     var pointer = null, ripples = [];
     var lastY = -1, sVel = 0, shear = 0;
-    var dimGrid = new Float32Array(0), dimC = 0, dimR = 0, lastDim = -1;
+    var dimGrid = new Float32Array(0), dimC = 0, dimR = 0, lastDim = -1, dimScrollY = -1;
 
     function colors() {
       var cs = getComputedStyle(document.documentElement);
@@ -140,15 +140,32 @@ const dotFabricScript = `
       canvas.width = Math.round(W * dpr);
       canvas.height = Math.round(H * dpr);
     }
+    /* Rects are cached in DOCUMENT space and rebuilt only on layout events
+       (resize, fonts, theme, DOM change). Reading getBoundingClientRect in
+       the animation loop forces synchronous layout every frame, which is
+       what put the frame tail over budget. */
+    var docRects = null;
+    function cacheRects() {
+      var els = document.querySelectorAll("h1,h2,h3,p,li,pre,table,figure,blockquote,video");
+      var n = Math.min(els.length, 200);
+      docRects = [];
+      var sy = scrollY, sx = scrollX;
+      for (var k = 0; k < n; k++) {
+        var r = els[k].getBoundingClientRect();
+        if (r.width === 0) continue;
+        docRects.push([r.left + sx, r.top + sy, r.right + sx, r.bottom + sy]);
+      }
+    }
     function buildDim() {
       dimC = Math.ceil(W / CFG.spacing) + 2;
       dimR = Math.ceil(H / CFG.spacing) + 2;
       dimGrid = new Float32Array(dimC * dimR);
-      var els = document.querySelectorAll("h1,h2,h3,p,li,pre,table,figure,blockquote,video");
-      var n = Math.min(els.length, 160);
-      for (var k = 0; k < n; k++) {
-        var r = els[k].getBoundingClientRect();
-        if (r.bottom < -40 || r.top > H + 40 || r.width === 0) continue;
+      if (!docRects) cacheRects();
+      var sy = scrollY;
+      for (var k = 0; k < docRects.length; k++) {
+        var d = docRects[k];
+        var r = { left: d[0], top: d[1] - sy, right: d[2], bottom: d[3] - sy };
+        if (r.bottom < -40 || r.top > H + 40) continue;
         var pad = 14;
         var c0 = Math.max(0, Math.floor((r.left - pad) / CFG.spacing));
         var c1 = Math.min(dimC - 1, Math.ceil((r.right + pad) / CFG.spacing));
@@ -184,7 +201,11 @@ const dotFabricScript = `
       var animate = !reduced.matches;
       var sy = scrollY;
       var phase = animate && CFG.wave ? (t % CFG.period) / CFG.period : 0;
-      if (t - lastDim > 200 || lastDim < 0) { buildDim(); lastDim = t; }
+      /* The dim grid only depends on scroll position and layout, so rebuild
+         it when one of those actually changed. It used to run every 200ms
+         regardless, and the dilation sweep over ~1700 cells was a periodic
+         spike that pushed frames past vsync on a still page. */
+      if (lastDim < 0 || sy !== dimScrollY) { buildDim(); dimScrollY = sy; lastDim = t; }
       if (animate) {
         if (lastY < 0) lastY = sy;
         sVel = sVel * 0.82 + (sy - lastY) * 0.18; lastY = sy;
@@ -239,7 +260,9 @@ const dotFabricScript = `
         }
         var dm = dimAt(x, y);
         if (dm > 0) alpha *= 1 - 0.72 * dm;
-        ctx.globalAlpha = Math.min(alpha, 0.95);
+        alpha = Math.min(alpha, 0.95);
+        if (alpha < 0.012) continue;
+        ctx.globalAlpha = alpha;
         ctx.fillStyle = isAcc ? accent : ink;
         ctx.beginPath();
         ctx.arc(x, y, rad, 0, Math.PI * 2);
@@ -250,7 +273,7 @@ const dotFabricScript = `
     function loop(t) { draw(t); raf = requestAnimationFrame(loop); }
     function start() { if (running || reduced.matches || document.hidden) return; running = true; raf = requestAnimationFrame(loop); }
     function stop() { running = false; cancelAnimationFrame(raf); }
-    function restart() { stop(); syncGround(); colors(); resize(); lastDim = -1; draw(0); start(); }
+    function restart() { stop(); syncGround(); colors(); resize(); docRects = null; lastDim = -1; draw(0); start(); }
 
     addEventListener("pointermove", function (e) { pointer = { x: e.clientX, y: e.clientY }; }, { passive: true });
     addEventListener("pointerout", function () { pointer = null; }, { passive: true });
@@ -280,7 +303,10 @@ const dotFabricScript = `
     }).observe(document.body, { attributes: true, attributeFilter: ["data-theme", "class"] });
     reduced.addEventListener("change", restart);
     addEventListener("resize", restart);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { lastDim = -1; if (!running) draw(0); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { docRects = null; lastDim = -1; if (!running) draw(0); });
+    // content can move without a resize (accordions, images landing)
+    var relayout = new MutationObserver(function () { docRects = null; lastDim = -1; });
+    relayout.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["open", "class", "style"] });
     restart();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

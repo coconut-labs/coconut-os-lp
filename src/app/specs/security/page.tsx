@@ -27,13 +27,13 @@ export default function SecurityPage() {
       title={<>The capability bundle is the <span className="text-[color:var(--accent)]">primary access-control object.</span></>}
       blurb={<>Linux today layers DAC, capabilities, SELinux, AppArmor. For agent workloads it's the wrong primitive set. Coconut OS makes capability primary and reduces DAC to a legacy compat layer for unmodified binaries.</>}
     >
-      <Section eyebrow="§ 03.1 · capability presentation" title={<>Denied at the syscall, before VFS.</>}>
+      <Section eyebrow="§ 03.1 · capability presentation" title={<>Denied at the syscall boundary.</>}>
         <Reveal>
           <CapabilityFlow />
         </Reveal>
         <Reveal delay={0.08}>
           <p className="mt-7 max-w-[44rem] text-[15px] leading-[1.6] text-[color:var(--fg)]/85">
-            An agent that was not granted <span className="font-mono text-[color:var(--accent)]">cap.fs.read("/home/maya/.ssh")</span> literally cannot read that path: the syscall returns <span className="font-mono text-[color:var(--accent)]">-ECAPABILITY</span> before reaching the VFS layer. The mechanism is closer to seL4 and Capsicum than to Linux's hybrid capability-over-DAC overlay.
+            An agent that was not granted <span className="font-mono text-[color:var(--accent)]">cap.fs.read("/home/maya/.ssh")</span> cannot open that path. The <span className="font-mono text-[color:var(--accent)]">file_open</span> LSM hook denies inside the VFS open path, and the syscall returns <span className="font-mono text-[color:var(--accent)]">-EACCES</span> today. A distinct <span className="font-mono text-[color:var(--accent)]">-ECAPABILITY</span> errno, so userspace can tell a capability denial from a DAC denial, is specified as FR-025 and is not in the tree yet. The mechanism is closer to seL4 and Capsicum than to Linux's hybrid capability-over-DAC overlay.
           </p>
         </Reveal>
         <Reveal delay={0.12}>

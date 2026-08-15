@@ -8,14 +8,14 @@ const PERSONAS = [
     role: "Solo AI Researcher",
     profile: "Workstation",
     hw: "RTX 4090 · 64 GB",
-    line: "My workstation can run a 31-agent swarm and I can prove what each one did.",
+    line: "Runs a 31-agent swarm on one workstation, with proof of what each agent did.",
   },
   {
     name: "David",
     role: "Platform Eng, agentic startup",
     profile: "Server",
     hw: "4× H100 · 256-core EPYC",
-    line: "Multi-tenant agent fairness without me writing the scheduler.",
+    line: "Multi-tenant agent fairness without hand-writing the scheduler.",
   },
   {
     name: "Priya",
@@ -36,7 +36,7 @@ const PERSONAS = [
     role: "Indie agent-SaaS hacker",
     profile: "Server",
     hw: "Rented H100 (hourly)",
-    line: "I ship one ISO and my customer-tier isolation is the OS's problem, not mine.",
+    line: "Ships one ISO, with customer-tier isolation enforced by the OS rather than by application code.",
   },
 ];
 
@@ -51,9 +51,10 @@ export function Personas() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="mt-3 max-w-[44rem] text-[clamp(1.7rem,3.3vw,2.65rem)] leading-[1.12] tracking-[-0.03em]">
-            Five people the product has to answer to.{" "}
+            Five deployments the kernel has to answer to.{" "}
             <span className="text-[color:var(--muted)]">
-              Each wants a different thing from the same kernel.
+              These are requirement sketches, not customers. Each one wants a different
+              thing from the same kernel.
             </span>
           </h2>
         </Reveal>
@@ -71,11 +72,9 @@ export function Personas() {
                 <div className="mt-1 font-mono text-[12px] text-[color:var(--muted)]">
                   {p.role}
                 </div>
-                <blockquote className="mt-5 text-[14.5px] leading-[1.55] text-[color:var(--fg)]">
-                  <span className="text-[color:var(--accent)] font-mono mr-1" aria-hidden>&ldquo;</span>
+                <p className="mt-5 text-[14.5px] leading-[1.55] text-[color:var(--fg)]">
                   {p.line}
-                  <span className="text-[color:var(--accent)] font-mono ml-1" aria-hidden>&rdquo;</span>
-                </blockquote>
+                </p>
                 <div className="mt-auto pt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
                   hardware · {p.hw}
                 </div>
