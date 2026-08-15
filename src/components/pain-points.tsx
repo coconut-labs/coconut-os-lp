@@ -22,7 +22,7 @@ const PAIN = [
     title: "Fairness violations across tenants",
     today: "One customer's runaway loop floods the inference broker and the quiet tenants wait. Measured on one A100 under vLLM 0.19.1: FIFO put a quiet tenant's p99 TTFT at 1,585 ms against a 53.9 ms solo baseline. Platform team writes userspace rate limiters; they leak.",
     answer:
-      "Fair-share scheduling extended down into the kernel. CPU time, memory bandwidth, PCIe, inference tokens, all keyed on AID, not PID. Target: p99/p50 ≤ 1.5× under 4-tenant flooder load, not yet measured.",
+      "Fair-share scheduling extended down into the kernel, which is the design and not yet the tree: CPU time, memory bandwidth, PCIe and inference tokens keyed on AID rather than PID. Target: p99/p50 ≤ 1.5× under 4-tenant flooder load, not yet measured.",
   },
   {
     n: "04",
