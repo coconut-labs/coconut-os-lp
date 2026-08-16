@@ -71,7 +71,7 @@ export const SPECS: SpecPreview[] = [
     bullets: [
       "Planned roles: kernel · userspace · compositor · brand + design · platform + CI · security · release engineering.",
       "Three projects run at once: kvwarden, mlxd, Coconut OS. The lab has only ever shipped solo work before this.",
-      "Sprint cadence is two weeks. Sprint 0 is behind us and kernel stories are landing.",
+      "Sprint cadence is two weeks. Sprint 0 is behind us.",
     ],
     status: "preview · the topology is the plan · bios publish when names attach",
   },
