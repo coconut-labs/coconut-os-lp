@@ -54,16 +54,6 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="https://github.com/coconut-labs/coconut-os-lp"
-            target="_blank"
-            rel="noreferrer"
-            className="font-mono text-[12px] tracking-tight text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-300"
-          >
-            github
-          </a>
-        </div>
       </div>
     </header>
   );

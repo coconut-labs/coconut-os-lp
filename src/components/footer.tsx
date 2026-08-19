@@ -11,7 +11,6 @@ const UMBRELLA = [
   { label: "project page", href: "https://coconutlabs.org/projects/coconut-os" },
   { label: "benchmarks", href: "https://coconutlabs.org/benchmarks" },
   { label: "masterclass", href: "https://masterclass.coconutlabs.org" },
-  { label: "github", href: "https://github.com/coconut-labs" },
 ];
 
 export function Footer() {

@@ -2,6 +2,7 @@ import { Reveal } from "./reveal";
 import {
   KERNEL_COMMITS,
   MIRROR_COMMITS_URL,
+  MIRROR_LIVE,
   MIRROR_STATUS_URL,
   MIRROR_URL,
   PROGRESS_META,
@@ -14,6 +15,52 @@ import {
 /* Renders the kernel progress record from the committed snapshots in
    src/content/. Every number on this page comes out of those files. None is
    written into this component, so the section cannot drift from the tree. */
+
+/* The mirror repo is committed but not published yet, so these two render as
+   plain text until MIRROR_LIVE flips. Same markup either way, so nothing on
+   the page shifts when it does. */
+
+function Card({
+  href,
+  ariaLabel,
+  children,
+}: {
+  href?: string;
+  ariaLabel: string;
+  children: React.ReactNode;
+}) {
+  const className =
+    "group block h-full p-6 rounded-[2px] border hairline bg-[color:var(--canvas)] transition-colors duration-300 outline-none" +
+    (href
+      ? " hover:bg-[color:var(--surface)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+      : "");
+  if (!href) {
+    return (
+      <div aria-label={ariaLabel} className={className}>
+        {children}
+      </div>
+    );
+  }
+  return (
+    <a aria-label={ariaLabel} className={className} href={href} rel="noreferrer" target="_blank">
+      {children}
+    </a>
+  );
+}
+
+function FileRef({ href, name }: { href?: string; name: string }) {
+  if (!href) return <span>{name}</span>;
+  return (
+    <a
+      className="hover:text-[color:var(--fg)] transition-colors duration-200 underline underline-offset-4 decoration-[color:var(--rule)]"
+      href={href}
+      rel="noreferrer"
+      target="_blank"
+    >
+      {name}
+    </a>
+  );
+}
 
 const RECENT_COUNT = 12;
 
@@ -164,12 +211,16 @@ export function Progress() {
             const text = factText(f.key);
             return (
               <Reveal key={f.key} delay={i * 0.04} amount={0.2}>
-                <a
-                  href={MIRROR_STATUS_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${f.label}: ${text}, derived from ${source}. Opens status.json in the public progress mirror.`}
-                  className="group block h-full p-6 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+                {/* While the mirror is private this is a card, not a link:
+                    sending a reader to a sign-in wall reads as evidence that
+                    is not actually open. */}
+                <Card
+                  href={MIRROR_LIVE ? MIRROR_STATUS_URL : undefined}
+                  ariaLabel={
+                    MIRROR_LIVE
+                      ? `${f.label}: ${text}, derived from ${source}. Opens status.json in the public progress mirror.`
+                      : `${f.label}: ${text}, derived from ${source}.`
+                  }
                 >
                   <div className="font-mono text-[27px] leading-none tracking-[-0.03em] text-[color:var(--fg)]">
                     {text}
@@ -185,7 +236,7 @@ export function Progress() {
                   <div className="mt-4 pt-3 border-t hairline font-mono text-[10.5px] text-[color:var(--muted)] break-words">
                     {source}
                   </div>
-                </a>
+                </Card>
               </Reveal>
             );
           })}
@@ -266,25 +317,12 @@ export function Progress() {
                   Coconut OS work lives.
                 </p>
                 <p className="mt-3 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-                  <a
-                    className="hover:text-[color:var(--fg)] transition-colors duration-200 underline underline-offset-4 decoration-[color:var(--rule)]"
-                    href={MIRROR_STATUS_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    status.json
-                  </a>
+                  <FileRef href={MIRROR_LIVE ? MIRROR_STATUS_URL : undefined} name="status.json" />
                   {" · "}
-                  <a
-                    className="hover:text-[color:var(--fg)] transition-colors duration-200 underline underline-offset-4 decoration-[color:var(--rule)]"
-                    href={MIRROR_COMMITS_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    commits.json
-                  </a>
+                  <FileRef href={MIRROR_LIVE ? MIRROR_COMMITS_URL : undefined} name="commits.json" />
                 </p>
               </div>
+              {MIRROR_LIVE ? (
               <a
                 href={MIRROR_URL}
                 target="_blank"
@@ -293,6 +331,13 @@ export function Progress() {
               >
                 Open the mirror
               </a>
+              ) : (
+                <p className="max-w-[22rem] font-mono text-[11px] leading-[1.7] text-[color:var(--muted)] tracking-tight">
+                  the mirror is not published yet. every number above is
+                  rendered from the snapshot committed in this repo, so it is
+                  checkable here today without it.
+                </p>
+              )}
             </div>
           </div>
         </Reveal>

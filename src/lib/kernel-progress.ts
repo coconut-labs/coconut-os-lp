@@ -49,7 +49,15 @@ const status = statusSnapshot as { meta: ProgressMeta; facts: Record<string, Sta
 export const PROGRESS_META: ProgressMeta = commits.meta;
 export const KERNEL_COMMITS: KernelCommit[] = commits.commits;
 
-/** The public metadata mirror. The kernel repo itself stays private. */
+/** The public metadata mirror. The kernel repo itself stays private.
+ *
+ *  The mirror repo is assembled and committed but not published yet, so every
+ *  URL below currently bounces an anonymous reader to a GitLab sign-in. Until
+ *  it is public, the page names these files without linking them: a link that
+ *  demands a login is worse than no link on a page whose whole claim is that
+ *  the evidence is open. Flip this to true the moment the project exists. */
+export const MIRROR_LIVE = false;
+
 export const MIRROR_URL = "https://gitlab.com/coconutlabs/coconutos-kernel-progress";
 export const MIRROR_STATUS_URL = `${MIRROR_URL}/-/blob/main/status.json`;
 export const MIRROR_COMMITS_URL = `${MIRROR_URL}/-/blob/main/commits.json`;
