@@ -291,7 +291,7 @@ export function Progress() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 h-11 px-[18px] rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11.5px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-300"
               >
-                Open the mirror <span aria-hidden>↗</span>
+                Open the mirror
               </a>
             </div>
           </div>

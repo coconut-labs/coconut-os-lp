@@ -46,9 +46,9 @@ export function Syscalls() {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-baseline gap-3 flex-wrap">
-                      <div className="font-mono text-[12.5px] text-[color:var(--muted)] break-words">
+                      <code className="font-mono text-[12.5px] text-[color:var(--muted)] break-words">
                         {s.sig}
-                      </div>
+                      </code>
                       <span
                         className="font-mono text-[10px] uppercase tracking-[0.1em] px-1.5 py-0.5 border"
                         style={{

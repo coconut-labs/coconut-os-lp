@@ -1,8 +1,8 @@
 "use client";
 
 /* Capability presentation flow.
-   Userspace agent issues a syscall → present capability → LSM hook checks
-   the cap_set bound at spawn → grant or deny → audit append. Public preview
+   Userspace agent issues a syscall, presents a capability, the LSM hook checks
+   the cap_set bound at spawn, then grants or denies and appends to the audit. Public preview
    shows the *shape*; the LSM-hook internals + cred-shim mechanics publish
    with the security drop. */
 

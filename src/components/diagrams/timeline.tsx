@@ -63,7 +63,7 @@ export function Timeline() {
                   build phase
                 </text>
                 <text x={(x0 + x1) / 2} y={y + 32} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)">
-                  spec locked → v1.0
+                  spec locked, then v1.0
                 </text>
               </g>
             );
@@ -73,7 +73,7 @@ export function Timeline() {
           <line x1={PAD_X - 6} x2={W - PAD_X + 6} y1={axisY} y2={axisY} stroke="color-mix(in oklab, var(--fg) 22%, transparent)" strokeWidth="1" />
 
           {/* axis direction label */}
-          <text x={W - PAD_X + 6} y={axisY - 12} textAnchor="end" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.4">order, not time →</text>
+          <text x={W - PAD_X + 6} y={axisY - 12} textAnchor="end" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.4">order, not time</text>
 
           {/* ABI-break dashed line */}
           {(() => {
@@ -82,9 +82,9 @@ export function Timeline() {
               <g>
                 <line x1={cx} x2={cx} y1={axisY - 56} y2={axisY + H * 0.32} stroke="color-mix(in oklab, var(--fg) 22%, transparent)" strokeWidth="1" strokeDasharray="4 4" />
                 <g transform={`translate(${cx},${axisY - 60})`}>
-                  <rect x={-58} y={-12} width={116} height={18} rx={2} fill="color-mix(in oklab, var(--canvas) 92%, var(--muted) 8%)" stroke="color-mix(in oklab, var(--muted) 35%, transparent)" strokeWidth="0.8" />
+                  <rect x={-66} y={-12} width={132} height={18} rx={2} fill="color-mix(in oklab, var(--canvas) 92%, var(--muted) 8%)" stroke="color-mix(in oklab, var(--muted) 35%, transparent)" strokeWidth="0.8" />
                   <text x={0} y={1} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="10" fill="color-mix(in oklab, var(--muted) 95%, transparent)" letterSpacing="0.4">
-                    ABI line · v1.x → v2.0
+                    ABI line · v1.x to v2.0
                   </text>
                 </g>
               </g>

@@ -1,7 +1,7 @@
 "use client";
 
-/* Glassy preview overlay. Click a spec card → this slides into view with a quick
-   read; "Read more →" links to the dedicated sub-page. Backdrop blur, translucent house surface, ESC + click-outside to close, focus-trap on the dialog. */
+/* Glassy preview overlay. Click a spec card and this slides into view with a quick
+   read; "Read more" links to the dedicated sub-page. Backdrop blur, translucent house surface, ESC + click-outside to close, focus-trap on the dialog. */
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef } from "react";
@@ -146,7 +146,6 @@ export function SpecOverlay({
                 className="inline-flex items-center gap-2 h-9 px-4 rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-200"
               >
                 Read more
-                <span aria-hidden>→</span>
               </a>
             </div>
           </motion.div>

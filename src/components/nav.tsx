@@ -61,7 +61,7 @@ export function Nav() {
             rel="noreferrer"
             className="font-mono text-[12px] tracking-tight text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-300"
           >
-            github →
+            github
           </a>
         </div>
       </div>

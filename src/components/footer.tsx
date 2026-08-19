@@ -40,7 +40,7 @@ export function Footer() {
               rel="noreferrer"
               className="font-mono text-[11.5px] text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-200"
             >
-              {l.label} →
+              {l.label}
             </a>
           ))}
         </nav>

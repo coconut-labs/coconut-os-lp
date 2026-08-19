@@ -57,7 +57,7 @@ export default function ArchitecturePage() {
                 <div key={s.n} className="grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-3 sm:gap-8 px-5 sm:px-7 py-4 hover:bg-[color:var(--surface)] transition-colors duration-200">
                   <div className="font-mono text-[14px] text-[color:var(--accent)] tracking-tight">{s.n} <span className="text-[color:var(--muted)] text-[11px]">#{s.nr}</span></div>
                   <div className="flex items-baseline gap-3 flex-wrap">
-                    <span className="font-mono text-[12.5px] text-[color:var(--muted)] break-words">{s.s}</span>
+                    <code className="font-mono text-[12.5px] text-[color:var(--muted)] break-words">{s.s}</code>
                     <span
                       className="font-mono text-[10px] uppercase tracking-[0.1em] px-1.5 py-0.5 border"
                       style={{

@@ -44,7 +44,7 @@ export function Status() {
                     {s.name}
                   </span>
                   <span className="ml-auto font-mono text-[12px] text-[color:var(--muted)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" style={{ transitionTimingFunction: "var(--ease-precise)" }}>
-                    preview →
+                    preview
                   </span>
                 </div>
                 <div className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.08em] text-[color:var(--muted)]">

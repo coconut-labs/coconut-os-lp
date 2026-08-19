@@ -38,7 +38,7 @@ export function SpecShell({
           <Reveal>
             <div className="flex items-center gap-3">
               <a href="/" className="font-mono text-[11.5px] tracking-tight text-[color:var(--muted)] hover:text-[color:var(--fg)] transition-colors duration-200">
-                ← back to overview
+                back to overview
               </a>
               <span className="font-mono text-[11px] text-[color:var(--muted)] opacity-50">/</span>
               <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
@@ -72,7 +72,7 @@ export function SpecShell({
               href={`/specs/${prev.slug}`}
               className="group p-5 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300"
             >
-              <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">← previous</div>
+              <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">previous</div>
               <div className="mt-1.5 font-mono text-[14px] text-[color:var(--accent)] tracking-tight">{prev.name}</div>
               <div className="mt-1 text-[13.5px] text-[color:var(--fg)]/75 leading-snug">{prev.summary}</div>
             </a>
@@ -82,7 +82,7 @@ export function SpecShell({
               href={`/specs/${next.slug}`}
               className="group p-5 rounded-[2px] border hairline bg-[color:var(--canvas)] hover:bg-[color:var(--surface)] transition-colors duration-300 md:text-right"
             >
-              <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">next →</div>
+              <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">next</div>
               <div className="mt-1.5 font-mono text-[14px] text-[color:var(--accent)] tracking-tight">{next.name}</div>
               <div className="mt-1 text-[13.5px] text-[color:var(--fg)]/75 leading-snug">{next.summary}</div>
             </a>

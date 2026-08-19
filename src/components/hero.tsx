@@ -58,13 +58,12 @@ export function Hero() {
               className="group inline-flex items-center justify-center gap-2 h-11 px-[18px] rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11.5px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-300"
             >
               Read the thesis
-              <span className="transition-transform duration-300 group-hover:translate-x-0.5" style={{ transitionTimingFunction: "var(--ease-precise)" }}>↓</span>
             </a>
             <a
               href="#spec"
               className="inline-flex items-center justify-center gap-2 h-11 px-[18px] rounded-[2px] border hairline font-mono text-[11.5px] uppercase tracking-[0.1em] text-[color:var(--fg)] hover:bg-[color:var(--surface)] transition-colors duration-300"
             >
-              Browse the spec →
+              Browse the spec
             </a>
           </motion.div>
 

@@ -201,7 +201,7 @@ export function KernelTail() {
             >
               <span className="text-[color:var(--muted)] opacity-75 tabular-nums">[{line.ts}]</span>
               <span className="text-[color:var(--muted)]">{line.source}:</span>
-              <span className={TONE[line.tone ?? "fg"]}>
+              <code className={`font-mono ${TONE[line.tone ?? "fg"]}`}>
                 {text}
                 {isLast && (
                   <span
@@ -213,7 +213,7 @@ export function KernelTail() {
                     aria-hidden
                   />
                 )}
-              </span>
+              </code>
             </div>
           );
         })}
