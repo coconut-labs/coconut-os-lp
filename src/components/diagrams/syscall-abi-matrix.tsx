@@ -1,0 +1,428 @@
+/* D1 · The agent_* syscall numbers against the syscall-table dispatch surfaces
+   that actually exist in the tree at eef103d, plus the per-syscall entry
+   contract.
+
+   Two dispatch surfaces, not three. x86_64 generates its table from its own
+   arch/x86/entry/syscalls/syscall_64.tbl and carries 472-477. Every other
+   architecture generates from the shared scripts/syscall.tbl, which stops at
+   462 mseal, so all eight of them carry none.
+
+   The fork also added 472 and 473 to include/uapi/asm-generic/unistd.h. That
+   header is a third thing that is NOT a dispatch surface: no Makefile, no arch
+   header and no C file in the tree reads it. It was a column here and it was
+   wrong to make it one, because a "live" cell under it claimed a dispatch that
+   does not happen on any architecture. It is a footer claim now.
+
+   Cell vocabulary reuses the register borders: solid = dispatch-live on this
+   arch, hairline dot = not in this arch's table at all. Two states, not three.
+
+   Reserved is deliberately NOT a cell state. 472-479 is held by a comment, and
+   no arch table has a row for 478 or 479, so a dotted cell under x86_64 reads
+   as a seventh and eighth entry in a table that has six. The reservation is a
+   property of the range, not of any arch, so it is stated once in the footer.
+   Rejected alternative: a fourth non-arch "range" column, which would be
+   constant down all eight rows and would widen a table already at the 375px
+   limit. The per-column counts moved into the column heads instead. No
+   RegisterMark in the cells; the marks belong on the footer claims. */
+
+import { Cite, Drift, RegisterMark } from "@/components/register";
+
+type Cell = "live" | "absent";
+
+type Row = {
+  nr: number;
+  name: string;
+  x86_64: Cell;
+  generic: Cell;
+  /** entry form, elided to arity and argument types. the definition site
+      also names the syscall and its parameters; those are dropped here. */
+  form: string;
+  /** what the definition site is, as path:line */
+  at: string;
+  /** return contract, with its regime attached */
+  returns: string;
+};
+
+const ROWS: readonly Row[] = [
+  {
+    nr: 472,
+    name: "agent_spawn",
+    x86_64: "live",
+    generic: "absent",
+    form: "SYSCALL_DEFINE1(struct agent_spawn_args __user *)",
+    at: "kernel/agent/syscalls.c:170",
+    returns: "(long)aid · atomic64_inc_return from boot value 0, so the first agent is aid 1 · :88-98, :319",
+  },
+  {
+    nr: 473,
+    name: "agent_attest",
+    x86_64: "live",
+    generic: "absent",
+    form: "SYSCALL_DEFINE2(u64, struct attestation __user *)",
+    at: "kernel/agent/syscalls.c:374-375",
+    returns: "0 · the 168-byte attestation lands in the user buffer · :505, :553",
+  },
+  {
+    nr: 474,
+    name: "agent_quota",
+    x86_64: "live",
+    generic: "absent",
+    form: "SYSCALL_DEFINE2(u64, struct quota_set __user *)",
+    at: "kernel/agent/syscalls.c:588-589",
+    returns: "0 always · err is declared 0 at :593 and never reassigned · :665",
+  },
+  {
+    nr: 475,
+    name: "agent_cap_grant",
+    x86_64: "live",
+    generic: "absent",
+    form: "SYSCALL_DEFINE2(u64, struct cap_token __user *)",
+    at: "kernel/agent/syscalls.c:855-856",
+    returns: "0 · body in __cap_grant_core at :735-853, publish-and-return at :835-841",
+  },
+  {
+    nr: 476,
+    name: "agent_cap_revoke",
+    x86_64: "live",
+    generic: "absent",
+    form: "SYSCALL_DEFINE1(struct cap_revoke_args __user *)",
+    at: "kernel/agent/syscalls.c:1089",
+    returns: "0 · the removed count reaches userspace only under CAP_REVOKE_FLAG_DRY_RUN · :1024-1040, :1085-1086",
+  },
+  {
+    nr: 477,
+    name: "agent_cap_present",
+    x86_64: "live",
+    generic: "absent",
+    form: "SYSCALL_DEFINE2(u64, struct cap_proof __user *)",
+    at: "kernel/agent/syscalls.c:1224-1225",
+    returns:
+      "0 on success · -EACCES for every caller at eef103d, because current_cred()->cap_set is NULL for every task · :1189-1193, :1243 · kernel/cred.c:286-296, :737",
+  },
+  {
+    nr: 478,
+    name: "agent_audit_query",
+    x86_64: "absent",
+    generic: "absent",
+    form: "plain C function coconut_sys_agent_audit_query · no SYSCALL_DEFINE",
+    at: "kernel/agent/syscalls.c:1254-1266",
+    returns: "-ENOSYS unconditionally · args cast to void",
+  },
+  {
+    nr: 479,
+    name: "agent_memory_tier",
+    x86_64: "absent",
+    generic: "absent",
+    form: "plain C function coconut_sys_agent_memory_tier · no SYSCALL_DEFINE",
+    at: "kernel/agent/syscalls.c:1269-1281",
+    returns: "-ENOSYS unconditionally · args cast to void",
+  },
+];
+
+type ColumnSpec = {
+  key: "x86_64" | "generic";
+  head: string;
+  /** how many agent_* rows this surface actually has. Stated in the head so
+      the column cannot be miscounted by reading down it. */
+  sub: string;
+  source: string;
+};
+
+const COLUMNS: readonly ColumnSpec[] = [
+  {
+    key: "x86_64",
+    head: "x86_64",
+    sub: "6 rows",
+    source:
+      "arch/x86/entry/syscalls/syscall_64.tbl:389-406 · generated by arch/x86/entry/syscalls/Makefile:9, :41-43",
+  },
+  {
+    key: "generic",
+    head: "generic table",
+    sub: "0 rows · 8 arches",
+    source:
+      "scripts/syscall.tbl:405 · scripts/Makefile.asm-headers:20, :23-24, :80-81 · arm64 overrides the path and lands back on the same file · arch/arm64/kernel/Makefile.syscalls:6 · arch/arm64/tools/syscall_64.tbl:1",
+  },
+];
+
+const CELLS: Record<Cell, { label: string; reader: string; border: string; fill: string; tone: string; edge: string }> = {
+  live: {
+    label: "live",
+    reader: "dispatch live",
+    border: "solid",
+    fill: "color-mix(in oklab, var(--canvas) 88%, var(--accent) 12%)",
+    tone: "var(--accent)",
+    edge: "color-mix(in oklab, var(--accent) 50%, transparent)",
+  },
+  absent: {
+    label: "·",
+    reader: "absent",
+    border: "none",
+    fill: "transparent",
+    tone: "var(--muted)",
+    edge: "transparent",
+  },
+};
+
+const CELL_ORDER: readonly Cell[] = ["live", "absent"];
+
+const CELL_LEGEND: Record<Cell, string> = {
+  live: "dispatch-live on this arch",
+  absent: "not in this arch's table at all",
+};
+
+/* Panel ground. The scroll panel and its edge fade share one value so the fade
+   resolves to the panel and not to a near-miss. */
+const PANEL = "color-mix(in oklab, var(--canvas) 92%, var(--surface) 8%)";
+
+const GENERIC_ARCHES =
+  "arc · arm64 · csky · hexagon · loongarch · nios2 · openrisc · riscv";
+
+type FooterClaim = {
+  state: "built" | "must-be";
+  text: string;
+  source: string;
+};
+
+const FOOTER: readonly FooterClaim[] = [
+  {
+    state: "built",
+    text: "The fork's edit to include/uapi/asm-generic/unistd.h wires nothing. It defines __NR_agent_spawn 472 and __NR_agent_attest 473 and bumps __NR_syscalls to 474, but no Makefile, no arch header and no C file in the tree reads that header. Every non-x86 arch generates its unistd_*.h from scripts/syscall.tbl instead, which ends at 462 mseal. So 472 and 473 dispatch on x86_64 only, which is what the file's own comment already says.",
+    source:
+      "include/uapi/asm-generic/unistd.h:844-863 · zero build references at eef103d · scripts/Makefile.asm-headers:20, :23-24, :80-81 · scripts/syscall.tbl:405 · kernel/agent/syscalls.c:28-30",
+  },
+  {
+    state: "built",
+    text: "include/linux/syscalls.h declares no agent_* prototype. The sys_agent_* symbols exist only through the SYSCALL_DEFINEn expansion in kernel/agent/syscalls.c.",
+    source: "include/linux/syscalls.h · zero agent_* hits at eef103d · kernel/agent/agent.h:475-483",
+  },
+  {
+    state: "built",
+    text: "Userspace reaches the family by raw number. libcoconut.c hardcodes 472, 473 and 474 behind #ifndef guards. agent_cap_test.c hardcodes 472, 475, 476 and 477 the same way. No in-tree __NR_ exists for the cap family.",
+    source:
+      "tools/coconut/libcoconut/libcoconut.c:31-39 · tools/testing/selftests/coconut/agent_cap_test.c:62-73",
+  },
+  {
+    state: "must-be",
+    text: "The range is reserved, not locked. It locks at Sprint 4 / Gate 1. The fallback range 480-487 is pre-conceded if mainline disputes it.",
+    source: "kernel/agent/syscalls.c:15-17",
+  },
+  {
+    state: "must-be",
+    text: "The LKML reservation note is written and deliberately unsent. It moved from Sprint 1 to Sprint 7, post-Gate-1-Public, because the spec URLs it cites stay private until that flip. In-tree use of 472-479 proceeds on the original Sprint 4 lock.",
+    source: "Documentation/coconut/lkml-reservation-note.txt:1-13",
+  },
+];
+
+function StateCell({ state }: { state: Cell }) {
+  const c = CELLS[state];
+  if (state === "absent") {
+    return (
+      <span className="inline-flex items-center justify-center leading-none font-mono text-[12px]" style={{ color: c.tone }}>
+        <span aria-hidden>{c.label}</span>
+        <span className="sr-only">{c.reader}</span>
+      </span>
+    );
+  }
+  return (
+    <span
+      className="inline-flex items-center align-middle shrink-0 whitespace-nowrap leading-none rounded-[2px] border font-mono text-[10px] uppercase tracking-[0.1em] px-1.5 py-0.5"
+      style={{
+        color: c.tone,
+        background: c.fill,
+        borderStyle: c.border,
+        borderWidth: "1px",
+        borderColor: c.edge,
+      }}
+    >
+      <span aria-hidden>{c.label}</span>
+      <span className="sr-only">{c.reader}</span>
+    </span>
+  );
+}
+
+export function SyscallAbiMatrix() {
+  return (
+    <figure>
+      <div className="rounded-[2px] border hairline bg-[color:var(--surface)]/40 p-5 sm:p-7">
+        {/* cell vocabulary */}
+        <dl className="flex flex-wrap gap-x-5 gap-y-2 pb-4 border-b hairline">
+          {CELL_ORDER.map((state) => (
+            <div key={state} className="flex items-baseline gap-2 min-w-0">
+              <dt className="shrink-0">
+                <StateCell state={state} />
+              </dt>
+              <dd className="min-w-0 font-mono text-[11px] text-[color:var(--muted)] tracking-tight break-words">
+                {CELL_LEGEND[state]}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        {/* the matrix. scrolls inside its own panel; the page body never moves. */}
+        <div className="relative mt-4">
+          <div className="overflow-x-auto rounded-[2px] border hairline" style={{ background: PANEL }}>
+            <table className="w-full min-w-[560px] border-collapse text-left">
+              <caption className="sr-only">
+                Eight agent syscall numbers against the two syscall-table dispatch surfaces in the
+                tree, with the entry form and return contract of each.
+              </caption>
+              <thead>
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-3 py-2.5 font-mono text-[10px] font-normal uppercase tracking-[0.1em] text-[color:var(--muted)] border-b hairline"
+                  >
+                    nr · name
+                  </th>
+                  {COLUMNS.map((col) => (
+                    <th
+                      key={col.key}
+                      scope="col"
+                      className="px-3 py-2.5 border-b hairline whitespace-nowrap"
+                    >
+                      <span className="block font-mono text-[11px] font-normal tracking-tight text-[color:var(--fg)]/85">
+                        {col.head}
+                      </span>
+                      <span className="block font-mono text-[10px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
+                        {col.sub}
+                      </span>
+                    </th>
+                  ))}
+                  <th
+                    scope="col"
+                    className="px-3 py-2.5 font-mono text-[10px] font-normal uppercase tracking-[0.1em] text-[color:var(--muted)] border-b hairline"
+                  >
+                    entry form · returns
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {ROWS.map((r) => (
+                  <tr key={r.nr} className="border-b hairline last:border-b-0 align-top">
+                    <th scope="row" className="px-3 py-3 font-normal whitespace-nowrap">
+                      <span className="block font-mono text-[12px] tracking-tight text-[color:var(--fg)]/85">
+                        {r.nr}
+                      </span>
+                      <span className="block font-mono text-[11px] tracking-tight text-[color:var(--muted)]">
+                        {r.name}
+                      </span>
+                    </th>
+                    {COLUMNS.map((col) => (
+                      <td key={col.key} className="px-3 py-3 text-center">
+                        <StateCell state={r[col.key]} />
+                      </td>
+                    ))}
+                    <td className="px-3 py-3 min-w-[220px]">
+                      <span className="block font-mono text-[11.5px] tracking-tight text-[color:var(--fg)]/75 break-words">
+                        {r.form}
+                      </span>
+                      <span className="mt-1 flex flex-wrap items-baseline gap-x-2">
+                        <Cite source={r.at} />
+                        <span className="font-mono text-[11px] tracking-tight text-[color:var(--muted)]">
+                          returns {r.returns}
+                        </span>
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {/* scroll affordance, ornament only */}
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 w-8 lg:hidden rounded-r-[2px]"
+            style={{ background: `linear-gradient(to right, transparent, ${PANEL})` }}
+            aria-hidden
+          />
+        </div>
+
+        {/* what the columns are read from */}
+        <dl className="mt-4 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-4 gap-y-1.5">
+          {COLUMNS.map((col) => (
+            <div key={col.key} className="contents">
+              <dt className="font-mono text-[11px] tracking-tight text-[color:var(--fg)]/75 whitespace-nowrap">
+                {col.head}
+              </dt>
+              <dd className="min-w-0">
+                <Cite source={col.source} />
+                {col.key === "generic" && (
+                  <span className="block font-mono text-[11px] tracking-tight text-[color:var(--muted)]">
+                    {GENERIC_ARCHES}
+                  </span>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        {/* the 478/479 reading, stated once so nobody softens it */}
+        <div className="mt-5 pt-4 border-t hairline">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[color:var(--highlight)]">
+              478 · 479
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--fg)]/85">
+              unreachable, not stubbed
+            </span>
+          </div>
+          <p className="mt-1.5 font-mono text-[11.5px] leading-snug tracking-tight text-[color:var(--fg)]/75">
+            No table row on any arch, no __NR_ define, no SYSCALL_DEFINE wrapper, and no caller
+            anywhere in the tree. They read absent in both columns above, because the x86_64 table
+            holds six rows, not eight. x86_64 and the asm-generic header name the numbers in a
+            comment and stop there; the x86_64 table says they stay unwired until STORY-K-2.8. The
+            shared generic table never mentions the range at all, because Coconut added no rows to
+            it and it ends at 462 mseal. struct coconut_audit_query is a forward declaration only.
+          </p>
+          <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1">
+            <Cite source="kernel/agent/syscalls.c:1253-1281" />
+            <Cite source="kernel/agent/agent.h:473" />
+            <Cite source="arch/x86/entry/syscalls/syscall_64.tbl:389-406" />
+            <Cite source="include/uapi/asm-generic/unistd.h:844-855" />
+            <Cite source="scripts/syscall.tbl:405" />
+          </div>
+        </div>
+
+        {/* claims that hang off the matrix */}
+        <ul className="mt-5 pt-4 border-t hairline space-y-3">
+          {FOOTER.map((f) => (
+            <li key={f.source} className="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-3">
+              <RegisterMark state={f.state} className="self-start sm:mt-0.5" />
+              <span className="min-w-0">
+                <span className="block font-mono text-[11.5px] leading-snug tracking-tight text-[color:var(--fg)]/75">
+                  {f.text}
+                </span>
+                <span className="mt-1 block">
+                  <Cite source={f.source} />
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <Drift
+          className="mt-5"
+          docSays={
+            <>
+              474 through 479 are -ENOSYS stubs, not reachable from userspace ·{" "}
+              <Cite source="Documentation/coconut/agent-syscalls.rst:39-46" />
+            </>
+          }
+          codeDoes={
+            <>
+              474, 475, 476 and 477 are implemented and table-wired ·{" "}
+              <Cite source="arch/x86/entry/syscalls/syscall_64.tbl:403-406" />. The rst is written
+              against STORY-K-2.4. It names 475, 476 and 477 in the number table at{" "}
+              <Cite source="Documentation/coconut/agent-syscalls.rst:24-26" /> and gives none of
+              the three a section.
+            </>
+          }
+        />
+      </div>
+      <figcaption className="mt-3 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
+        read at origin/main eef103d · x86_64 is the only architecture with any agent_* dispatch, and
+        kernel/agent/syscalls.c:28-30 states v1.0 is x86_64 only
+      </figcaption>
+    </figure>
+  );
+}
