@@ -9,6 +9,7 @@ import { PullQuote } from "@/components/pullquote";
 import { Syscalls } from "@/components/syscalls";
 import { HeroStory } from "@/components/hero-story";
 import { Roadmap } from "@/components/roadmap";
+import { Progress } from "@/components/progress";
 import { Personas } from "@/components/personas";
 import { Status } from "@/components/status";
 import { Footer } from "@/components/footer";
@@ -29,6 +30,7 @@ export default function Page() {
       <PullQuote />
       <HeroStory />
       <Roadmap />
+      <Progress />
       <Personas />
       <Status />
       <Footer />

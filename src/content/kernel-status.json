@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "generator": "scripts/coconut/progress-export.py",
+    "ref": "origin/main",
+    "ref_sha": "eef103dcce1c",
+    "generated_on": "2026-08-19",
+    "since": "2026-01-01",
+    "paths": [
+      "kernel/agent",
+      "security/coconut",
+      "Documentation/coconut",
+      ".gitlab-ci.yml",
+      "ci"
+    ],
+    "total_commits": 61,
+    "non_merge_commits": 55,
+    "merge_commits": 6
+  },
+  "facts": {
+    "linux_base_version": {
+      "value": "6.12.80",
+      "source": "Makefile"
+    },
+    "syscall_table_entries_wired": {
+      "value": 6,
+      "source": "arch/x86/entry/syscalls/syscall_64.tbl"
+    },
+    "syscall_table_entries": {
+      "value": [
+        {
+          "nr": 472,
+          "name": "agent_spawn"
+        },
+        {
+          "nr": 473,
+          "name": "agent_attest"
+        },
+        {
+          "nr": 474,
+          "name": "agent_quota"
+        },
+        {
+          "nr": 475,
+          "name": "agent_cap_grant"
+        },
+        {
+          "nr": 476,
+          "name": "agent_cap_revoke"
+        },
+        {
+          "nr": 477,
+          "name": "agent_cap_present"
+        }
+      ],
+      "source": "arch/x86/entry/syscalls/syscall_64.tbl"
+    },
+    "syscalls_implemented": {
+      "value": 6,
+      "source": "kernel/agent/syscalls.c"
+    },
+    "syscalls_stub": {
+      "value": 2,
+      "source": "kernel/agent/syscalls.c"
+    },
+    "syscall_status_rows": {
+      "value": [
+        {
+          "nr": 472,
+          "name": "agent_spawn",
+          "status": "IMPLEMENTED"
+        },
+        {
+          "nr": 473,
+          "name": "agent_attest",
+          "status": "IMPLEMENTED"
+        },
+        {
+          "nr": 474,
+          "name": "agent_quota",
+          "status": "IMPLEMENTED"
+        },
+        {
+          "nr": 475,
+          "name": "agent_cap_grant",
+          "status": "IMPLEMENTED"
+        },
+        {
+          "nr": 476,
+          "name": "agent_cap_revoke",
+          "status": "IMPLEMENTED"
+        },
+        {
+          "nr": 477,
+          "name": "agent_cap_present",
+          "status": "IMPLEMENTED"
+        },
+        {
+          "nr": 478,
+          "name": "agent_audit_query",
+          "status": "STUB"
+        },
+        {
+          "nr": 479,
+          "name": "agent_memory_tier",
+          "status": "STUB"
+        }
+      ],
+      "source": "kernel/agent/syscalls.c"
+    },
+    "lsm_hooks_registered": {
+      "value": 10,
+      "source": "security/coconut/*.c"
+    },
+    "lsm_hooks_by_file": {
+      "value": {
+        "security/coconut/bpf.c": 1,
+        "security/coconut/enforce.c": 5,
+        "security/coconut/net.c": 3,
+        "security/coconut/ptrace.c": 1
+      },
+      "source": "security/coconut/*.c"
+    },
+    "conformance_invariants_registered": {
+      "value": 17,
+      "source": "Documentation/coconut/cap-conformance-invariants.md",
+      "note": "section: ## Counts"
+    },
+    "conformance_invariants_proven": {
+      "value": 13,
+      "source": "Documentation/coconut/cap-conformance-invariants.md",
+      "note": "section: ## Counts"
+    },
+    "conformance_invariants_scaffold": {
+      "value": 4,
+      "source": "Documentation/coconut/cap-conformance-invariants.md",
+      "note": "section: ## Counts"
+    },
+    "kunit_test_cases": {
+      "value": 87,
+      "source": "kernel/agent/*_kunit.c, security/coconut/*_kunit.c"
+    },
+    "kunit_test_cases_by_file": {
+      "value": {
+        "kernel/agent/agent_kunit.c": 22,
+        "kernel/agent/cap_token_kunit.c": 20,
+        "security/coconut/bpf_kunit.c": 3,
+        "security/coconut/lsm_kunit.c": 14,
+        "security/coconut/net_kunit.c": 23,
+        "security/coconut/ptrace_kunit.c": 5
+      },
+      "source": "kernel/agent/*_kunit.c, security/coconut/*_kunit.c"
+    }
+  }
+}

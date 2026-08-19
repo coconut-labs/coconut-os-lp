@@ -1,0 +1,653 @@
+{
+  "meta": {
+    "generator": "scripts/coconut/progress-export.py",
+    "ref": "origin/main",
+    "ref_sha": "eef103dcce1c",
+    "generated_on": "2026-08-19",
+    "since": "2026-01-01",
+    "paths": [
+      "kernel/agent",
+      "security/coconut",
+      "Documentation/coconut",
+      ".gitlab-ci.yml",
+      "ci"
+    ],
+    "total_commits": 61,
+    "non_merge_commits": 55,
+    "merge_commits": 6
+  },
+  "commits": [
+    {
+      "sha": "eef103dcce1c",
+      "date": "2026-08-13",
+      "subject": "Merge branch 'story-s-4.5-roundtrip-qemu' into 'main'",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": null,
+      "merge": true
+    },
+    {
+      "sha": "760e066105e1",
+      "date": "2026-08-12",
+      "subject": "ci: roundtrip-qemu \u2014 run libcoconut spawn->attest in QEMU (STORY-S-4.5)",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "37f1a21aebd7",
+      "date": "2026-08-12",
+      "subject": "Merge remote-tracking branch 'origin/main' into story-k-8.5-ptrace-hook",
+      "areas": [
+        "CI",
+        "agent subsystem",
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": null,
+      "merge": true
+    },
+    {
+      "sha": "d1eb612fc132",
+      "date": "2026-08-13",
+      "subject": "Merge branch 'story-k-8.4-bpf-hook' into 'main'",
+      "areas": [
+        "capability and LSM"
+      ],
+      "coconut_files_touched": null,
+      "merge": true
+    },
+    {
+      "sha": "7cd34619d4de",
+      "date": "2026-08-12",
+      "subject": "Merge remote-tracking branch 'origin/main' into story-k-8.4-bpf-hook",
+      "areas": [
+        "agent subsystem",
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": null,
+      "merge": true
+    },
+    {
+      "sha": "93a0a058311f",
+      "date": "2026-08-12",
+      "subject": "ci: add rsync to kernel-build-base (headers_install needs it)",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "ccee7007b0ff",
+      "date": "2026-08-11",
+      "subject": "libcoconut: MVP userspace binding for agent_spawn/attest/quota (STORY-S-4.3)",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "acab1a8b5ca6",
+      "date": "2026-08-11",
+      "subject": "STORY-K-8.5: security/coconut \u2014 ptrace attach LSM hook",
+      "areas": [
+        "capability and LSM"
+      ],
+      "coconut_files_touched": 6,
+      "merge": false
+    },
+    {
+      "sha": "81d4cf9636e1",
+      "date": "2026-08-11",
+      "subject": "STORY-K-8.4: security/coconut \u2014 bpf_prog_load LSM hook (CAP_AGENT_BPF)",
+      "areas": [
+        "capability and LSM"
+      ],
+      "coconut_files_touched": 7,
+      "merge": false
+    },
+    {
+      "sha": "4f91dd1e1e9d",
+      "date": "2026-08-11",
+      "subject": "Merge remote-tracking branch 'origin/main' into story-k83-net-hooks",
+      "areas": [
+        "CI",
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": null,
+      "merge": true
+    },
+    {
+      "sha": "3657c655a2b1",
+      "date": "2026-08-11",
+      "subject": "Merge branch 'story-k-8.2-file-hooks' into 'main'",
+      "areas": [
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": null,
+      "merge": true
+    },
+    {
+      "sha": "137e1f64d6c5",
+      "date": "2026-07-23",
+      "subject": "ci: exclude boot-smoke from scheduled pipelines (zero-job schedule failures)",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "9985b4e91689",
+      "date": "2026-07-19",
+      "subject": "STORY-K-8.3: require base NET_BIND additively on every bind (under-gate fix)",
+      "areas": [
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "b09968297e78",
+      "date": "2026-06-08",
+      "subject": "docs(cap-conformance): note NET_RAW gates SOCK_RAW creation only (AF_PACKET gap)",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "ca1731ad21c3",
+      "date": "2026-06-08",
+      "subject": "STORY-K-8.3: comment the unreachable sock-less bind fallback (shadow delta residual)",
+      "areas": [
+        "capability and LSM"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "b199e4816495",
+      "date": "2026-06-08",
+      "subject": "docs(cap-conformance): register K-8.3 net hooks as CAP-INV-05 arm-a evidence",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "3ab72b8aedc6",
+      "date": "2026-06-08",
+      "subject": "STORY-K-8.3: fix AF_UNSPEC privileged-bind bypass (security-engineer joint review)",
+      "areas": [
+        "capability and LSM"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "d854a88391d0",
+      "date": "2026-06-08",
+      "subject": "STORY-K-8.2: security/coconut \u2014 file LSM hooks + shared hot-path helper",
+      "areas": [
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": 5,
+      "merge": false
+    },
+    {
+      "sha": "853f887ba0f6",
+      "date": "2026-06-08",
+      "subject": "STORY-K-8.3: fix build+port-0, close CAP-INV-04 hook-wiring gap",
+      "areas": [
+        "capability and LSM"
+      ],
+      "coconut_files_touched": 4,
+      "merge": false
+    },
+    {
+      "sha": "92308e1f4319",
+      "date": "2026-06-08",
+      "subject": "STORY-K-8.3: security/coconut LSM \u2014 socket bind/connect/create hooks",
+      "areas": [
+        "agent subsystem",
+        "capability and LSM"
+      ],
+      "coconut_files_touched": 7,
+      "merge": false
+    },
+    {
+      "sha": "c58fd8e56e9c",
+      "date": "2026-06-08",
+      "subject": "STORY-K-8.1 (#15): security/coconut LSM \u2014 make caps ENFORCE (file_open gate)",
+      "areas": [
+        "agent subsystem",
+        "capability and LSM",
+        "documentation"
+      ],
+      "coconut_files_touched": 10,
+      "merge": false
+    },
+    {
+      "sha": "b816d403e441",
+      "date": "2026-05-31",
+      "subject": "STORY-K-3.x (#79): wire + enforce the capability conformance gate",
+      "areas": [
+        "CI",
+        "documentation"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "dfc0aa459692",
+      "date": "2026-05-31",
+      "subject": "K-3.6: strengthen fork-deepcopy test with a slow cap (bites heap deep-copy)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "1cc430e7307d",
+      "date": "2026-05-30",
+      "subject": "K-3.6: doc \u2014 CAP-INV-13 carve-out is deep-copy (was shared get), not spawn-empty",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "b5c2eeed8827",
+      "date": "2026-05-30",
+      "subject": "K-3.6: KUnit cap_inv_13_fork_deepcopy_independence \u2014 deep-copy isolation",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "679eec70d4ea",
+      "date": "2026-05-30",
+      "subject": "K-3.6: copy_creds deep-copies cap_set in agent context (was shared ref); non-agent byte-identical",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "bd9337d6bb79",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: make CAP-INV-04 bite \u2014 factor cap-syscall cores + drive them in KUnit",
+      "areas": [
+        "agent subsystem",
+        "documentation"
+      ],
+      "coconut_files_touched": 4,
+      "merge": false
+    },
+    {
+      "sha": "1709394a6a8f",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: coconut_caps_free_rcu tolerates minimally-constructed objects (NULL list heads)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "145ed6f71082",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: CAP-INV-04 follow-up \u2014 verify-fail sentinel + cap deny-path selftest",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "eff11e817885",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: cap_set_has expiry ordering + verify slack guard + agent_id u64 + stale comments",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 4,
+      "merge": false
+    },
+    {
+      "sha": "88564d542454",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: CAP-INV-09 \u2014 bound cap_list (idempotent re-grant) + insert-prune revoked_nonces",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "6e8454ce50b5",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: CAP-INV-04 \u2014 audit every post-gate denial across grant/revoke/present",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "c77cf282ee3f",
+      "date": "2026-05-30",
+      "subject": "K-2.6 fix: CAP-INV-02 \u2014 resolve nonce TTL to absolute horizon at mark time (was relative; replay was unbounded)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "f4e5a4453e0c",
+      "date": "2026-05-30",
+      "subject": "K-2.6: fix crypto_memneq include (crypto/utils.h, moved in 6.12)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "c988ee2acf1c",
+      "date": "2026-05-30",
+      "subject": "K-2.6: cap-set foundation \u2014 cap_token uapi, coconut_caps storage + lifecycle, issuer MAC helpers",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "e5f7890b5736",
+      "date": "2026-05-30",
+      "subject": "K-2.6: cap_token_kunit negative-test suite (CAP-INV-01/02/04/06/07/08/09/13/17)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "6dd9ba4c78b5",
+      "date": "2026-05-30",
+      "subject": "K-2.6: build caps.o + cap_token.o in kernel/agent",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "07b527915636",
+      "date": "2026-05-30",
+      "subject": "K-2.6: wire agent_cap_grant/revoke/present (475/476/477)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "b24ffb4b4378",
+      "date": "2026-05-30",
+      "subject": "K-2.6: testable cap authority/binding predicates + cap_token_sign mint",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "858d28a3c8b0",
+      "date": "2026-05-28",
+      "subject": "doc(security): capability conformance invariant gate \u2014 17 registered invariants",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "fda09e23ff59",
+      "date": "2026-05-27",
+      "subject": "kernel/agent: STORY-K-3.2 Coconut cap-id constants + name-resolution helper",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "db47c0794958",
+      "date": "2026-05-27",
+      "subject": "docs(distro): spike-6 reproducible ISO build POC \u2014 rpm-ostree compose path",
+      "areas": [
+        "CI",
+        "documentation"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "a7afdfbbfbf1",
+      "date": "2026-05-27",
+      "subject": "doc(lkml): defer reservation note send to Sprint 7 (post-Gate-1-Public)",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "605b155b8c3a",
+      "date": "2026-05-27",
+      "subject": "ci: kunit-coconut runs via QEMU x86_64, not UML",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "747183c3018d",
+      "date": "2026-05-27",
+      "subject": "kernel/agent: add .kunitconfig fragment; CI uses it for --kunitconfig",
+      "areas": [
+        "CI",
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "abdd9c4e2728",
+      "date": "2026-05-26",
+      "subject": "kernel/agent: fix bogus <linux/rcu.h> include \u2014 should be <linux/rcupdate.h>",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "99e307af6de9",
+      "date": "2026-05-26",
+      "subject": "doc(ci-on-gitlab): refresh for clean topology + GitLab-only lock",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "f147c4ee175e",
+      "date": "2026-05-26",
+      "subject": "ci: clean GitLab CI topology \u2014 workflow:rules path filter + cleanup",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "eab668d8be66",
+      "date": "2026-05-26",
+      "subject": "ci: reduce per-push burn to fit free-tier quota",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "0d6da993e3b6",
+      "date": "2026-05-25",
+      "subject": "ci: split kunit job \u2014 coconut gate per-push, upstream all_tests manual-only",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "0cf35d55811a",
+      "date": "2026-05-25",
+      "subject": "kernel/cred: STORY-K-3.1 append struct coconut_caps cap_set to struct cred",
+      "areas": [
+        "agent subsystem",
+        "documentation"
+      ],
+      "coconut_files_touched": 4,
+      "merge": false
+    },
+    {
+      "sha": "a6bb17d6e3c0",
+      "date": "2026-05-25",
+      "subject": "kernel/agent: STORY-K-2.5 agent_quota syscall",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "75881c4f4ccd",
+      "date": "2026-05-25",
+      "subject": "ci: allow_failure on upstream kunit infra-fail; run coconut Kconfig.kunit unconditionally",
+      "areas": [
+        "CI"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "18fe5bada9a1",
+      "date": "2026-05-25",
+      "subject": "kernel/agent: include <crypto/blake2s.h> in issuer.c",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 1,
+      "merge": false
+    },
+    {
+      "sha": "693777624868",
+      "date": "2026-05-25",
+      "subject": "kernel/agent: defer issuer init to fs_initcall (init-order safety)",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    },
+    {
+      "sha": "f0df1a9b0bf7",
+      "date": "2026-05-25",
+      "subject": "kernel/agent: STORY-K-2.4 agent_attest syscall + registry + KUnit suite",
+      "areas": [
+        "agent subsystem",
+        "documentation"
+      ],
+      "coconut_files_touched": 10,
+      "merge": false
+    },
+    {
+      "sha": "7b42560ff203",
+      "date": "2026-05-25",
+      "subject": "kernel/agent: STORY-K-2.3 agent_spawn syscall + reaper workqueue",
+      "areas": [
+        "agent subsystem",
+        "documentation"
+      ],
+      "coconut_files_touched": 6,
+      "merge": false
+    },
+    {
+      "sha": "e6d495164aff",
+      "date": "2026-05-25",
+      "subject": "kernel/agent: STORY-K-2.2 lifecycle state machine + Sprint 1 docs",
+      "areas": [
+        "agent subsystem",
+        "documentation"
+      ],
+      "coconut_files_touched": 6,
+      "merge": false
+    },
+    {
+      "sha": "6f2e8f675d24",
+      "date": "2026-05-25",
+      "subject": "ci: add GitLab CI pipeline + cutover documentation",
+      "areas": [
+        "CI",
+        "documentation"
+      ],
+      "coconut_files_touched": 2,
+      "merge": false
+    },
+    {
+      "sha": "c0168fb0c1fd",
+      "date": "2026-05-24",
+      "subject": "kernel/agent: add subsystem skeleton + struct agent placeholder",
+      "areas": [
+        "agent subsystem"
+      ],
+      "coconut_files_touched": 6,
+      "merge": false
+    },
+    {
+      "sha": "93777feb2731",
+      "date": "2026-05-24",
+      "subject": "Bootstrap Coconut OS kernel repository (Sprint 1 scaffolding)",
+      "areas": [
+        "documentation"
+      ],
+      "coconut_files_touched": 3,
+      "merge": false
+    }
+  ]
+}

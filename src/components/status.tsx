@@ -60,26 +60,16 @@ export function Status() {
 
         <Reveal delay={0.2}>
           <div className="mt-14 p-7 sm:p-9 rounded-[2px] border" style={{ borderColor: "color-mix(in oklab, var(--accent) 40%, transparent)", background: "color-mix(in oklab, var(--canvas) 80%, var(--accent) 6%)" }}>
-            <div className="flex items-baseline justify-between gap-3 flex-wrap">
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[color:var(--accent)]">
-                  Cadence
-                </div>
-                <h3 className="mt-2 text-[20px] sm:text-[22px] tracking-tight text-[color:var(--fg)]">
-                  Progress lands here when it lands.
-                </h3>
-                <p className="mt-3 max-w-[34rem] text-[14.5px] leading-[1.6] text-[color:var(--fg)]/85">
-                  Sprints run two weeks. There is no newsletter and no schedule being promised. ISOs ship when they're real, and there is nothing to sign up for.
-                </p>
+            <div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[color:var(--accent)]">
+                Cadence
               </div>
-              <a
-                href="https://github.com/coconut-labs/coconut-os-lp"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 h-11 px-[18px] rounded-[2px] bg-[color:var(--fg)] text-[color:var(--canvas)] font-mono text-[11.5px] uppercase tracking-[0.1em] hover:opacity-90 transition-opacity duration-300"
-              >
-                Watch the LP repo →
-              </a>
+              <h3 className="mt-2 text-[20px] sm:text-[22px] tracking-tight text-[color:var(--fg)]">
+                Progress lands here when it lands.
+              </h3>
+              <p className="mt-3 max-w-[34rem] text-[14.5px] leading-[1.6] text-[color:var(--fg)]/85">
+                Sprints run two weeks. There is no newsletter and no schedule being promised. ISOs ship when they&apos;re real, and there is nothing to sign up for. The commit record is published as it goes, in the progress mirror above.
+              </p>
             </div>
           </div>
         </Reveal>
