@@ -65,7 +65,7 @@ export function Stack() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 03 · Architecture
+            Architecture
           </div>
         </Reveal>
         <Reveal delay={0.05}>
@@ -103,7 +103,7 @@ export function Stack() {
                         key={it}
                         className="font-mono text-[12.5px] leading-snug text-[color:var(--fg)]/75 break-words"
                       >
-                        ↳ {it}
+                        · {it}
                       </li>
                     ))}
                   </ul>

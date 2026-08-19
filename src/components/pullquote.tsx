@@ -9,7 +9,7 @@ export function PullQuote() {
         <div className="max-w-[60rem]">
           <Reveal>
             <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-              § 04·5 · Pinned from the PRD
+              Pinned from the PRD
             </div>
           </Reveal>
           <Reveal delay={0.05}>

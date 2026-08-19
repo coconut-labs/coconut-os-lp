@@ -9,39 +9,37 @@ export const metadata: Metadata = {
 };
 
 const ROLES = [
-  { n: "E1",  role: "Tech lead · kernel",          owns: "Linux fork strategy · merge-window discipline · gatekeeper for kernel/agent + LSM hook" },
-  { n: "E2",  role: "Kernel · agent + cred",       owns: "kernel/agent/ subsystem · cred-shim · syscall plumbing" },
-  { n: "E3",  role: "Kernel · audit + scheduler",  owns: "kernel/audit/coconut · per-AID scheduling extensions" },
-  { n: "E4",  role: "Userspace · coconutd",        owns: "PID 1 · agent supervisor · CBOR IPC on /run/coconutd" },
-  { n: "E5",  role: "Userspace · packaging",       owns: "coconutpkg · coconut-installer · libcoconut" },
-  { n: "E6",  role: "Platform + CI",               owns: "kernel-CI · reproducible ISO build · sigstore signing" },
-  { n: "E7",  role: "Compositor",                  owns: "Coconut Shell · Wayland + Smithay · agent-aware WM" },
-  { n: "E8",  role: "Userspace apps",              owns: "Coconut Center · Coconut Terminal · Display Manager" },
-  { n: "E9",  role: "Security",                    owns: "STRIDE/LINDDUN threat modeling · LSM review · CVE response" },
-  { n: "E10", role: "Brand + design engineer",     owns: "Typography · palette · motion · iconography · marketing + docs sites" },
+  { role: "Tech lead · kernel",         owns: "Linux fork strategy · merge-window discipline · gatekeeper for kernel/agent + LSM hook" },
+  { role: "Kernel · agent + cred",      owns: "kernel/agent/ subsystem · cred-shim · syscall plumbing" },
+  { role: "Kernel · audit + scheduler", owns: "kernel/audit/coconut · per-AID scheduling extensions" },
+  { role: "Userspace · coconutd",       owns: "PID 1 · agent supervisor · CBOR IPC on /run/coconutd" },
+  { role: "Userspace · packaging",      owns: "coconutpkg · coconut-installer · libcoconut" },
+  { role: "Platform + CI",              owns: "kernel-CI · reproducible ISO build · sigstore signing" },
+  { role: "Compositor",                 owns: "Coconut Shell · Wayland + Smithay · agent-aware WM" },
+  { role: "Userspace apps",             owns: "Coconut Center · Coconut Terminal · Display Manager" },
+  { role: "Security",                   owns: "STRIDE/LINDDUN threat modeling · LSM review · CVE response" },
+  { role: "Brand + design engineer",    owns: "Typography · palette · motion · iconography · marketing + docs sites" },
 ];
 
 export default function TeamPage() {
   return (
     <SpecShell
       slug="team"
-      number="05"
       tag="how · the build"
       title={<>Two engineers today. The plan is sized for a team; the spec is <span className="text-[color:var(--accent)]">sized for review.</span></>}
       blurb={<>The previous Coconut Labs projects were solo. Coconut OS is planned as the lab's first multi-engineer project. Today the lab is two people. The role topology below is the plan, not the payroll; names attach when they are real.</>}
     >
-      <Section eyebrow="§ 05.1 · roles" title={<>The planned shape: ten roles. Two people today.</>}>
+      <Section eyebrow="roles" title={<>The planned shape: ten roles. Two people today.</>}>
         <Reveal>
           <div className="rounded-[2px] border hairline overflow-hidden">
-            <div className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
+            <ul className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
               {ROLES.map((r) => (
-                <div key={r.n} className="grid grid-cols-[60px_180px_1fr] sm:grid-cols-[64px_220px_1fr] gap-3 sm:gap-6 px-5 sm:px-7 py-4 hover:bg-[color:var(--surface)] transition-colors duration-200">
-                  <div className="font-mono text-[12.5px] text-[color:var(--accent)] tracking-tight">{r.n}</div>
-                  <div className="text-[14px] tracking-tight text-[color:var(--fg)] leading-tight">{r.role}</div>
-                  <div className="font-mono text-[12px] text-[color:var(--muted)] leading-snug break-words">{r.owns}</div>
-                </div>
+                <li key={r.role} className="px-5 sm:px-7 py-4 hover:bg-[color:var(--surface)] transition-colors duration-200">
+                  <div className="text-[15px] tracking-tight text-[color:var(--fg)] leading-tight">{r.role}</div>
+                  <div className="mt-1.5 font-mono text-[12px] text-[color:var(--muted)] leading-snug break-words">{r.owns}</div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </Reveal>
         <Reveal delay={0.08}>
@@ -51,7 +49,7 @@ export default function TeamPage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 05.2 · cadence" title={<>Sprints are two weeks. Sprint 0 is behind us.</>}>
+      <Section eyebrow="cadence" title={<>Sprints are two weeks. Sprint 0 is behind us.</>}>
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-[60rem]">
             <Stat k="engineers today" v="2" sub="the whole lab" />

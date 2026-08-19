@@ -13,7 +13,7 @@ export function Status() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 08 · The spec, in five pieces
+            The spec, in five pieces
           </div>
         </Reveal>
         <Reveal delay={0.05}>
@@ -40,9 +40,6 @@ export function Status() {
                 style={{ transitionTimingFunction: "var(--ease-precise)" }}
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-[11px] text-[color:var(--muted)] tracking-[0.08em]">
-                    §{s.no}
-                  </span>
                   <span className="font-mono text-[14px] text-[color:var(--accent)] tracking-tight">
                     {s.name}
                   </span>

@@ -35,7 +35,7 @@ export function Lineage() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 03·5 · From Coconut Labs
+            From Coconut Labs
           </div>
         </Reveal>
         <Reveal delay={0.05}>

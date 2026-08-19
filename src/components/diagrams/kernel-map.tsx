@@ -91,11 +91,10 @@ export function KernelMap() {
         </div>
 
         {/* Below: coconutd handoff */}
-        <div className="mt-3 grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-2.5">
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 items-center gap-2.5">
           <div className="rounded-[2px] border hairline px-4 py-3 text-center sm:text-right">
-            <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">kernel hands off PID 1 →</div>
+            <div className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-[color:var(--muted)]">kernel hands off PID 1 to</div>
           </div>
-          <div className="font-mono text-[10.5px] text-[color:var(--muted)] sm:px-2 text-center">·</div>
           <div className="rounded-[2px] border hairline px-4 py-3 text-center sm:text-left" style={{ background: "color-mix(in oklab, var(--canvas) 86%, var(--accent) 14%)", borderColor: "color-mix(in oklab, var(--accent) 35%, transparent)" }}>
             <div className="font-mono text-[12px] text-[color:var(--fg)] tracking-tight">coconutd</div>
             <div className="font-mono text-[10.5px] text-[color:var(--muted)]">PID 1 · agent supervisor · CBOR IPC</div>

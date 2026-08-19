@@ -19,7 +19,7 @@ export function Syscalls() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 04 · The agent syscall surface
+            The agent syscall surface
           </div>
         </Reveal>
         <Reveal delay={0.05}>
@@ -74,7 +74,7 @@ export function Syscalls() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-            wired · implemented and reachable from userspace on x86_64 &nbsp;·&nbsp; reserved · allocated number, returns -ENOSYS &nbsp;·&nbsp; the arm64 table is not wired yet &nbsp;·&nbsp; the 472-479 range is reserved, not locked · it locks at Gate 1 &nbsp;·&nbsp; full signatures live in docs/05-LLD.md §3
+            wired · implemented and reachable from userspace on x86_64 · reserved · allocated number, returns -ENOSYS · the arm64 table is not wired yet · the 472-479 range is reserved, not locked · it locks at Gate 1 · full signatures live in docs/05-LLD.md §3
           </p>
         </Reveal>
       </div>

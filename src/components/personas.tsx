@@ -46,7 +46,7 @@ export function Personas() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 07 · Who Coconut OS is for
+            Who Coconut OS is for
           </div>
         </Reveal>
         <Reveal delay={0.05}>

@@ -85,7 +85,7 @@ export function LayerStack() {
                     <ul className="px-5 sm:px-7 pb-5 sm:pb-6 space-y-1.5 pt-1">
                       {l.parts.map((p) => (
                         <li key={p} className="font-mono text-[12.5px] leading-snug text-[color:var(--fg)]/80 break-words">
-                          ↳ {p}
+                          · {p}
                         </li>
                       ))}
                     </ul>

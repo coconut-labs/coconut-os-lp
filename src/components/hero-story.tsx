@@ -18,7 +18,7 @@ export function HeroStory() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 05 · Fifteen minutes from first boot
+            Fifteen minutes from first boot
           </div>
         </Reveal>
         <Reveal delay={0.05}>

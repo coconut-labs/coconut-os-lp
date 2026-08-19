@@ -80,7 +80,7 @@ export function Roadmap() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 06 · Roadmap
+            Roadmap
           </div>
         </Reveal>
         <Reveal delay={0.05}>

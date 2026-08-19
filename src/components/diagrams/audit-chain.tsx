@@ -4,11 +4,14 @@
    carries chain_in / chain_out; the next event's chain_in is the previous
    chain_out. A single tampered byte breaks the entire forward chain. */
 
-const NODES = [
+/* audit_alert is a system event with no owning agent, so it carries no aid. */
+type Node = { ts: string; ev: string; aid?: string; chain: string; tone: string };
+
+const NODES: Node[] = [
   { ts: "1.881", ev: "agent_spawn",    aid: "a:00001", chain: "blake3:8c7e…b21a", tone: "muted"  },
   { ts: "1.883", ev: "cap_grant",      aid: "a:00001", chain: "blake3:42a1…0c91", tone: "muted"  },
   { ts: "2.046", ev: "cap_deny",       aid: "a:00017", chain: "blake3:1f3a…cc04", tone: "accent" },
-  { ts: "2.047", ev: "audit_alert",    aid: "·",       chain: "blake3:9d20…fe18", tone: "highlight"  },
+  { ts: "2.047", ev: "audit_alert",                    chain: "blake3:9d20…fe18", tone: "highlight"  },
 ];
 
 const TONE: Record<string, string> = {
@@ -30,7 +33,7 @@ export function AuditChain() {
           }}>
             TPM-NV root
           </div>
-          <span className="font-mono text-[11px] text-[color:var(--muted)]">→ initial chain head</span>
+          <span className="font-mono text-[11px] text-[color:var(--muted)]">seeds the initial chain head</span>
         </div>
 
         <ol className="space-y-1.5">
@@ -51,7 +54,7 @@ export function AuditChain() {
                 <span className="block w-2 h-2 rounded-full" style={{ background: TONE[n.tone] }} />
                 <span className="font-mono text-[12px] text-[color:var(--fg)]">
                   <span style={{ color: TONE[n.tone] }}>{n.ev}</span>
-                  <span className="text-[color:var(--muted)] ml-2">aid={n.aid}</span>
+                  {n.aid && <span className="text-[color:var(--muted)] ml-2">aid={n.aid}</span>}
                 </span>
                 <span className="hidden sm:block font-mono text-[10.5px] text-[color:var(--muted)] tracking-tight">
                   in

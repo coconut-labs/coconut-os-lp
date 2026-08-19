@@ -22,12 +22,11 @@ export default function SecurityPage() {
   return (
     <SpecShell
       slug="security"
-      number="03"
       tag="how · the load-bearing line"
       title={<>The capability bundle is the <span className="text-[color:var(--accent)]">primary access-control object.</span></>}
       blurb={<>Linux today layers DAC, capabilities, SELinux, AppArmor. For agent workloads it's the wrong primitive set. Coconut OS makes capability primary and reduces DAC to a legacy compat layer for unmodified binaries.</>}
     >
-      <Section eyebrow="§ 03.1 · capability presentation" title={<>Denied at the syscall boundary.</>}>
+      <Section eyebrow="capability presentation" title={<>Denied at the syscall boundary.</>}>
         <Reveal>
           <CapabilityFlow />
         </Reveal>
@@ -48,7 +47,7 @@ export default function SecurityPage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 03.2 · the audit chain" title={<>Tamper-evident, BLAKE3-chained, rooted in TPM-NV.</>}>
+      <Section eyebrow="the audit chain" title={<>Tamper-evident, BLAKE3-chained, rooted in TPM-NV.</>}>
         <Reveal>
           <AuditChain />
         </Reveal>
@@ -69,20 +68,19 @@ export default function SecurityPage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 03.3 · adversary model" title={<>Five in-scope classes at v1.0.</>}>
+      <Section eyebrow="adversary model" title={<>Five in-scope classes at v1.0.</>}>
         <Reveal>
           <div className="rounded-[2px] border hairline overflow-hidden">
             <div className="divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 10%, transparent)" }}>
               {ADVERSARIES.map((a) => (
-                <article key={a.k} className="grid grid-cols-[44px_1fr] gap-4 px-5 sm:px-7 py-5 hover:bg-[color:var(--surface)] transition-colors duration-200">
-                  <div className="font-mono text-[14px] text-[color:var(--accent)] tracking-tight">{a.k}</div>
-                  <div className="min-w-0">
-                    <div className="text-[15px] tracking-tight text-[color:var(--fg)]">{a.name}</div>
-                    <p className="mt-2 text-[13.5px] leading-[1.55] text-[color:var(--fg)]/80">{a.body}</p>
-                    <p className="mt-2 font-mono text-[12px] leading-[1.55] text-[color:var(--muted)]">
-                      <span className="text-[color:var(--success)]">cannot ›</span> {a.limit}
-                    </p>
-                  </div>
+                <article key={a.k} className="px-5 sm:px-7 py-5 hover:bg-[color:var(--surface)] transition-colors duration-200">
+                  <h3 className="text-[15px] tracking-tight text-[color:var(--fg)]">
+                    <span className="font-mono text-[color:var(--accent)]">{a.k}</span> · {a.name}
+                  </h3>
+                  <p className="mt-2 text-[13.5px] leading-[1.55] text-[color:var(--fg)]/80">{a.body}</p>
+                  <p className="mt-2 font-mono text-[12px] leading-[1.55] text-[color:var(--muted)]">
+                    <span className="text-[color:var(--success)]">cannot:</span> {a.limit}
+                  </p>
                 </article>
               ))}
             </div>

@@ -8,7 +8,7 @@ export function Thesis() {
       <div className="container-x">
         <Reveal>
           <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-[color:var(--muted)]">
-            § 01 · The thesis
+            The thesis
           </div>
         </Reveal>
 

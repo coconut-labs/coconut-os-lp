@@ -77,7 +77,7 @@ export function Hero() {
           >
             <Stat k="Kernel surface" v="Linux 6.12.80, hard fork" />
             <Stat k="Team" v="Two engineers today" />
-            <Stat k="Status" v="Kernel building · no ISO yet" />
+            <Stat k="Where it is" v="Kernel building · no ISO yet" />
           </motion.div>
         </div>
 

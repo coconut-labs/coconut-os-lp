@@ -28,18 +28,17 @@ export default function ArchitecturePage() {
   return (
     <SpecShell
       slug="architecture"
-      number="02"
       tag="what"
       title={<>One ISO with two install profiles, over <span className="text-[color:var(--accent)]">six layers.</span></>}
       blurb={<>The kernel is a hard fork of Linux 6.12 LTS. Five existing subsystems get capability-aware modifications; three new subsystems get added. The userspace replaces systemd with coconutd. The shell is a Wayland compositor in Rust.</>}
     >
-      <Section eyebrow="§ 02.1 · the stack" title={<>Hover any layer. The kernel layer is where the work is.</>}>
+      <Section eyebrow="the stack" title={<>Hover any layer. The kernel layer is where the work is.</>}>
         <Reveal>
           <LayerStack />
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.2 · inside the kernel fork" title={<>Five subsystems modified · three new · one userspace bridge.</>}>
+      <Section eyebrow="inside the kernel fork" title={<>Five subsystems modified · three new · one userspace bridge.</>}>
         <Reveal>
           <KernelMap />
         </Reveal>
@@ -50,7 +49,7 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.3 · the agent syscall surface" title={<>Eight new syscalls: six implemented and wired on x86_64, two still stubs.</>}>
+      <Section eyebrow="the agent syscall surface" title={<>Eight new syscalls: six implemented and wired on x86_64, two still stubs.</>}>
         <Reveal>
           <div className="rounded-[2px] border hairline overflow-hidden">
             <div className="grid grid-cols-1 divide-y" style={{ borderColor: "color-mix(in oklab, var(--fg) 12%, transparent)" }}>
@@ -84,7 +83,7 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.4 · the hot path · agent_spawn" title={<>From a libcoconut call to a scheduled AID: six stages, one syscall.</>}>
+      <Section eyebrow="the hot path · agent_spawn" title={<>From a libcoconut call to a scheduled AID: six stages, one syscall.</>}>
         <Reveal>
           <SyscallHotPath />
         </Reveal>
@@ -95,7 +94,7 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.5 · the agent state machine" title={<>Eight first-class kernel states. Process abstraction can't carry these.</>}>
+      <Section eyebrow="the agent state machine" title={<>Eight first-class kernel states. Process abstraction can't carry these.</>}>
         <Reveal>
           <AgentStateMachine />
         </Reveal>
@@ -106,7 +105,7 @@ export default function ArchitecturePage() {
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 02.6 · /agent · the inspector tree" title={<>What /proc is to processes, /agent is to agents.</>}>
+      <Section eyebrow="/agent · the inspector tree" title={<>What /proc is to processes, /agent is to agents.</>}>
         <Reveal>
           <AgentFS />
         </Reveal>

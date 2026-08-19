@@ -8,12 +8,12 @@ import { useEffect, useRef } from "react";
 
 export type SpecPreview = {
   slug: string;
-  no: string;
   name: string;
   tag: string;             // "Why" / "What" / "How" etc.
+  summary: string;         // one line, read whole on the prev/next cards
   blurb: string;
   bullets: string[];
-  status: string;          // small footer note, e.g. "spec lockdown · v0.1 drop pending"
+  heldBack: string;        // names what is not published yet, and when it will be
 };
 
 export function SpecOverlay({
@@ -100,9 +100,6 @@ export function SpecOverlay({
             {/* top hairline + close */}
             <div className="flex items-center justify-between gap-3 px-6 sm:px-8 py-4 border-b hairline">
               <div className="flex items-baseline gap-3 min-w-0">
-                <span className="font-mono text-[11px] text-[color:var(--muted)] tracking-[0.08em]">
-                  §{spec.no}
-                </span>
                 <span className="font-mono text-[14px] text-[color:var(--accent)] tracking-tight">
                   {spec.name}
                 </span>
@@ -142,7 +139,7 @@ export function SpecOverlay({
             {/* footer */}
             <div className="px-6 sm:px-8 py-4 border-t hairline flex items-center justify-between gap-3 bg-[color:var(--surface)]/60">
               <span className="font-mono text-[11px] text-[color:var(--muted)] tracking-tight">
-                {spec.status}
+                {spec.heldBack}
               </span>
               <a
                 href={`/specs/${spec.slug}`}

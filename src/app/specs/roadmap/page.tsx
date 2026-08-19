@@ -80,18 +80,17 @@ export default function RoadmapPage() {
   return (
     <SpecShell
       slug="roadmap"
-      number="04"
       tag="when"
       title={<>The sequence. Versions are <span className="text-[color:var(--accent)]">ordered, not dated.</span></>}
       blurb={<>v1.0 when the spec survives review. Order is locked; per-release feature gating moves sprint by sprint. The hard ABI line is between v1.x and v2.0: every v1.x release carries the same syscall + libcoconut ABI. Dates return when the first milestone is behind us, not before.</>}
     >
-      <Section eyebrow="§ 04.1 · the sequence" title={<>Five releases, in order.</>}>
+      <Section eyebrow="the sequence" title={<>Five releases, in order.</>}>
         <Reveal>
           <Timeline />
         </Reveal>
       </Section>
 
-      <Section eyebrow="§ 04.2 · release-by-release">
+      <Section eyebrow="release by release">
         <div className="space-y-3">
           {RELEASES.map((r, i) => (
             <Reveal key={r.ver} delay={i * 0.05}>
@@ -112,7 +111,7 @@ export default function RoadmapPage() {
                   <ul className="mt-3 space-y-1.5">
                     {r.bullets.map((b) => (
                       <li key={b} className="font-mono text-[12.5px] leading-snug text-[color:var(--fg)]/80 break-words">
-                        ↳ {b}
+                        · {b}
                       </li>
                     ))}
                   </ul>
