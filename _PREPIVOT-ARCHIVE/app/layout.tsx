@@ -15,31 +15,46 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-// PAUSED metadata (2026-08-25). Original OS-framing metadata preserved in
-// _PREPIVOT-ARCHIVE/app/layout.tsx — restore it when the site returns.
 export const metadata: Metadata = {
   metadataBase: new URL("https://coconutos.org"),
-  title: "Coconut · paused",
-  description: "This page is on hold while we rework what Coconut is. From Coconut Labs.",
-  applicationName: "Coconut",
+  title: "Coconut OS · agents as first-class kernel primitives",
+  description:
+    "A Linux distribution where every agent gets an AID, a capability bundle, an attestation chain, and a row in the audit log, the same way every process gets a PID today. From Coconut Labs.",
+  applicationName: "Coconut OS",
   authors: [{ name: "Coconut Labs", url: "https://coconutlabs.org" }],
   creator: "Coconut Labs",
-  robots: { index: false, follow: false },
+  keywords: [
+    "Coconut OS",
+    "Linux distribution",
+    "agent operating system",
+    "capability security",
+    "kernel agents",
+    "AI infrastructure",
+    "Coconut Labs",
+  ],
   openGraph: {
-    title: "Coconut · paused",
-    description: "This page is on hold while we rework what Coconut is.",
+    title: "Coconut OS · agents as first-class kernel primitives",
+    description:
+      "A Linux distribution where every agent gets an AID, a capability bundle, an attestation chain, and a row in the audit log.",
     url: "https://coconutos.org",
-    siteName: "Coconut",
+    siteName: "Coconut OS",
     locale: "en_US",
     type: "website",
+    images: [
+      { url: "/og.png", width: 1200, height: 630, alt: "Coconut OS · agents as first-class kernel primitives" },
+    ],
   },
   twitter: {
-    card: "summary",
-    title: "Coconut · paused",
-    description: "This page is on hold while we rework what Coconut is.",
+    card: "summary_large_image",
+    title: "Coconut OS · agents as first-class kernel primitives",
+    description:
+      "Linux 6.12, hard-forked, with capability-mediated access, a tamper-evident audit chain, and fair-share inference. In specification.",
+    images: ["/og.png"],
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
